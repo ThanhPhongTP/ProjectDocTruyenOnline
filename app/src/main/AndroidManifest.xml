@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectDocTruyenOnline"
         android:usesCleartextTraffic="true">
-        <activity android:name=".fragments.FragmentFllow"></activity>
         <activity android:name=".activities.FragmentActivity" />
         <activity android:name=".activities.ChapterWatchedActivity" />
         <activity android:name=".activities.StoryWatchedActivity" />
