@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.SettingActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_Setting"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            android:theme="@style/ToolbarColoredBackArrow"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:paddingRight="@dimen/dimen_20"
+                android:textStyle="bold"
+                android:text="Giao diện đọc truyện"
+                android:textColor="@color/colorGreen"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:fillViewport="true"
+        android:id="@+id/nestedScrollViewSetting"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Màu Nền"/>
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:layout_weight="1"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/btntrang"
+                    android:text="Trắng"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:layout_weight="1"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:id="@+id/btnden"
+                    android:text="Đen"
+                    android:textAllCaps="false"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:id="@+id/btnvang"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_unfocus"
+                    android:text="Vàng"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Màng hình sáng"/>
+            <LinearLayout
+                android:weightSum="4"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:layout_weight="1"
+                    android:id="@+id/btnmanghinhsang30s"
+                    android:text="30s"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:layout_weight="1"
+                    android:id="@+id/btnmanghinhsang1p"
+                    android:text="1 phút"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:layout_weight="1"
+                    android:id="@+id/btnmanghinhsang10phut"
+                    android:text="10 phút"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:layout_weight="1"
+                    android:id="@+id/btnmanghinhsang30phut"
+                    android:text="30 phút"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cỡ Chữ"/>
+            <LinearLayout
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:weightSum="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnSize12"
+                    android:layout_weight="1"
+                    android:text="12"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnSize14"
+                    android:layout_weight="1"
+                    android:text="14"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnSize16"
+                    android:layout_weight="1"
+                    android:text="16"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnSize18"
+                    android:layout_weight="1"
+                    android:text="18"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnSize20"
+                    android:layout_weight="1"
+                    android:text="20"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnSize22"
+                    android:layout_weight="1"
+                    android:text="22"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <TextView
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kiểu Chữ"/>
+            <LinearLayout
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:weightSum="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnFontimesnewroman"
+                    android:layout_weight="1"
+                    android:text="timen"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnFontserif"
+                    android:layout_weight="1"
+                    android:text="serif"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnFontbookerly"
+                    android:layout_weight="1"
+                    android:text="bookerly"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnFonthelvetica"
+                    android:layout_weight="1"
+                    android:text="helvetica"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnFontlora"
+                    android:layout_weight="1"
+                    android:text="lora"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <TextView
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Khoảng cách giữa các dòng"/>
+            <LinearLayout
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:weightSum="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnlineHeight_1"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+
+                <Button
+                    android:id="@+id/btnlineHeight_2"
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:layout_weight="1"
+                    android:text="2"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnlineHeight_3"
+                    android:layout_weight="1"
+                    android:text="3"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnlineHeight_4"
+                    android:layout_weight="1"
+                    android:text="4"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnlineHeight_5"
+                    android:layout_weight="1"
+                    android:text="5"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_marginBottom="@dimen/dimen_5"
+
+                    android:id="@+id/btnlineHeight_6"
+                    android:layout_weight="1"
+                    android:text="6"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/btn_unfocus"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+            <TextView
+                android:visibility="gone"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kiểu dọc"/>
+            <LinearLayout
+                android:visibility="gone"
+
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btncuondoc"
+                    android:text="Cuộn dọc"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/rounded_corners_blue_white"
+                    android:textColor="@android:color/black"/>
+
+                <Button
+                    android:id="@+id/btnlattrang"
+                    android:text="Lật trang"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/rounded_corners_blue_white"
+                    android:textColor="@android:color/black"/>
+
+                <Button
+                    android:id="@+id/btnkkethop"
+                    android:text="Kết hợp"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/rounded_corners_blue_white"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+
+
+            <TextView
+                android:visibility="gone"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tự Động Cuộn Khi Mở Chương"/>
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+
+                    android:id="@+id/btnautoscroll_No"
+                    android:text="Không"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/rounded_corners_blue_white"
+                    android:textColor="@android:color/black"/>
+
+                <Button
+                    android:id="@+id/btnautoscroll_Yes"
+                    android:text="Bật"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/rounded_corners_blue_white"
+                    android:textColor="@android:color/black"/>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tốc Độ Tự Động Cuộn Dọc"/>
+            <SeekBar
+                android:id="@+id/seekBarSettingAutoScroll"
+                android:layout_marginTop="@dimen/readlayoutmarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                android:layout_marginHorizontal="@dimen/dimen_20"
+                android:layout_marginBottom="20dp"/>
+
+            <!--            <TextView-->
+            <!--                android:textSize="15dp"-->
+            <!--                android:textColor="@android:color/black"-->
+            <!--                android:layout_marginTop="@dimen/readlayoutmarginTop"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Thời Gian Tự Động Lật Trang(giây)"/>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_marginTop="@dimen/readlayoutmarginTop"-->
+            <!--                android:weightSum="15"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal">-->
+
+            <!--                <Button-->
+            <!--                    android:id="@+id/btnAutoChangePage10"-->
+            <!--                    android:layout_weight="2.5"-->
+            <!--                    android:text="10"-->
+            <!--                    android:textAllCaps="false"-->
+            <!--                    android:layout_width="70dp"-->
+            <!--                    android:layout_height="30dp"-->
+            <!--                    android:layout_marginRight="10dp"-->
+            <!--                    android:background="@drawable/rounded_corners_blue_white"-->
+            <!--                    android:textColor="@android:color/black"/>-->
+
+            <!--                <Button-->
+            <!--                    android:id="@+id/btnAutoChangePage20"-->
+
+            <!--                    android:layout_weight="2.5"-->
+            <!--                    android:text="20"-->
+            <!--                    android:textAllCaps="false"-->
+            <!--                    android:layout_width="70dp"-->
+            <!--                    android:layout_height="30dp"-->
+            <!--                    android:layout_marginRight="10dp"-->
+            <!--                    android:background="@drawable/rounded_corners_blue_white"-->
+            <!--                    android:textColor="@android:color/black"/>-->
+            <!--                <Button-->
+            <!--                    android:id="@+id/btnAutoChangePage30"-->
+
+            <!--                    android:layout_weight="2.5"-->
+            <!--                    android:text="30"-->
+            <!--                    android:textAllCaps="false"-->
+            <!--                    android:layout_width="70dp"-->
+            <!--                    android:layout_height="30dp"-->
+            <!--                    android:layout_marginRight="10dp"-->
+            <!--                    android:background="@drawable/rounded_corners_blue_white"-->
+            <!--                    android:textColor="@android:color/black"/>-->
+
+            <!--                <Button-->
+            <!--                    android:id="@+id/btnAutoChangePage40"-->
+
+            <!--                    android:layout_weight="2.5"-->
+            <!--                    android:text="40"-->
+            <!--                    android:textAllCaps="false"-->
+            <!--                    android:layout_width="70dp"-->
+            <!--                    android:layout_height="30dp"-->
+            <!--                    android:layout_marginRight="10dp"-->
+            <!--                    android:background="@drawable/rounded_corners_blue_white"-->
+            <!--                    android:textColor="@android:color/black"/>-->
+            <!--                <Button-->
+            <!--                    android:id="@+id/btnAutoChangePage50"-->
+
+            <!--                    android:layout_weight="2.5"-->
+            <!--                    android:text="50"-->
+            <!--                    android:textAllCaps="false"-->
+            <!--                    android:layout_width="70dp"-->
+            <!--                    android:layout_height="30dp"-->
+            <!--                    android:layout_marginRight="10dp"-->
+            <!--                    android:background="@drawable/rounded_corners_blue_white"-->
+            <!--                    android:textColor="@android:color/black"/>-->
+
+            <!--                <Button-->
+            <!--                    android:id="@+id/btnAutoChangePage60"-->
+
+            <!--                    android:layout_weight="2.5"-->
+            <!--                    android:text="60"-->
+            <!--                    android:textAllCaps="false"-->
+            <!--                    android:layout_width="70dp"-->
+            <!--                    android:layout_height="30dp"-->
+            <!--                    android:layout_marginRight="10dp"-->
+            <!--                    android:background="@drawable/rounded_corners_blue_white"-->
+            <!--                    android:textColor="@android:color/black"/>-->
+            <!--            </LinearLayout>-->
+
+
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

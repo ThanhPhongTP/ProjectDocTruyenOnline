@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.projectdoctruyenonline">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ProjectDocTruyenOnline"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".fragments.FragmentFllow"></activity>
+        <activity android:name=".activities.FragmentActivity" />
+        <activity android:name=".activities.ChapterWatchedActivity" />
+        <activity android:name=".activities.StoryWatchedActivity" />
+        <activity android:name=".activities.SettingActivity" />
+        <activity android:name=".activities.ReadStoryActivity" />
+        <activity android:name=".activities.ChapterListActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".activities.StoryListActivity" /> <!-- <activity -->
+        <!-- android:name=".activities.HomeActivity" -->
+        <!-- android:label="@string/title_activity_home" -->
+        <!-- android:theme="@style/Theme.ProjectDocTruyenOnline"> -->
+        <!-- &lt;!&ndash; <intent-filter> &ndash;&gt; -->
+        <!-- &lt;!&ndash; <action android:name="android.intent.action.MAIN" /> &ndash;&gt; -->
+        <!-- &lt;!&ndash; <category android:name="android.intent.category.LAUNCHER" /> &ndash;&gt; -->
+        <!-- &lt;!&ndash; </intent-filter> &ndash;&gt; -->
+        <!-- </activity> -->
+        <activity android:name=".activities.StoryDetailActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

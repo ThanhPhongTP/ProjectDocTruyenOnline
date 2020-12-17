@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout_Story_Watched"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_10">
+
+
+    <ImageView
+        android:id="@+id/img_follow"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/s2"
+        android:scaleType="centerCrop"/>
+
+
+    <TextView
+        android:id="@+id/tv_name_follow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|left"
+        android:text="Name"
+        android:layout_marginLeft="@dimen/dimen_5"
+        android:textColor="@color/colorGreen"
+        android:textSize="17dp" />
+
+</LinearLayout>

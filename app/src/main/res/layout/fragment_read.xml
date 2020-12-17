@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayoutRedStory"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ReadFragment">
+    <androidx.core.widget.NestedScrollView
+        android:fillViewport="true"
+        android:id="@+id/scrollView_ReadStory"
+        android:scrollbars="none"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/relativeLayoutLayoutClick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_margin="20dp"
+                android:textSize="20dp"
+                android:fontFamily="@font/arial"
+                android:textColor="@android:color/black"
+                android:id="@+id/textviewReadStory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/linearLayout_Visible"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                app:backgroundTint="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="8"
+                android:layout_alignParentBottom="true">
+                <ImageView
+                    android:id="@+id/img_SettingReadStory"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_settings_24"/>
+                <ImageView
+                    android:id="@+id/image_Pause"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_pause_24"/>
+                <SeekBar
+                    android:id="@+id/seekBar_ReadStoryActivity"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_settings_24"/>
+                <ImageView
+                    android:id="@+id/img_MenuStory"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_menu_green_24"/>
+
+            </LinearLayout>
+<!--            <com.google.android.gms.ads.AdView-->
+<!--                android:layout_gravity="center"-->
+<!--                xmlns:ads="http://schemas.android.com/apk/res-auto"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:id="@+id/adViewReadFragment"-->
+<!--                ads:adSize="BANNER"-->
+<!--                ads:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
+<!--                android:layout_height="wrap_content"/>-->
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout_Story_Watched"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imgStoryWatched"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            app:civ_border_color="#FF000000" />
+
+
+        <TextView
+            android:textSize="17dp"
+            android:textColor="@color/colorGreen"
+            android:id="@+id/txt_nameStoryWatched"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgStoryWatched"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/txtCountStoryWatched"
+            android:layout_below="@id/txt_nameStoryWatched"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgStoryWatched"
+            android:text="154 chương" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtTimeStoryWatched"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/txtCountStoryWatched"-->
+<!--            android:layout_toRightOf="@+id/profileImage"-->
+<!--            android:text="Time" />-->
+    </RelativeLayout>
+</LinearLayout>

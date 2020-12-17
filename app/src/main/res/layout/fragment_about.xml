@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".fragments.AboutFragment">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/CategoriesAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            android:theme="@style/AppTheme.PopupOverlay">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:text="Cá nhân"
+                android:textStyle="bold"
+                android:textColor="@color/colorGreen"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:paddingHorizontal="@dimen/dimen_20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dimen_20"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:src="@drawable/profiles"
+                    android:id="@+id/imgProfile"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+
+                <TextView
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:id="@+id/txtWelcome"
+                    android:layout_toRightOf="@id/imgProfile"
+                    android:textSize="20dp"
+                    android:text="Chào mừng bạn đến với TYT"
+                    android:textColor="@color/colorGreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_below="@id/txtWelcome"
+                    android:layout_toRightOf="@id/imgProfile"
+                    android:textSize="15dp"
+                    android:text="Đăng nhập/Đăng ký"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/dimen_16"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lịch sử tài khoản"/>
+            <LinearLayout
+                android:id="@+id/linearStoryWatched"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_history_24"/>
+                <TextView
+
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Truyện đã xem"
+                    android:textColor="@color/colorGreen"/>
+
+            </LinearLayout>
+            <!--        <LinearLayout-->
+            <!--            android:layout_marginTop="15dp"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="horizontal">-->
+
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="24dp"-->
+            <!--                android:layout_height="24dp"-->
+            <!--                android:src="@drawable/ic_baseline_favorite_24"/>-->
+            <!--            <TextView-->
+            <!--                android:layout_marginLeft="10dp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Truyện đã thích"-->
+            <!--                android:textColor="@color/colorGreen"/>-->
+
+            <!--        </LinearLayout>-->
+            <!--        <LinearLayout-->
+            <!--            android:layout_marginTop="15dp"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="horizontal">-->
+
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="24dp"-->
+            <!--                android:layout_height="24dp"-->
+            <!--                android:src="@drawable/ic_baseline_arrow_downward_24"/>-->
+            <!--            <TextView-->
+            <!--                android:layout_marginLeft="10dp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Truyện đã tải"-->
+            <!--                android:textColor="@color/colorGreen"/>-->
+
+            <!--        </LinearLayout>-->
+
+            <!--        <TextView-->
+            <!--            android:layout_marginTop="20dp"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="Đánh giá Truyện"/>-->
+            <!--        <LinearLayout-->
+            <!--            android:layout_marginTop="15dp"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="horizontal">-->
+
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="24dp"-->
+            <!--                android:layout_height="24dp"-->
+            <!--                android:src="@drawable/ic_baseline_star_24"/>-->
+            <!--            <TextView-->
+            <!--                android:layout_marginLeft="10dp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Nhận xét của tôi"-->
+            <!--                android:textColor="@color/colorGreen"/>-->
+
+            <!--        </LinearLayout>-->
+            <!--        <LinearLayout-->
+            <!--            android:layout_marginTop="15dp"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="horizontal">-->
+
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="24dp"-->
+            <!--                android:layout_height="24dp"-->
+            <!--                android:src="@drawable/ic_baseline_forum_24"/>-->
+            <!--            <TextView-->
+            <!--                android:layout_marginLeft="10dp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Cộng đồng truyện"-->
+            <!--                android:textColor="@color/colorGreen"/>-->
+
+            <!--        </LinearLayout>-->
+
+
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cài Đặt"/>
+            <LinearLayout
+                android:id="@+id/linearSetting"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_brightness_auto_24"/>
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giao diện đọc truyện"
+                    android:textColor="@color/colorGreen"/>
+
+            </LinearLayout>
+            <!--        <LinearLayout-->
+            <!--            android:layout_marginTop="15dp"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="horizontal">-->
+
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="24dp"-->
+            <!--                android:layout_height="24dp"-->
+            <!--                android:src="@drawable/ic_baseline_category_open_24"/>-->
+            <!--            <TextView-->
+            <!--                android:layout_marginLeft="10dp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Thể Loại"-->
+            <!--                android:textColor="@color/colorGreen"/>-->
+
+            <!--        </LinearLayout>-->
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thông Tin"/>
+            <LinearLayout
+                android:id="@+id/linearFeedBack"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_error_outline_24"/>
+                <TextView
+                    android:id="@+id/txtFeedbackApp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Góp ý, đánh giá ứng dụng"
+                    android:textColor="@color/colorGreen"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearShareApp"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_share_24"/>
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chia sẽ ứng dụng"
+                    android:textColor="@color/colorGreen"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearSecurity"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_security_24"/>
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chính sách bảo mật"
+                    android:textColor="@color/colorGreen"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="V1.18"/>
+
+<!--            <com.google.android.ads.nativetemplates.TemplateView-->
+<!--                android:layout_marginTop="@dimen/dimen_10"-->
+<!--                android:layout_marginBottom="@dimen/dimen_15"-->
+
+<!--                android:layout_marginRight="@dimen/dimen_10"-->
+<!--                android:layout_below="@id/linearLayout_History"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/template_AboutFragment"-->
+<!--                app:gnt_template_type="@layout/gnt_small_template_view"-->
+<!--                />-->
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</LinearLayout>

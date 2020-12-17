@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout_StoryFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/dimen_80"
+    android:paddingVertical="@dimen/dimen_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imgChapterList"
+            android:layout_width="@dimen/dimen_100"
+            android:layout_height="@dimen/dimen_100"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:src="@color/colorBlueWhite"
+            app:civ_border_color="#FF000000" />
+
+        <TextView
+            android:id="@+id/txtIdStory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgChapterList"
+            android:text="id"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtStoryByCategoriesId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtIdStory"
+            android:layout_toRightOf="@+id/imgChapterList"
+            android:text="idCategories"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNameStoryByCategoriesId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtStoryByCategoriesId"
+                android:layout_toRightOf="@+id/imgChapterList"
+                android:gravity="center_vertical"
+                android:text="Name"
+                android:textColor="#000"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvAuthor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtNameStoryByCategoriesId"
+                    android:layout_toRightOf="@+id/imgChapterList"
+                    android:text="Tác giả"
+                    android:textColor="#BABABA"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtTotalChapter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtNameStoryByCategoriesId"
+                    android:layout_toRightOf="@+id/imgChapterList"
+                    android:gravity="right"
+                    android:text="chuong"
+                    android:textColor="#FFBABABA"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ngày"
+                android:textColor="#FFBABABA"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

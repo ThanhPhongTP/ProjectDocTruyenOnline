@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ProjectDocTruyenOnline</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="nameKeydecrypt">ABCDEF896ERD456EABCDEF256ERD471E</string>
+    <string name="StoryDetail">Chi tiết truyện</string>
+    <string name="CategoriesDetail">Thể loại chi tiết</string>
+
+    <string name="xemthem">Xem thêm</string>
+
+    <string name="NameStoryDetail">Tên Truyện Chi Tiết</string>
+    <string name="CountChapters">Số lượng chương</string>
+    <string name="ChaptersList">Danh sách chương</string>
+    <string name="FeedBack">Đánh Giá</string>
+    <string name="chapterWatched">Truyện đã đọc</string>
+    <string name="NoData">Không có dữ liệu</string>
+    <string name="Content">Nội Dung</string>
+    <string name="ReadStory">Đọc truyện</string>
+    <string name="NameCategoriesDetail">NameCategoriesDetail</string>
+    <string name="CountCategories">CountCategories</string>
+    <string name="StoryList">Danh sách truyện</string>
+    <string name="Categories">Thể Loại</string>
+    <string name="Search">Tìm Kiếm</string>
+    <string name="kp">Khám phá</string>
+    <string name="Personal">Cá Nhân</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="xem_gan_day">Xem gần đây</string>
+    <string name="btnReadStory">Đọc Truyện</string>
+    <string name="noDataHistory">Bạn chưa xem truyện nào</string>
+    <string name="url_Security">http://simbo.xyz/privacy.html</string>
+    <string name="Ads_appId">ca-app-pub-3940256099942544/2247696110</string>
+</resources>

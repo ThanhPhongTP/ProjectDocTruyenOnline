@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout_StoryFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimen_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imgCategories"
+            android:layout_width="@dimen/dimen_60"
+            android:layout_height="@dimen/dimen_60"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:src="@color/colorRed"
+            app:civ_border_color="#FF000000" />
+
+        <TextView
+            android:id="@+id/txtIdCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgCategories"
+            android:text="id"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:weightSum="3"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNameCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtIdCategories"
+                android:layout_toRightOf="@+id/imgCategories"
+                android:text="Name"
+                android:textColor="#000"
+                android:textSize="@dimen/dimen_17" />
+
+            <TextView
+                android:id="@+id/tvTotal_Story"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textColor="#BABABA"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtUrlCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtNameCategories"
+            android:layout_toRightOf="@+id/imgCategories"
+            android:text="url"
+            android:textColor="@color/colorGreen"
+            android:textSize="@dimen/dimen_17"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>
