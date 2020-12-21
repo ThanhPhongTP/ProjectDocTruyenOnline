@@ -4,7 +4,7 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.1"
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.example.projectdoctruyenonline"
@@ -61,7 +61,7 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
-
-
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
 
 }
+apply plugin: 'com.google.gms.google-services'

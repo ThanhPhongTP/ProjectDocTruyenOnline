@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -65,7 +66,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
     private SharedPreferences_Utils sharedPreferencesUtils;
     private Typeface typeface;
     private NestedScrollView scrollView;
-    private ImageView img_MenuStory,image_Pause,img_SettingReadStory;
+    private ImageView img_MenuStory, image_Pause, img_SettingReadStory;
     private SeekBar seekBar_ReadStory;
     private List<Chapter> chapterArrayList;
     private View view;
@@ -77,23 +78,24 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
     private Timer scrollTimer;
     private int id = 0;
     private int storyId = 0;
-    private String title ="";
+    private String title = "";
     private String url = "";
     private int page = 1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.fragment_read, container, false);
+        view = inflater.inflate(R.layout.fragment_read, container, false);
         initView();
         getDataIntentFromChapter();
 //        sharedPreferencesUtils.setDataSharePreferences_From_Chapter((ArrayList<Chapter>) chapterArrayList, chapter);
-       if (Commons.isConnectedtoInternet(getActivity())) {
-           getAPI();
-           eventSeekBarReadStory();
-           setEventScrollProgress();
-       }else {
-           Commons.showDialogError(getActivity());
-       }
+        if (Commons.isConnectedtoInternet(getActivity())) {
+            getAPI();
+            eventSeekBarReadStory();
+            setEventScrollProgress();
+        } else {
+            Commons.showDialogError(getActivity());
+        }
 
 //        loadAdsBannerView();
         return view;
@@ -101,10 +103,10 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
 
     private void getAPI() {
         DataService dataService = APIService.getService();
-        dataService.getChapterList(chapter.getIdStory(),page).enqueue(new Callback<List<Chapter>>() {
+        dataService.getChapterList(chapter.getIdStory(), page).enqueue(new Callback<List<Chapter>>() {
             @Override
             public void onResponse(Call<List<Chapter>> call, Response<List<Chapter>> response) {
-                if (response!=null&& response.isSuccessful()) {
+                if (response != null && response.isSuccessful()) {
                     chapterArrayList = response.body();
                     int compareNumber;
                     if (chapterArrayList != null) {
@@ -112,7 +114,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
                             compareNumber = i + 1;
                             if (getArguments().getInt(Commons.ARG_SECTION_NUMBER) == compareNumber) {
                                 chapter = chapterArrayList.get(i);
-                            txtReadStory.setText(chapter.getContents().getContent());
+                                txtReadStory.setText(chapter.getContents().getContent());
 //                                txtReadStory.setText(chapter.getTitle());
 
                             }
@@ -140,7 +142,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
 
     private void initView() {
         sharedPreferencesUtils = new SharedPreferences_Utils(getActivity());
-        viewPagerReadStoryAdapter = new ViewPagerReadStoryAdapter(getActivity().getSupportFragmentManager(),chapterArrayList,chapter);
+        viewPagerReadStoryAdapter = new ViewPagerReadStoryAdapter(getActivity().getSupportFragmentManager(), chapterArrayList, chapter);
 //        databaseHelper = new DatabaseHelper(getActivity());
         txtReadStory = view.findViewById(R.id.textviewReadStory);
         relativeLayoutReadStory = view.findViewById(R.id.relativeLayoutRedStory);
@@ -168,18 +170,19 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onScrollChanged() {
                 int scrollY = scrollView.getScrollY();
-                if (scrollY >=100){
+                if (scrollY >= 100) {
                     sharedPreferencesUtils.setDataSharePreferences_From_Chapter(chapter);
                 }
                 int textViewHeight = txtReadStory.getHeight();
-                seekBar_ReadStory.setProgress(scrollY*100/textViewHeight);
+                seekBar_ReadStory.setProgress(scrollY * 100 / textViewHeight);
             }
         });
 
     }
+
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.img_SettingReadStory:
                 goToSettingActivity();
                 break;
@@ -197,10 +200,10 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
 
     private void getDataIntentFromChapter() {
         Intent intent = getActivity().getIntent();
-        if (intent != null){
+        if (intent != null) {
             if (intent.hasExtra(Commons.Chapter)) {
-                chapter = (Chapter)intent.getSerializableExtra(Commons.Chapter);
-                Log.d("RTYUYTRE",chapter.getTitle());
+                chapter = (Chapter) intent.getSerializableExtra(Commons.Chapter);
+                Log.d("RTYUYTRE", chapter.getTitle());
 //                Log.d("getContentsgetContents",chapter.getContents().getChapter_id()+"");
 
             }
@@ -208,7 +211,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
     }
 
 
-
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onResume() {
         super.onResume();
@@ -223,16 +226,18 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         typeface = ResourcesCompat.getFont(getActivity(), sharedPreferencesUtils.getFontReadStory());
         txtReadStory.setTypeface(typeface);
         ///setLineHeight
-        txtReadStory.setLineSpacing(sharedPreferencesUtils.getLineHeight(),1);
+        txtReadStory.setLineSpacing(sharedPreferencesUtils.getLineHeight(), 1);
         ////setTextcolor
         txtReadStory.setTextColor(sharedPreferencesUtils.getChangeTextColor());
 //        image_Pause.setImageResource(R.drawable.ic_baseline_pause_24);
 
     }
-    private  void setScreenTimeout(int millisecounds){
-//        android.provider.Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT,millisecounds);
-        Settings.System.getInt(getActivity().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT,millisecounds);
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void setScreenTimeout(int milliseconds) {
+        Settings.System.getInt(getActivity().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT,milliseconds);
     }
+
     public static ReadFragment newInstance(int sectionNumber) {
         ReadFragment fragment = new ReadFragment();
         Bundle args = new Bundle();
@@ -240,37 +245,40 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         fragment.setArguments(args);
         return fragment;
     }
+
     private void eventVisibleViewSetting() {
         visible_relativeLayoutLayoutClick = !visible_relativeLayoutLayoutClick;
-        if (visible_relativeLayoutLayoutClick){
+        if (visible_relativeLayoutLayoutClick) {
             getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            ((ReadStoryActivity)getActivity()).testToolBarId.setVisibility(View.VISIBLE);
+            ((ReadStoryActivity) getActivity()).testToolBarId.setVisibility(View.VISIBLE);
             linearLayout_Visible.setVisibility(View.VISIBLE);
 //            adView.setVisibility(View.GONE);
-        }else {
+        } else {
             getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            ((ReadStoryActivity)getActivity()).testToolBarId.setVisibility(View.GONE);
+            ((ReadStoryActivity) getActivity()).testToolBarId.setVisibility(View.GONE);
             linearLayout_Visible.setVisibility(View.GONE);
 //            adView.setVisibility(View.VISIBLE);
         }
     }
+
     private void eventPlayorPause() {
 //        play = !play;
-        if (play){
+        if (play) {
             image_Pause.setImageResource(R.drawable.ic_baseline_play_24);
             autoScrollViewVersiton2();
             getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            ((ReadStoryActivity)getActivity()).testToolBarId.setVisibility(View.GONE);
+            ((ReadStoryActivity) getActivity()).testToolBarId.setVisibility(View.GONE);
             linearLayout_Visible.setVisibility(View.GONE);
             play = false;
-        }else {
+        } else {
             play = true;
             image_Pause.setImageResource(R.drawable.ic_baseline_pause_24);
-            if (timerTask !=null){
+            if (timerTask != null) {
                 timerTask.cancel();
             }
         }
     }
+
     private void autoScrollViewVersiton2() {
         scrollTimer = new Timer();
         handler = new Handler();
@@ -289,9 +297,11 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         };
         scrollTimer.schedule(timerTask, 0, 10);
     }
+
     private class MoveScrollView extends AsyncTask<Void, Void, Void> {
         protected void onProgressUpdate(Void... progress) {
         }
+
         protected Void doInBackground(Void... params) {
             int seekBar_UserClick = SharedPreferences_Utils.getSeeBar();
             int scrollPos = (int) (scrollView.getScrollY() + seekBar_UserClick);
@@ -300,14 +310,16 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
     private void goToSettingActivity() {
         Intent intent = new Intent(getActivity(), SettingActivity.class);
-        if (timerTask !=null){
+        if (timerTask != null) {
             timerTask.cancel();
         }
         image_Pause.setImageResource(R.drawable.ic_baseline_pause_24);
         startActivity(intent);
     }
+
     private void eventSeekBarReadStory() {
         seekBar_ReadStory = view.findViewById(R.id.seekBar_ReadStoryActivity);
         seekBar_ReadStory.setProgress(0);
@@ -318,14 +330,17 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         }
         seekBar_ReadStory.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int seekBarProgress = 0;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
                 seekBarProgress = progress;
-                Log.d("QQQQQQQ",seekBarProgress+"");
+                Log.d("QQQQQQQ", seekBarProgress + "");
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int textViewHeight = txtReadStory.getHeight();
@@ -333,9 +348,9 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void run() {
                         image_Pause.setImageResource(R.drawable.ic_baseline_pause_24);
-                        int scrollViewForText =  textViewHeight *seekBarProgress/100;
-                        scrollView.scrollTo(0,scrollViewForText);
-                        if (timerTask !=null){
+                        int scrollViewForText = textViewHeight * seekBarProgress / 100;
+                        scrollView.scrollTo(0, scrollViewForText);
+                        if (timerTask != null) {
                             timerTask.cancel();
                         }
                     }

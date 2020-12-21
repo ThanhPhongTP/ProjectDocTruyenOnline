@@ -14,13 +14,23 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_ChapterW"
-            app:title="Truyện đã đọc"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/white"
             android:theme="@style/ToolbarColoredBackArrow"
-            app:titleTextColor="@color/colorGreen"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Truyện đã đọc"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:textColor="@color/colorGreen"/>
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView

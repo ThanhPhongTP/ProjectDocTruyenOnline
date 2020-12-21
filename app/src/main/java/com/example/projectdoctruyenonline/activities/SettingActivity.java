@@ -1,11 +1,17 @@
 package com.example.projectdoctruyenonline.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +21,7 @@ import com.example.projectdoctruyenonline.Commons;
 import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.SharedPreferences_Utils.SharedPreferences_Utils;
 
-public class SettingActivity extends AppCompatActivity implements View.OnClickListener  {
+public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar_Setting;
     private NestedScrollView nestedScrollView;
     private SharedPreferences_Utils sharedPreferencesUtils;
@@ -84,6 +90,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,9 +128,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
-
     private void initGroupButtonChangeAutoScroll() {
-        for(int i = 0; i < btn_position_change_auto_scroll.length; i++){
+        for (int i = 0; i < btn_position_change_auto_scroll.length; i++) {
             btn_position_change_auto_scroll[i] = (Button) findViewById(btn_id_change_auto_scroll[i]);
             btn_position_change_auto_scroll[i].setOnClickListener(this);
         }
@@ -132,7 +138,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void initGroupButtonChangeLineHeight() {
-        for(int i = 0; i < btn_position_change_line_height.length; i++){
+        for (int i = 0; i < btn_position_change_line_height.length; i++) {
             btn_position_change_line_height[i] = (Button) findViewById(btn_id_change_line_height[i]);
             btn_position_change_line_height[i].setOnClickListener(this);
         }
@@ -141,7 +147,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void initGroupButtonChangeReadStyle() {
-        for(int i = 0; i < btn_position_change_read_style.length; i++){
+        for (int i = 0; i < btn_position_change_read_style.length; i++) {
             btn_position_change_read_style[i] = (Button) findViewById(btn_id_change_read_style[i]);
             btn_position_change_read_style[i].setOnClickListener(this);
         }
@@ -151,7 +157,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void initGroupButtonChangeFontStyle() {
-        for(int i = 0; i < btn_position_change_font_style.length; i++){
+        for (int i = 0; i < btn_position_change_font_style.length; i++) {
             btn_position_change_font_style[i] = (Button) findViewById(btn_id_change_font_style[i]);
             btn_position_change_font_style[i].setOnClickListener(this);
         }
@@ -159,7 +165,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initGroupButtonChangeTextSize() {
-        for(int i = 0; i < btn_position_change_text_size.length; i++){
+        for (int i = 0; i < btn_position_change_text_size.length; i++) {
             btn_position_change_text_size[i] = (Button) findViewById(btn_id_change_text_size[i]);
             btn_position_change_text_size[i].setOnClickListener(this);
         }
@@ -168,7 +174,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void initGroupButtonChangeScreenTimeOut() {
-        for(int i = 0; i < btn_position_change_screen_time_out.length; i++){
+        for (int i = 0; i < btn_position_change_screen_time_out.length; i++) {
             btn_position_change_screen_time_out[i] = (Button) findViewById(btn_id_change_screen_time_out[i]);
             btn_position_change_screen_time_out[i].setOnClickListener(this);
         }
@@ -176,65 +182,75 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initGroupButtonChangeBackground() {
-        for(int i = 0; i < btn_position_change_background.length; i++){
+        for (int i = 0; i < btn_position_change_background.length; i++) {
             btn_position_change_background[i] = (Button) findViewById(btn_id_change_background[i]);
             btn_position_change_background[i].setOnClickListener(this);
         }
         button_change_background = btn_position_change_background[0];
     }
+
     private void getIdButtonChangeBackgroundClick() {
         int idButton = SharedPreferences_Utils.getButtonChangeColorBackgroundSetting();
-        if (idButton  != 0){
+        if (idButton != 0) {
             Button btnColorF = (Button) findViewById(idButton);
-            setFocusToGroupButtonChangeBackground(button_change_background,btnColorF);
+            setFocusToGroupButtonChangeBackground(button_change_background, btnColorF);
         }
     }
+
     private void getIdButtonChangeScreenTimeOutClick() {
         int idButton = SharedPreferences_Utils.getButtonChangeScreenTimeOut();
-        if (idButton  != 0){
+        if (idButton != 0) {
             Button btnColorF = (Button) findViewById(idButton);
-            setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out,btnColorF);
+            setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btnColorF);
         }
     }
+
     private void getIdButtonChangeTextSize() {
         int idButton = SharedPreferences_Utils.getButtonChangeTextSize();
-        if (idButton  != 0){
+        if (idButton != 0) {
             Button btnColorF = (Button) findViewById(idButton);
-            setFocusToGroupButtonTextSize(button_change_text_size,btnColorF);
+            setFocusToGroupButtonTextSize(button_change_text_size, btnColorF);
         }
     }
+
     private void getIdButtonChangeFontStyle() {
         int idButton = SharedPreferences_Utils.getButtonChangeFontStyle();
-        if (idButton  != 0){
+        if (idButton != 0) {
             Button btnColorF = (Button) findViewById(idButton);
-            setFocusToGroupButtonFontStyle(button_change_font_style,btnColorF);
+            setFocusToGroupButtonFontStyle(button_change_font_style, btnColorF);
         }
     }
+
     private void getIdButtonChangeLineHeight() {
         int idButton = SharedPreferences_Utils.getButtonChangeLineHeight();
-        if (idButton  != 60){
+        if (idButton != 60) {
             Button btnColorF = (Button) findViewById(idButton);
-            setFocusToGroupButtonLineHeight(button_change_line_height,btnColorF);
+            setFocusToGroupButtonLineHeight(button_change_line_height, btnColorF);
         }
     }
+
     private void getIdButtonChangeReadStyle() {
         int idButton = SharedPreferences_Utils.getButtonChangeReadStyle();
-        if (idButton  != 0){
+        if (idButton != 0) {
             Button btnColorF = (Button) findViewById(idButton);
-            setFocusToGroupButtonReadStyle(button_change_read_style,btnColorF);
+            setFocusToGroupButtonReadStyle(button_change_read_style, btnColorF);
         }
     }
+
     private void getIdButtonChangeAutoScroll() {
         int idButton = SharedPreferences_Utils.getButtonChangeAutoScroll();
-        if (idButton  != 0){
+        if (idButton != 0) {
             Button btnColorF = (Button) findViewById(idButton);
-            setFocusToGroupButtonAutoScroll(button_change_auto_scroll,btnColorF);
+            setFocusToGroupButtonAutoScroll(button_change_auto_scroll, btnColorF);
         }
 
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        boolean settingsCanWrite = Settings.System.canWrite(this);
+        switch (view.getId()) {
             case R.id.btntrang:
                 SharedPreferences_Utils.setColorBackgroundReadStory(getResources().getColor(R.color.colorWhite));
                 SharedPreferences_Utils.setChangeTextColor(getResources().getColor(R.color.colorBlack));
@@ -251,20 +267,36 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 setFocusToGroupButtonChangeBackground(button_change_background, btn_position_change_background[2]);
                 break;
             case R.id.btnmanghinhsang30s:
-                SharedPreferences_Utils.setScreenTimeOutReadStory(Commons.THIRTY_SECOUND);
-                setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btn_position_change_screen_time_out[0]);
+                if (!settingsCanWrite) {
+                    AlerdialogPermisionSetting();
+                } else {
+                    SharedPreferences_Utils.setScreenTimeOutReadStory(Commons.THIRTY_SECOUND);
+                    setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btn_position_change_screen_time_out[0]);
+                }
                 break;
             case R.id.btnmanghinhsang1p:
-                SharedPreferences_Utils.setScreenTimeOutReadStory(Commons.ONE_MINUTE);
-                setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btn_position_change_screen_time_out[1]);
+                 if (!settingsCanWrite) {
+                    AlerdialogPermisionSetting();
+                } else {
+                     SharedPreferences_Utils.setScreenTimeOutReadStory(Commons.ONE_MINUTE);
+                     setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btn_position_change_screen_time_out[1]);
+                 }
                 break;
             case R.id.btnmanghinhsang10phut:
-                SharedPreferences_Utils.setScreenTimeOutReadStory(Commons.TEN_MINUTE);
-                setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btn_position_change_screen_time_out[2]);
+                 if (!settingsCanWrite) {
+                    AlerdialogPermisionSetting();
+                } else {
+                     SharedPreferences_Utils.setScreenTimeOutReadStory(Commons.TEN_MINUTE);
+                     setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btn_position_change_screen_time_out[2]);
+                 }
                 break;
             case R.id.btnmanghinhsang30phut:
-                SharedPreferences_Utils.setScreenTimeOutReadStory(Commons.THIRTY_MINUTE);
-                setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btn_position_change_screen_time_out[3]);
+                 if (!settingsCanWrite) {
+                    AlerdialogPermisionSetting();
+                } else {
+                     SharedPreferences_Utils.setScreenTimeOutReadStory(Commons.THIRTY_MINUTE);
+                     setFocusToGroupButtonChangeScreenTimeOut(button_change_screen_time_out, btn_position_change_screen_time_out[3]);
+                 }
                 break;
             case R.id.btnSize12:
                 SharedPreferences_Utils.setTextSizeReadStory(Commons.size_12);
@@ -375,6 +407,26 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    private void AlerdialogPermisionSetting() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Thông báo").setMessage("Cần cấp quyền truy cập cài đặt để thay đổi thời gian sáng màn hình");
+        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
+                startActivity(intent);
+            }
+        });
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        AlertDialog dialog = alertDialog.create();
+        dialog.show();
+    }
+
 
     private void eventSeeBarSetting() {
         SeekBar seekBar = findViewById(R.id.seekBarSettingAutoScroll);
@@ -393,15 +445,17 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int seekBarProgress = 1;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
                 seekBarProgress = progress;
-                Log.d("GGGGG",seekBarProgress+"");
+                Log.d("GGGGG", seekBarProgress + "");
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 SharedPreferences_Utils.setSeeBar(seekBarProgress);
@@ -418,53 +472,60 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         getIdButtonChangeFontStyle();
         getIdButtonChangeLineHeight();
     }
-    private void setFocusToGroupButtonChangeBackground(Button btn_unfocus, Button btn_focus){
-        setFocus(btn_unfocus,btn_focus);
+
+    private void setFocusToGroupButtonChangeBackground(Button btn_unfocus, Button btn_focus) {
+        setFocus(btn_unfocus, btn_focus);
         SharedPreferences_Utils.setButtonChangeColorBackgroundSetting(btn_focus.getId());
         this.button_change_background = btn_focus;
     }
 
-    private void setFocusToGroupButtonChangeScreenTimeOut(Button btn_unfocus, Button btn_focus){
-        setFocus(btn_unfocus,btn_focus);
+    private void setFocusToGroupButtonChangeScreenTimeOut(Button btn_unfocus, Button btn_focus) {
+        setFocus(btn_unfocus, btn_focus);
         SharedPreferences_Utils.setButtonChangeScreenTimeOut(btn_focus.getId());
         this.button_change_screen_time_out = btn_focus;
     }
 
-    private void setFocusToGroupButtonTextSize(Button btn_unfocus, Button btn_focus){
-        setFocus(btn_unfocus,btn_focus);
+    private void setFocusToGroupButtonTextSize(Button btn_unfocus, Button btn_focus) {
+        setFocus(btn_unfocus, btn_focus);
         SharedPreferences_Utils.setButtonChangeTextSize(btn_focus.getId());
         this.button_change_text_size = btn_focus;
     }
+
     private void setFocusToGroupButtonFontStyle(Button btn_unfocus, Button btn_focus) {
-        setFocus(btn_unfocus,btn_focus);
+        setFocus(btn_unfocus, btn_focus);
         SharedPreferences_Utils.setButtonChangeFontStyle(btn_focus.getId());
         this.button_change_font_style = btn_focus;
 
     }
+
     private void setFocusToGroupButtonReadStyle(Button btn_unfocus, Button btn_focus) {
-        setFocus(btn_unfocus,btn_focus);
+        setFocus(btn_unfocus, btn_focus);
         SharedPreferences_Utils.setButtonChangeReadStyle(btn_focus.getId());
         this.button_change_read_style = btn_focus;
     }
+
     private void setFocusToGroupButtonLineHeight(Button btn_unfocus, Button btn_focus) {
-        setFocus(btn_unfocus,btn_focus);
+        setFocus(btn_unfocus, btn_focus);
         SharedPreferences_Utils.setButtonChangeLineHeight(btn_focus.getId());
         this.button_change_line_height = btn_focus;
 
     }
-    private void setFocusToGroupButtonAutoScroll( Button btn_unfocus, Button btn_focus) {
-        setFocus(btn_unfocus,btn_focus);
+
+    private void setFocusToGroupButtonAutoScroll(Button btn_unfocus, Button btn_focus) {
+        setFocus(btn_unfocus, btn_focus);
         SharedPreferences_Utils.setButtonChangeAutoScroll(btn_focus.getId());
         this.button_change_auto_scroll = btn_focus;
 
     }
-    private void setFocus(Button btn_unfocus, Button btn_focus){
+
+    private void setFocus(Button btn_unfocus, Button btn_focus) {
         btn_unfocus.setBackgroundResource(R.drawable.btn_unfocus);
         btn_unfocus.setTextColor(getResources().getColor(R.color.colorBlack));
 
         btn_focus.setBackgroundResource(R.drawable.btn_focus);
         btn_focus.setTextColor(getResources().getColor(R.color.colorWhite));
     }
+
     private void init() {
         nestedScrollView = findViewById(R.id.nestedScrollViewSetting);
         findViewById(R.id.btntrang).setOnClickListener(this);
