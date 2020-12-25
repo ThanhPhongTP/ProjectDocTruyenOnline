@@ -28,6 +28,7 @@ import com.example.projectdoctruyenonline.adapter.HomeStoriesAdapter;
 import com.example.projectdoctruyenonline.models.Ratting;
 import com.example.projectdoctruyenonline.service.APIService;
 import com.example.projectdoctruyenonline.service.DataService;
+import com.example.projectdoctruyenonline.service.Decrypt;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -83,12 +84,11 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
         pullToRefresh();
 
 
-
         return view;
     }
 
     private void setSliderLayout() {
-                AddImageUrlFormLocalRes();
+        AddImageUrlFormLocalRes();
 //        AddImagesUrlOnline();
 
         for (String name : HashMapForLocalRes.keySet()) {
@@ -180,9 +180,15 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
         dataService.getNewStory().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+
+
                 if (response.isSuccessful()) {
+
                     try {
                         JSONObject fatherJSON = new JSONObject(response.body().toString());
+
+//                        Log.d("checkResponse", fatherJSON.getString("data"));
+//                        Log.d("checkResponse123", Decrypt.decrypt( "uDTAihSsDK7LXRWOkkdHqQ=="));
                         JSONArray arrayData = fatherJSON.getJSONArray("data");
                         for (int i = 0; i < arrayData.length(); i++) {
                             JSONObject item = arrayData.getJSONObject(i);
@@ -220,8 +226,12 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
                             newStoriesAdapter.notifyDataSetChanged();
                             recycleNew.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
                         }
-                    } catch (JSONException e) {
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        Log.d("sdja", e + "");
+                    } catch (Exception e) {
                         e.printStackTrace();
+                        Log.d("sdja1", e + "");
                     }
                 }
             }
@@ -234,11 +244,11 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
 
     }
 
-    private void setSeenMore(){
+    private void setSeenMore() {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity)getActivity()).setFrm();
+                ((MainActivity) getActivity()).setFrm();
 
             }
         });

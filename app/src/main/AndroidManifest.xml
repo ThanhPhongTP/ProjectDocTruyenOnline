@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -20,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectDocTruyenOnline"
         android:usesCleartextTraffic="true">
+        <!-- <activity android:name=".activities.SplashActivity"/> -->
         <activity android:name=".activities.FragmentActivity" />
         <activity android:name=".activities.ChapterWatchedActivity" />
         <activity android:name=".activities.StoryWatchedActivity" />
@@ -44,24 +44,26 @@
         <!-- &lt;!&ndash; </intent-filter> &ndash;&gt; -->
         <!-- </activity> -->
         <activity android:name=".activities.StoryDetailActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".service.MyFirebaseMessagingService" android:exported="false">
+
+        <service
+            android:name=".service.MyFirebaseMessagingService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
 
-            <!--        <meta-data-->
-            <!--            android:name="com.google.firebase.messaging.default_notification_channel_id"-->
-            <!--            android:value="@string/default_notification_channel_id" />-->
+            <!-- <meta-data -->
+            <!-- android:name="com.google.firebase.messaging.default_notification_channel_id" -->
+            <!-- android:value="@string/default_notification_channel_id" /> -->
         </service>
     </application>
-
-
 
 </manifest>

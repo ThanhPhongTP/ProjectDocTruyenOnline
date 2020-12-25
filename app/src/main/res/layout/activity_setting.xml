@@ -22,12 +22,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_20"
+                android:gravity="center"
                 android:paddingRight="@dimen/dimen_20"
-                android:textStyle="bold"
                 android:text="Giao diện đọc truyện"
-                android:textColor="@color/colorGreen"
+                android:textColor="#000"
                 android:textSize="20sp" />
 
         </androidx.appcompat.widget.Toolbar>

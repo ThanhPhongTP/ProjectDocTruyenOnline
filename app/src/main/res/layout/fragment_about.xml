@@ -27,8 +27,7 @@
                 android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_20"
                 android:text="Cá nhân"
-                android:textStyle="bold"
-                android:textColor="@color/colorGreen"
+                android:textColor="#000"
                 android:textSize="20sp" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
@@ -62,7 +61,7 @@
                     android:layout_toRightOf="@id/imgProfile"
                     android:textSize="20dp"
                     android:text="Chào mừng bạn đến với TYT"
-                    android:textColor="@color/colorGreen"
+                    android:textColor="#000"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -88,6 +87,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/clmain"
                 android:text="Lịch sử tài khoản"/>
             <LinearLayout
                 android:id="@+id/linearStoryWatched"
@@ -107,7 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Truyện đã xem"
-                    android:textColor="@color/colorGreen"/>
+                    android:textColor="#000"/>
 
             </LinearLayout>
             <!--        <LinearLayout-->
@@ -199,6 +199,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/clmain"
                 android:text="Cài Đặt"/>
             <LinearLayout
                 android:id="@+id/linearSetting"
@@ -217,7 +218,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Giao diện đọc truyện"
-                    android:textColor="@color/colorGreen"/>
+                    android:textColor="#000"/>
 
             </LinearLayout>
             <!--        <LinearLayout-->
@@ -243,6 +244,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/clmain"
                 android:text="Thông Tin"/>
             <LinearLayout
                 android:id="@+id/linearFeedBack"
@@ -261,7 +263,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Góp ý, đánh giá ứng dụng"
-                    android:textColor="@color/colorGreen"/>
+                    android:textColor="#000"/>
 
             </LinearLayout>
             <LinearLayout
@@ -281,7 +283,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Chia sẽ ứng dụng"
-                    android:textColor="@color/colorGreen"/>
+                    android:textColor="#000"/>
 
             </LinearLayout>
             <LinearLayout
@@ -301,7 +303,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Chính sách bảo mật"
-                    android:textColor="@color/colorGreen"/>
+                    android:textColor="#000"/>
 
             </LinearLayout>
             <TextView

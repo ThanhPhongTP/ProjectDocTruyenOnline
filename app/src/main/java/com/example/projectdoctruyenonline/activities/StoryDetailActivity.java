@@ -1,5 +1,6 @@
 package com.example.projectdoctruyenonline.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,14 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +27,8 @@ import com.example.projectdoctruyenonline.models.Chapter;
 import com.example.projectdoctruyenonline.models.Story;
 import com.example.projectdoctruyenonline.service.APIService;
 import com.example.projectdoctruyenonline.service.DataService;
+import com.example.projectdoctruyenonline.service.Decrypt;
+import com.jgabrielfreitas.core.BlurImageView;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -38,7 +38,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,7 +46,7 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
     private Story story;
     private TextView txtNameStoryDetail, txtContentStory, txtCountCategoriesDetail, txtAuthorDetail;
     private Button btnListChapters;
-    private ImageView imgStoryDetail, imgLike;
+    private ImageView imgStoryDetail, imgLike, imgBack;
     private Toolbar toolbar_StoryDetail;
     private RecyclerView recyclerView_ChapterWatched;
     private ArrayList<Chapter> chapterList;
@@ -57,7 +56,9 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
     private ArrayList<Story> storyArrayList;
     private List<Chapter> chapterListFromSharePre;
     int nID;
-    LinearLayout linearLayout;
+
+
+    BlurImageView blurImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +66,7 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_story_detail);
 //        getIntentFormListStory();
         initView();
-
         if (Commons.isConnectedtoInternet(this)) {
-//            getAPI();
             showDetailfromID();
         } else {
             Commons.showDialogError(this);
@@ -76,6 +75,10 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
 //        showDetailfromID();
         addLike();
         checkLike();
+        setBack();
+
+//        blurImageView.setImageResource(R.drawable.i3);
+//        blurImageView.setBlur(25);
     }
 
     private void getAPI() {
@@ -177,13 +180,22 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
         });
     }
 
+    private void setBack(){
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
     private void initView() {
         txtCountCategoriesDetail = findViewById(R.id.txtCountCategoriesDetail);
         txtAuthorDetail = findViewById(R.id.txtAuthorDetail);
         txtContentStory = findViewById(R.id.txtContentStory);
         sharedPreferences_utils = new SharedPreferences_Utils(this);
         recyclerView_ChapterWatched = findViewById(R.id.recyclerView_ChapterWatched);
-        toolbar_StoryDetail = findViewById(R.id.toolbar_StoryDetail);
+//        toolbar_StoryDetail = findViewById(R.id.toolbar_StoryDetail);
         txtNameStoryDetail = findViewById(R.id.txtNameStoryDetail);
         imgLike = findViewById(R.id.imglike);
 //        txtNameStoryDetail.setText(story.getName());
@@ -191,10 +203,14 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
         findViewById(R.id.btnFeedBackChapter).setOnClickListener(this);
         findViewById(R.id.btnChapterRedStoryLimit1).setOnClickListener(this);
         imgStoryDetail = findViewById(R.id.imgStoryDetail);
+        blurImageView = findViewById(R.id.imgBackground);
+        imgBack = findViewById(R.id.imgback);
 //        int kq = story.getId() %19;
 //        int id = getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
 //        imgStoryDetail.setImageResource(id);
-        actionToolBar(toolbar_StoryDetail);
+
+//        actionToolBar(toolbar_StoryDetail);
+
     }
 
     @Override
@@ -205,7 +221,7 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void getListChapterListFromSharePre() {
-        chapterListFromSharePre = sharedPreferences_utils.getDataSharePreferences_From_ChapterWatched(chapterList, nID);
+            chapterListFromSharePre = sharedPreferences_utils.getDataSharePreferences_From_ChapterWatched(chapterList, nID);
         if (chapterListFromSharePre != null) {
             chapterWatchedAdapter = new ChapterWatchedAdapter(this, chapterListFromSharePre);
             linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -261,7 +277,6 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
                             }
                         }
                     }
-
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
                     }
@@ -278,7 +293,6 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-
     //Lấy id từ intent (adaper: NewStoriesAdapter)->truy vấn theo id, lấy chi tiết truyện
     private void showDetailfromID() {
         getIntentFormListStory();
@@ -291,6 +305,8 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
                     try {
                         JSONArray jsonArray = new JSONArray(response.body().toString());
                         JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+
 
 //                        JSONObject fatherJSON = new JSONObject(response.body());
                         int story_id = (jsonObject.getInt("story_id"));
@@ -308,8 +324,16 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
                         txtAuthorDetail.setText("Tác giả: " + author);
                         txtCountCategoriesDetail.setText(rating_count + " Chương");
 //                        //Lưu truyện vào lịch sử
-//                        sharedPreferences_utils.setDataSharePreferences_From_StoryWatched(new Story(nID, story_title));
 
+//                        Picasso.with(getApplication())
+//                                .load(sLinkImg)
+//                                .into(blurImageView);
+
+                        Log.d("tetete", imgStoryDetail.getDrawable() + "");
+//                        blurImageView.setImageDrawable(imgStoryDetail.getDrawable());
+
+
+//                        blurImageView.setBlur(3);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

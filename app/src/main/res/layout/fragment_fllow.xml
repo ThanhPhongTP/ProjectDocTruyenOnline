@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Chưa có truyện theo dõi"
-            android:textColor="@color/colorGreen"
+            android:gravity="center"
+            android:textColor="@color/clmain"
             android:layout_margin="@dimen/dimen_10"
             android:textSize="20dp" />
 

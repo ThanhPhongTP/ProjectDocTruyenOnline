@@ -4,7 +4,7 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.projectdoctruyenonline"
@@ -62,6 +62,11 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     implementation 'com.google.firebase:firebase-messaging:21.0.1'
+
+    implementation 'com.github.jgabrielfreitas:BlurImageView:1.0.1'
+
+    implementation 'com.airbnb.android:lottie:3.5.0'
+
 
 }
 apply plugin: 'com.google.gms.google-services'

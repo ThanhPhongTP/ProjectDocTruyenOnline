@@ -14,33 +14,33 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+        <!--        <com.google.android.material.appbar.AppBarLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:theme="@style/AppTheme.AppBarOverlay">-->
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_StoryDetail"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/white"
-                android:theme="@style/ToolbarColoredBackArrow"
-                app:popupTheme="@style/AppTheme.PopupOverlay" >
+        <!--            <androidx.appcompat.widget.Toolbar-->
+        <!--                android:id="@+id/toolbar_StoryDetail"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="?attr/actionBarSize"-->
+        <!--                android:background="@android:color/white"-->
+        <!--                android:theme="@style/ToolbarColoredBackArrow"-->
+        <!--                app:popupTheme="@style/AppTheme.PopupOverlay" >-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginRight="@dimen/dimen_20"
-                    android:paddingRight="@dimen/dimen_25"
-                    android:textStyle="bold"
-                    android:text="@string/StoryDetail"
-                    android:textColor="@color/colorGreen"
-                    android:textSize="20sp" />
+        <!--                <TextView-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:gravity="center"-->
+        <!--                    android:layout_marginRight="@dimen/dimen_20"-->
+        <!--                    android:paddingRight="@dimen/dimen_25"-->
+        <!--                    android:textStyle="bold"-->
+        <!--                    android:text="@string/StoryDetail"-->
+        <!--                    android:textColor="@color/colorGreen"-->
+        <!--                    android:textSize="20sp" />-->
 
-            </androidx.appcompat.widget.Toolbar>
+        <!--            </androidx.appcompat.widget.Toolbar>-->
 
-        </com.google.android.material.appbar.AppBarLayout>
+        <!--        </com.google.android.material.appbar.AppBarLayout>-->
 
 
         <androidx.core.widget.NestedScrollView
@@ -53,37 +53,50 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_20"
-                android:layout_marginRight="@dimen/dimen_20"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dimen_8"
-                    android:layout_marginLeft="@dimen/dimen_5">
+                    android:layout_height="wrap_content">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/dimen_15">
+                        android:layout_height="wrap_content">
+
+                        <com.jgabrielfreitas.core.BlurImageView
+                            android:id="@+id/imgBackground"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_160"
+                            android:scaleType="centerCrop" />
+
+                        <ImageView
+                            android:id="@+id/imgback"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_40"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:src="@drawable/ic_baseline_arrow_back_24" />
+
 
                         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                             android:id="@+id/imgStoryDetail"
                             android:layout_width="@dimen/dimen_100"
                             android:layout_height="@dimen/dimen_100"
+                            android:layout_marginHorizontal="@dimen/dimen_40"
+                            android:layout_marginTop="@dimen/dimen_35"
                             android:layout_marginRight="@dimen/dimen_10"
-                            android:src="@color/colorRed"
                             app:civ_border_color="#FF000000" />
 
                         <TextView
                             android:id="@+id/txtNameStoryDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_35"
                             android:layout_toRightOf="@+id/imgStoryDetail"
                             android:text="NameStory"
-                            android:textColor="@color/colorGreen"
-                            android:textSize="22sp" />
+                            android:textColor="#000"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txtCountCategoriesDetail"
@@ -97,10 +110,13 @@
                             android:id="@+id/txtAuthorDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="author"
-                            android:textSize="18sp"
                             android:layout_below="@id/txtCountCategoriesDetail"
-                            android:layout_toRightOf="@+id/imgStoryDetail" />
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:layout_toRightOf="@+id/imgStoryDetail"
+                            android:text="author"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="italic" />
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -108,8 +124,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/dimen_30"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_50">
 
                     <Button
                         android:id="@+id/btnListChapters"
@@ -127,9 +144,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimen_10"
                         android:background="@drawable/bg_button"
+                        android:paddingHorizontal="@dimen/dimen_15"
                         android:text="@string/FeedBack"
                         android:textAllCaps="false"
-                        android:paddingHorizontal="@dimen/dimen_15"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -137,25 +154,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimen_50"
                         android:layout_gravity="center|right"
-                        android:src="@drawable/like"/>
-
-
+                        android:src="@drawable/like" />
                 </LinearLayout>
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_40"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:text="@string/chapterWatched"
-                    android:textSize="22sp"
-                    android:layout_marginHorizontal="@dimen/dimen_20"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dimen_20"
+                    android:layout_marginHorizontal="@dimen/dimen_40"
                     android:layout_marginTop="@dimen/dimen_10">
 
                     <RelativeLayout
@@ -192,20 +207,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_40"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:text="@string/Content"
-                    android:textSize="22sp"
-                    android:layout_marginHorizontal="@dimen/dimen_20"
                     android:textColor="@android:color/black"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtContentStory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_40"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:layout_marginBottom="@dimen/dimen_30"
-                    android:layout_marginHorizontal="@dimen/dimen_20"
                     android:lineHeight="@dimen/dimen_24"
                     android:text="Nội dung"
                     android:textColor="@android:color/black"
@@ -225,8 +240,8 @@
             android:id="@+id/btnChapterRedStoryLimit1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/dimen_15"
             android:background="@drawable/bg_button"
+            android:paddingHorizontal="@dimen/dimen_15"
             android:text="@string/ReadStory"
             android:textAllCaps="false"
             android:textSize="15dp" />

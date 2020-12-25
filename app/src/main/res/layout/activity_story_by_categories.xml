@@ -29,9 +29,8 @@
                 android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_20"
                 android:paddingRight="@dimen/dimen_25"
-                android:textStyle="bold"
                 android:text="@string/StoryList"
-                android:textColor="@color/colorGreen"
+                android:textColor="#000"
                 android:textSize="20sp" />
 
         </androidx.appcompat.widget.Toolbar>

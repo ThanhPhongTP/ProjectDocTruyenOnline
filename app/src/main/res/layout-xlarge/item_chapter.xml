@@ -45,7 +45,7 @@
 
         <TextView
             android:textSize="22sp"
-            android:textColor="@color/colorGreen"
+            android:textColor="#000"
             android:id="@+id/txtTitleChapter"
             android:layout_width="wrap_content"
             android:layout_below="@id/txtIdStory"

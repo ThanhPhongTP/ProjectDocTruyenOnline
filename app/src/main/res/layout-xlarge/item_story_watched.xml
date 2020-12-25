@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/imgStoryWatched"
                 android:text="Name"
-                android:textColor="@color/colorGreen"
+                android:textColor="#000"
                 android:textSize="22sp" />
 
             <TextView

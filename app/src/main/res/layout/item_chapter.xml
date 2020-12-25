@@ -44,7 +44,7 @@
             android:text="idCategories" />
         <TextView
             android:textSize="@dimen/dimen_17"
-            android:textColor="@color/colorGreen"
+            android:textColor="#000"
             android:id="@+id/txtTitleChapter"
             android:layout_width="wrap_content"
             android:layout_below="@id/txtIdStory"

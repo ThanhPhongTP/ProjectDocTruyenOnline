@@ -16,7 +16,7 @@
         app:tabIconTint="@drawable/selector"
         app:tabIndicatorColor="#95a5a6"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="#E84E94FD"
+        app:tabSelectedTextColor="@color/clmain"
         app:tabTextColor="@android:color/tertiary_text_light" />
 
     <androidx.viewpager.widget.ViewPager

@@ -14,38 +14,9 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_StoryDetail"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/white"
-                android:theme="@style/ToolbarColoredBackArrow"
-                app:popupTheme="@style/AppTheme.PopupOverlay" >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginRight="@dimen/dimen_20"
-                    android:paddingRight="@dimen/dimen_25"
-                    android:textStyle="bold"
-                    android:text="@string/StoryDetail"
-                    android:textColor="@color/colorGreen"
-                    android:textSize="20sp" />
-
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:fillViewport="true"
             android:orientation="vertical"
             android:scrollbars="none">
@@ -53,27 +24,37 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_20"
-                android:layout_marginRight="@dimen/dimen_20"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dimen_8"
-                    android:layout_marginLeft="@dimen/dimen_5">
+                    android:layout_height="wrap_content">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/dimen_15">
+                        android:layout_height="wrap_content">
+
+                        <com.jgabrielfreitas.core.BlurImageView
+                            android:id="@+id/imgBackground"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_110"
+                            android:scaleType="centerCrop"/>
+
+                        <ImageView
+                            android:id="@+id/imgback"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_20"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:src="@drawable/ic_baseline_arrow_back_24"/>
+
 
                         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                             android:id="@+id/imgStoryDetail"
                             android:layout_width="@dimen/dimen_60"
                             android:layout_height="@dimen/dimen_60"
-                            android:layout_marginRight="@dimen/dimen_10"
-                            android:src="@color/colorRed"
+                            android:layout_marginTop="@dimen/dimen_30"
+                            android:layout_marginHorizontal="@dimen/dimen_20"
                             app:civ_border_color="#FF000000" />
 
                         <TextView
@@ -81,8 +62,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@+id/imgStoryDetail"
-                            android:text="NameStory"
-                            android:textColor="@color/colorGreen"
+                            android:text="@string/app_name"
+                            android:maxLines="2"
+                            android:layout_marginTop="@dimen/dimen_30"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:textColor="#000"
+                            android:textStyle="bold"
                             android:textSize="@dimen/dimen_17" />
 
                         <TextView
@@ -97,15 +82,23 @@
                             android:id="@+id/txtAuthorDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:text="@string/app_name"
+                            android:textColor="#000"
+                            android:textStyle="italic"
                             android:layout_below="@id/txtCountCategoriesDetail"
                             android:layout_toRightOf="@+id/imgStoryDetail" />
 
                     </RelativeLayout>
                 </LinearLayout>
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginHorizontal="@dimen/dimen_20"
                     android:orientation="horizontal">
 
                     <Button
@@ -139,10 +132,10 @@
 
 
                 <TextView
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginHorizontal="@dimen/dimen_20"
                     android:text="@string/chapterWatched"
                     android:textColor="@android:color/black" />
 
@@ -153,6 +146,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
+                        android:layout_marginHorizontal="@dimen/dimen_20"
                         android:layout_height="wrap_content">
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -173,20 +167,12 @@
 
                 </LinearLayout>
 
-                <!--                <com.google.android.ads.nativetemplates.TemplateView-->
-                <!--                    android:layout_marginTop="@dimen/dimen_10"-->
-                <!--                    android:layout_marginRight="@dimen/dimen_10"-->
-                <!--                    android:layout_below="@id/linearLayout_History"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:id="@+id/template_StoryDetailActivity"-->
-                <!--                    app:gnt_template_type="@layout/gnt_small_template_view"-->
-                <!--                    />-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:text="@string/Content"
+                    android:layout_marginHorizontal="@dimen/dimen_20"
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
 
@@ -195,13 +181,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginHorizontal="@dimen/dimen_20"
                     android:layout_marginBottom="@dimen/dimen_30"
                     android:lineHeight="@dimen/dimen_24"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
             </LinearLayout>
+
         </androidx.core.widget.NestedScrollView>
+
     </LinearLayout>
 
     <LinearLayout

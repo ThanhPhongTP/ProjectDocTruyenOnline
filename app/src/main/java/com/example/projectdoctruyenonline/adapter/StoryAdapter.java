@@ -98,7 +98,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryByCategoriesIdAdapte
         Story story = storyList.get(position);
         holder.txtIdStory.setText("Id Story: " + story.getId());
 
-        Log.d("ALALA", story.getId()+ "");
+//        Log.d("ALALA", story.getId()+ "");
 
         holder.txtStoryByCategoriesId.setText("Id Categories: " + story.getCategoriesId());
         holder.txtNameStoryByCategoriesId.setText(story.getName());
@@ -108,6 +108,8 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryByCategoriesIdAdapte
         int kq = story.getId() % 19;
         int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
         holder.imgStory.setImageResource(id);
+
+
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {

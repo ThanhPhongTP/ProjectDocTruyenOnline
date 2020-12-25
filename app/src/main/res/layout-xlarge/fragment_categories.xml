@@ -26,10 +26,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingLeft="@dimen/dimen_30"
-                android:textStyle="bold"
                 android:text="@string/Categories"
-                android:textColor="@color/colorGreen"
-                android:textSize="20sp" />
+                android:textColor="#000"
+                android:textSize="30sp" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

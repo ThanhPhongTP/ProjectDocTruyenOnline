@@ -20,7 +20,7 @@
         <TextView
             android:id="@+id/txtNewStory"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/dimen_35"
+            android:layout_height="@dimen/dimen_40"
             android:maxLines="2"
             android:paddingTop="@dimen/dimen_5"
             android:paddingHorizontal="@dimen/dimen_10"

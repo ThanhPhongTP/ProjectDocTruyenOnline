@@ -24,7 +24,7 @@
         android:gravity="center|left"
         android:text="Name"
         android:layout_marginLeft="@dimen/dimen_5"
-        android:textColor="@color/colorGreen"
+        android:textColor="#000"
         android:textSize="22sp" />
 
 </LinearLayout>

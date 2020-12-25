@@ -25,6 +25,8 @@
     <string name="Search">Tìm Kiếm</string>
     <string name="kp">Khám phá</string>
     <string name="Personal">Cá Nhân</string>
+    <string name="Like">Thêm ưa thích</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="xem_gan_day">Xem gần đây</string>
