@@ -43,7 +43,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class StoryDetailActivity extends AppCompatActivity implements View.OnClickListener {
-    private Story story;
+    Story story;
     private TextView txtNameStoryDetail, txtContentStory, txtCountCategoriesDetail, txtAuthorDetail;
     private Button btnListChapters;
     private ImageView imgStoryDetail, imgLike, imgBack;
