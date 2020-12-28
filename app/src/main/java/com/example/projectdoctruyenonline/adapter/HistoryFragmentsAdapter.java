@@ -17,6 +17,7 @@ import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.activities.StoryDetailActivity;
 import com.example.projectdoctruyenonline.models.Story;
 import com.example.projectdoctruyenonline.service.ItemClickListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -82,9 +83,14 @@ public class HistoryFragmentsAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Story story = storyArrayList_Watched.get(position);
         holder.txtDocGandDay.setText(story.getName());
-        int kq = story.getId() % 19;
-        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
-        holder.imgHistoryStoryW.setImageResource(id);
+//        int kq = story.getId() % 19;
+//        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
+//        holder.imgHistoryStoryW.setImageResource(id);
+
+        Picasso.with(context)
+                .load(story.getThumbnail_image())
+                .into(holder.imgHistoryStoryW);
+
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override

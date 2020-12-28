@@ -38,6 +38,7 @@ import com.example.projectdoctruyenonline.adapter.ViewPagerReadStoryAdapter;
 import com.example.projectdoctruyenonline.models.Chapter;
 import com.example.projectdoctruyenonline.service.APIService;
 import com.example.projectdoctruyenonline.service.DataService;
+import com.example.projectdoctruyenonline.service.Decrypt;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -81,6 +82,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
     private String title = "";
     private String url = "";
     private int page = 1;
+    private String sIV, sValue;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -117,20 +119,23 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
                                 txtReadStory.setText(chapter.getContents().getContent());
 //                                txtReadStory.setText(chapter.getTitle());
 
+                                //Decryption content
+//                                String sDe = Decrypt.Base64Decode(chapter.getContents().getContent());
+//                                try {
+//                                    JSONObject object = new JSONObject(sDe);
+//                                    sIV = object.getString("iv");
+//                                    sValue = object.getString("value");
+//                                    String sContent = Decrypt.decrypt(Decrypt.key.getBytes(), sIV, sValue);
+//                                    txtReadStory.setText(sContent);
+//
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+
                             }
                         }
                     }
                 }
-
-//                    for (int i = 0; i < chapterArrayList.size(); i++) {
-//                        compareNumber = i + 1;
-//                        if (getArguments().getInt(Commons.ARG_SECTION_NUMBER) == compareNumber) {
-//                            chapter = chapterArrayList.get(i);
-//                            txtReadStory.setText(chapter.getContents().getContent());
-//
-//                        }
-//                    }
-
             }
 
             @Override

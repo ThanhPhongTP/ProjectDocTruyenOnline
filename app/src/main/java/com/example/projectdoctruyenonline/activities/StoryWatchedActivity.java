@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.SharedPreferences_Utils.SharedPreferences_Utils;
 import com.example.projectdoctruyenonline.adapter.StoryWatchedAdapter;
+import com.example.projectdoctruyenonline.models.Ratting;
 import com.example.projectdoctruyenonline.models.Story;
 
 import java.util.List;

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Story implements Serializable {
     int id;
     int categoriesId;
-    String name, author, date;
+    String name, author, date, thumbnail_image;
     int totalChapter;
 
 
@@ -24,13 +24,22 @@ public class Story implements Serializable {
 
     }
 
-    public Story(int id, String name) {
+    public Story(int id, String name, String thumbnail_image) {
         this.id = id;
         this.name = name;
+        this.thumbnail_image = thumbnail_image;
     }
 
     public Story() {
 
+    }
+
+    public String getThumbnail_image() {
+        return thumbnail_image;
+    }
+
+    public void setThumbnail_image(String thumbnail_image) {
+        this.thumbnail_image = thumbnail_image;
     }
 
     public String getDate() {

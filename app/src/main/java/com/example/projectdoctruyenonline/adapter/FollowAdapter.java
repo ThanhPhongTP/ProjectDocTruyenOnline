@@ -16,6 +16,7 @@ import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.activities.StoryDetailActivity;
 import com.example.projectdoctruyenonline.models.Story;
 import com.example.projectdoctruyenonline.service.ItemClickListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -80,9 +81,13 @@ public class FollowAdapter extends RecyclerView.Adapter<ViewHolder1> {
     public void onBindViewHolder(@NonNull ViewHolder1 holder, int position) {
         Story story = storyArrayList_Watched.get(position);
         holder.tvNameFollow.setText(story.getName());
-        int kq = story.getId() % 19;
-        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
-        holder.imgFL.setImageResource(id);
+//        int kq = story.getId() % 19;
+//        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
+//        holder.imgFL.setImageResource(id);
+        Picasso.with(context)
+                .load(story.getThumbnail_image())
+                .into(holder.imgFL);
+
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override

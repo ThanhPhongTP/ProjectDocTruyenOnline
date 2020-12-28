@@ -41,6 +41,12 @@ public class FragmentFllow extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        buildRecyclerview();
+        super.onResume();
+    }
+
     private void buildRecyclerview() {
         storyList =  sharedPreferencesUtils.get_SharedPreferences_Story_FollowFragment();
         if (storyList.size()>0) {

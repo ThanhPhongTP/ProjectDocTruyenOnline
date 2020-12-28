@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.projectdoctruyenonline.Commons;
 import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.activities.StoryDetailActivity;
+import com.example.projectdoctruyenonline.models.Ratting;
 import com.example.projectdoctruyenonline.models.Story;
 import com.example.projectdoctruyenonline.service.ItemClickListener;
 

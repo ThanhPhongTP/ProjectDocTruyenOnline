@@ -46,32 +46,10 @@ public class FragmentDiscover extends Fragment {
     @Override
     public void onResume() {
         Log.d("aaaa", "2");
+//        addTabs();
         super.onResume();
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        Log.d("aaaa", "3");
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        Log.d("aaaa", "4");
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        Log.d("aaaa", "5");
-        super.onDetach();
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.d("aaaa", "6");
-        super.onDestroy();
-    }
 
     @SuppressLint("ClickableViewAccessibility")
     public void addTabs() {

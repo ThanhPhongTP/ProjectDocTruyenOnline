@@ -7,7 +7,8 @@ import android.view.MenuItem;
 import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.adapter.ViewPagerAdapter;
 import com.example.projectdoctruyenonline.fragments.AboutFragment;
-import com.example.projectdoctruyenonline.fragments.HistoryFragment;
+import com.example.projectdoctruyenonline.fragments.FragmentHistory;
+
 import com.example.projectdoctruyenonline.fragments.CategoriesListFragment;
 import com.example.projectdoctruyenonline.fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,7 +22,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     private FragmentTransaction fragmentTransaction;
     private BottomNavigationView bottomNavigationView;
     private CategoriesListFragment categoriesListFragment;
-    private HistoryFragment historyFragment;
+    private FragmentHistory historyFragment;
     private AboutFragment aboutFragment;
     private SearchFragment searchFragment;
     private ViewPager viewPager;
@@ -68,7 +69,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     private void setupViewPager (ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         categoriesListFragment = new CategoriesListFragment();
-        historyFragment = new HistoryFragment();
+        historyFragment = new FragmentHistory();
         aboutFragment = new AboutFragment();
         adapter.addFragment(categoriesListFragment);
         adapter.addFragment(historyFragment);

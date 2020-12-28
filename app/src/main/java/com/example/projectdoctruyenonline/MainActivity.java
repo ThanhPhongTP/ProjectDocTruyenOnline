@@ -21,7 +21,7 @@ import com.example.projectdoctruyenonline.fragments.AboutFragment;
 import com.example.projectdoctruyenonline.fragments.CategoriesListFragment;
 import com.example.projectdoctruyenonline.fragments.FragmentDiscover;
 import com.example.projectdoctruyenonline.fragments.FragmentHome;
-import com.example.projectdoctruyenonline.fragments.HistoryFragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

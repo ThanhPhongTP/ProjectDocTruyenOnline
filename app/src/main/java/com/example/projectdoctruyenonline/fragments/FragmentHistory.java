@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.SharedPreferences_Utils.SharedPreferences_Utils;
 import com.example.projectdoctruyenonline.adapter.HistoryFragmentsAdapter;
+import com.example.projectdoctruyenonline.models.Ratting;
 import com.example.projectdoctruyenonline.models.Story;
 
 import java.util.List;
@@ -39,6 +40,7 @@ public class FragmentHistory extends Fragment {
         view = inflater.inflate(R.layout.fragment_history, container, false);
         initView();
         storyList =  sharedPreferencesUtils.get_SharedPreferences_Story_HistoryFragment();
+
         buildRecyclerview();
 //        checkConnectionAds();
         return view;
@@ -47,6 +49,12 @@ public class FragmentHistory extends Fragment {
         sharedPreferencesUtils = new SharedPreferences_Utils(getActivity());
         txtNodataHistory = view.findViewById(R.id.txtNodataHistory);
         recyclerView = view.findViewById(R.id.recyclerView_Docganday);
+    }
+
+    @Override
+    public void onResume() {
+        buildRecyclerview();
+        super.onResume();
     }
 
     private void buildRecyclerview() {

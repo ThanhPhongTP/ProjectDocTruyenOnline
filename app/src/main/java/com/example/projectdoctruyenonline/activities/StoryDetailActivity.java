@@ -140,26 +140,28 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
                     //thêm theo dõi
                     getIntentFormListStory();
                     DataService dataService = APIService.getService();
-                    dataService.getStory("rates/" + nID + "").enqueue(new Callback<String>() {
+                    dataService.getStory("stories/" + nID + "/detail").enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
                             if (response != null && response.isSuccessful()) {
+
                                 try {
-                                    JSONObject fatherJSON = new JSONObject(response.body());
-                                    String story_title = (fatherJSON.getString("story_title"));
-                                    Log.d("ASAS", story_title + "");
-                                    //Lưu truyện vào theo dõi
-                                    sharedPreferences_utils.addStoriesToFollow(new Story(nID, story_title));
-                                    List<Story> storyList = sharedPreferences_utils.get_SharedPreferences_Story_FollowFragment();
-                                    if (storyList.size() > 0) {
-                                        for (int i = 0; i < storyList.size(); i++) {
-                                            if (storyList.get(i).getId() == nID) {
-                                                imgLike.setImageResource(R.drawable.like1);
-                                                Toast.makeText(StoryDetailActivity.this, "Đã thêm vào ưa thích", Toast.LENGTH_SHORT).show();
+                                    JSONArray jsonArray = new JSONArray(response.body());
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject fatherJSON = jsonArray.getJSONObject(i);
+                                        String story_title = (fatherJSON.getString("story_title"));
+                                        String sIMG = (fatherJSON.getString("thumbnail_image"));
+                                        sharedPreferences_utils.addStoriesToFollow(new Story(nID, story_title, sIMG));
+                                        List<Story> storyList = sharedPreferences_utils.get_SharedPreferences_Story_FollowFragment();
+                                        if (storyList.size() > 0) {
+                                            for (int j = 0; j < storyList.size(); j++) {
+                                                if (storyList.get(j).getId() == nID) {
+                                                    imgLike.setImageResource(R.drawable.like1);
+                                                    Toast.makeText(StoryDetailActivity.this, "Đã thêm vào ưa thích", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
                                         }
                                     }
-
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -180,7 +182,7 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
         });
     }
 
-    private void setBack(){
+    private void setBack() {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,7 +223,7 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void getListChapterListFromSharePre() {
-            chapterListFromSharePre = sharedPreferences_utils.getDataSharePreferences_From_ChapterWatched(chapterList, nID);
+        chapterListFromSharePre = sharedPreferences_utils.getDataSharePreferences_From_ChapterWatched(chapterList, nID);
         if (chapterListFromSharePre != null) {
             chapterWatchedAdapter = new ChapterWatchedAdapter(this, chapterListFromSharePre);
             linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -262,21 +264,25 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
             case R.id.btnChapterRedStoryLimit1:
                 getIntentFormListStory();
                 DataService dataService = APIService.getService();
-                dataService.getStory("rates/" + nID + "").enqueue(new Callback<String>() {
+                dataService.getStory("stories/" + nID + "/detail").enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
                         if (response != null && response.isSuccessful()) {
+
                             try {
-                                JSONObject fatherJSON = new JSONObject(response.body());
-                                String story_title = (fatherJSON.getString("story_title"));
-                                Log.d("ASAS", story_title + "");
-                                //Lưu truyện vào lịch sử
-                                sharedPreferences_utils.setDataSharePreferences_From_StoryWatched(new Story(nID, story_title));
+                                JSONArray jsonArray = new JSONArray(response.body());
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject fatherJSON = jsonArray.getJSONObject(i);
+                                    String story_title = (fatherJSON.getString("story_title"));
+                                    String sIMG = (fatherJSON.getString("thumbnail_image"));
+                                    sharedPreferences_utils.setDataSharePreferences_From_StoryWatched(new Story(nID, story_title, sIMG));
+                                }
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
+
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
                     }
@@ -305,7 +311,6 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
                     try {
                         JSONArray jsonArray = new JSONArray(response.body().toString());
                         JSONObject jsonObject = jsonArray.getJSONObject(0);
-
 
 
 //                        JSONObject fatherJSON = new JSONObject(response.body());
