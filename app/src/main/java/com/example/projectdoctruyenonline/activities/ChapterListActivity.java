@@ -1,6 +1,6 @@
 package com.example.projectdoctruyenonline.activities;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
@@ -14,19 +14,11 @@ import android.view.View;
 
 import com.example.projectdoctruyenonline.Commons;
 import com.example.projectdoctruyenonline.R;
-import com.example.projectdoctruyenonline.adapter.CategoriesAdapter;
 import com.example.projectdoctruyenonline.adapter.ChapterListAdapter;
-import com.example.projectdoctruyenonline.models.Categories;
 import com.example.projectdoctruyenonline.models.Chapter;
 import com.example.projectdoctruyenonline.models.Story;
 import com.example.projectdoctruyenonline.service.APIService;
 import com.example.projectdoctruyenonline.service.DataService;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -96,38 +88,6 @@ public class ChapterListActivity extends AppCompatActivity {
                 }
             }
         });
-//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-//                super.onScrollStateChanged(recyclerView, newState);
-//            }
-//
-//            @Override
-//            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//                if (dy>0){
-//                    visibleItemCount = linearLayoutManager.getChildCount();
-//                    totalItemCount = linearLayoutManager.getItemCount();
-//                    firstVisibleItemCount = linearLayoutManager.findFirstVisibleItemPosition();
-//                    Log.d("visibleItemCount",visibleItemCount+"");
-//                    Log.d("totalItemCount",totalItemCount+"");
-//                    Log.d("firstVisibleItemCount",firstVisibleItemCount+"");
-//                    if (isLoadDing){
-//                        if ( totalItemCount > previousTotal){
-//                            previousTotal = totalItemCount;
-//                            page++;
-//                            isLoadDing = false;
-//                        }
-//                    }
-//                    if (!isLoadDing && (firstVisibleItemCount + visibleItemCount)>=totalItemCount){
-//                        getAPI();
-//                        isLoadDing = true;
-//                        Log.d("GGGGGG","Page :" +page);
-//                    }
-//                }
-//            }
-//        });
-
     }
     private void getAPI() {
         DataService dataService= APIService.getService();
@@ -150,38 +110,4 @@ public class ChapterListActivity extends AppCompatActivity {
         });
     }
 
-
-//    private void getAPIs() {
-//        DataService dataService= APIService.getService();
-////        stories/+"+story.getId()+"/chapters?page="+page
-//        dataService.getChapterList(2,page).enqueue(new Callback<String>() {
-//            @Override
-//            public void onResponse(Call<String> call, Response<String> response) {
-////                Log.d("getChapterList",response.body().toString());
-////                try {
-////                    JSONObject fatherJSON=new JSONObject(response.body().toString());
-////                    Log.d("respone",response.body().toString());
-////                    JSONArray arrayData=fatherJSON.getJSONArray("data");
-////                    String name = arrayData.getString(0);
-////                    Log.d("UIOUI",name);
-////                    for(int i=0;i<arrayData.length();i++){
-////                        JSONObject item=arrayData.getJSONObject(i);
-////                        id = item.getInt("id");
-////                        storyId = item.getInt("storyId");
-////                        title = item.getString("title");
-////                        chapterList.add(new Chapter(id,storyId,title));
-////                         adapter.notifyDataSetChanged();
-////
-////                    }
-////                } catch (JSONException e) {
-////                    e.printStackTrace();
-////                }
-//            }
-//            @Override
-//            public void onFailure(Call<String> call, Throwable t) {
-//                Log.d("GGGGG",t.toString());
-//            }
-//        });
-//
-//    }
 }

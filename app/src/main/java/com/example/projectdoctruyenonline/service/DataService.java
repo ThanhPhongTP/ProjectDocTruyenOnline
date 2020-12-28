@@ -14,8 +14,6 @@ import retrofit2.http.Query;
 import retrofit2.http.Url;
 
 public interface DataService {
-
-
     //Get Thể loại
     @GET("categories/")
     Call<List<Categories>> getCategories();
@@ -32,12 +30,6 @@ public interface DataService {
     //truyện hay
     @GET("rating_count/")
     Call<String> getNewStory();
-//    @GET("rates/1")
-//    Call<String> getStory();
-
-    //detail
-//    @GET("rates/{story_id}/stories?")
-//    Call<String> getStory(@Path("story_id")int nID);
 
     @GET
     Call<String> getStory(@Url String url);
@@ -45,8 +37,5 @@ public interface DataService {
     //Chương truyện
     @GET("stories/{story_id}/chapters?page=")
     Call<List<Chapter>> getChapterList(@Path("story_id") int id, @Query("page") int page);
-//    @GET
-//    Call<List<Chapter>> getChapterList(@Url String url);
-
 
 }

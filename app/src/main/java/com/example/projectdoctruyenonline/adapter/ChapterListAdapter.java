@@ -37,14 +37,9 @@ public class ChapterListAdapter extends RecyclerView.Adapter<ChapterListAdapter.
     @Override
     public void onBindViewHolder(@NonNull ChapterListAdapterViewHolder holder, int position) {
         Chapter chapter = chapterList.get(position);
-//        holder.txtIdChapter.setText(chapter.getIdChapter()+"");
-        holder.txtIdStory.setText(chapter.getIdStory() + "");
         String s[] = chapter.getTitle().split("-");
         holder.txtTitleChapter.setText(s[1]);
-        holder.txtContentChapter.setText("idChapter: " + chapter.getChapter_id());
-        int kq = chapter.getIdStory() % 19;
-        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
-        holder.imgChapterList.setImageResource(id);
+
     }
 
     @Override
@@ -53,16 +48,13 @@ public class ChapterListAdapter extends RecyclerView.Adapter<ChapterListAdapter.
     }
 
     public class ChapterListAdapterViewHolder extends RecyclerView.ViewHolder {
-        TextView txtIdChapter, txtIdStory, txtTitleChapter, txtContentChapter;
-        private ImageView imgChapterList;
+        TextView txtTitleChapter;
 
         public ChapterListAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtIdChapter = itemView.findViewById(R.id.txtIdChapter);
-            txtIdStory = itemView.findViewById(R.id.txtIdStory);
+
             txtTitleChapter = itemView.findViewById(R.id.txtTitleChapter);
-            txtContentChapter = itemView.findViewById(R.id.txtContentChapter);
-            imgChapterList = itemView.findViewById(R.id.imgChapterList);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
