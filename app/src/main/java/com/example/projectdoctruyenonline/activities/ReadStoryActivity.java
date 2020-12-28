@@ -66,7 +66,7 @@ public class ReadStoryActivity extends AppCompatActivity {
         dataService.getChapterList(chapter.getIdStory(),page).enqueue(new Callback<List<Chapter>>() {
             @Override
             public void onResponse(Call<List<Chapter>> call, Response<List<Chapter>> response) {
-
+                Log.d("asddsa", response.body() + "");
                 if (response !=null) {
                     chapterArrayList = response.body();
                     viewPagerReadStoryAdapter = new ViewPagerReadStoryAdapter(getSupportFragmentManager(), chapterArrayList, chapter);

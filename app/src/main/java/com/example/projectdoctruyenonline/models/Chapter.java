@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Chapter implements Serializable {
-    @SerializedName("storyId")
+    @SerializedName("story_id")
     @Expose
     public int idStory;
     @SerializedName("title")

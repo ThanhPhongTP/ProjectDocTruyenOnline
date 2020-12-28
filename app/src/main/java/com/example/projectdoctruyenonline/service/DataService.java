@@ -23,10 +23,14 @@ public interface DataService {
 
     //get truyện từ thể loại
     @GET("categories/{category_id}/stories?page=")
-    Call<String> getStoryByCategories(@Path("category_id")int id,@Query("page")int page);
+    Call<String> getStoryByCategories(@Path("category_id") int id, @Query("page") int page);
 
-//truyện hay
+    //    truyen de cu
     @GET("rates/")
+    Call<String> getHotStory();
+
+    //truyện hay
+    @GET("rating_count/")
     Call<String> getNewStory();
 //    @GET("rates/1")
 //    Call<String> getStory();
@@ -40,7 +44,7 @@ public interface DataService {
 
     //Chương truyện
     @GET("stories/{story_id}/chapters?page=")
-    Call<List<Chapter>> getChapterList(@Path("story_id")int id, @Query("page")int page);
+    Call<List<Chapter>> getChapterList(@Path("story_id") int id, @Query("page") int page);
 //    @GET
 //    Call<List<Chapter>> getChapterList(@Url String url);
 
