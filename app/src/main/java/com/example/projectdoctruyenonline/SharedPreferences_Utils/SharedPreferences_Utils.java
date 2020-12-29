@@ -57,13 +57,13 @@ public class SharedPreferences_Utils {
         }
 
         Chapter chapterSave = new Chapter(chapter.getIdStory(), chapter.getTitle(),
-                chapter.getContents().getChapter_id(), chapter.getContents().getContent());
+                chapter.getChapter_id(), chapter.getContents());
 
-        int indexChapter = findIndexChapter(chapterArrayList, chapter.getContents().getChapter_id());
+        int indexChapter = findIndexChapter(chapterArrayList, chapter.getChapter_id());
         if (indexChapter >= 0) {
             chapterArrayList.remove(indexChapter);
         }
-        Log.d("21321321", chapter.getContent() + "");
+        Log.d("21321321", chapter.getContents() + "");
 
         chapterArrayList.add(0, chapterSave);
         String json = gson.toJson(chapterArrayList);
@@ -190,7 +190,7 @@ public class SharedPreferences_Utils {
 
     private boolean removeChapterInList(ArrayList<Chapter> chapterArrayList, int idChapter) {
         for (int i = 0; i < chapterArrayList.size(); i++) {
-            if (chapterArrayList.get(i).getContents().getChapter_id() == idChapter) {
+            if (chapterArrayList.get(i).getChapter_id() == idChapter) {
                 return true;
             }
         }
@@ -238,7 +238,7 @@ public class SharedPreferences_Utils {
 
     private boolean hasChapterInList(ArrayList<Chapter> chapterArrayListWatched, int idChapter) {
         for (int i = 0; i < chapterArrayListWatched.size(); i++) {
-            if (chapterArrayListWatched.get(i).getContents().getChapter_id() == idChapter) {
+            if (chapterArrayListWatched.get(i).getChapter_id() == idChapter) {
                 return true;
             }
         }

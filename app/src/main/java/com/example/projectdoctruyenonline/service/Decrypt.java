@@ -1,13 +1,10 @@
 package com.example.projectdoctruyenonline.service;
 
 import android.util.Base64;
-import android.util.Log;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.Gson;
 
 import java.security.Key;
-import java.security.MessageDigest;
 import java.util.Arrays;
 
 import javax.crypto.Cipher;
@@ -39,7 +36,7 @@ public class Decrypt {
         return deCryptValue;
 
     }
-
+    
     public static String Base64Decode(String base64EncodedData) {
         byte[] value = Base64.decode(base64EncodedData, Base64.DEFAULT);
 //        try {

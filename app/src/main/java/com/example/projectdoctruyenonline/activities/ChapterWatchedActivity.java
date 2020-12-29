@@ -108,7 +108,7 @@ public class ChapterWatchedActivity extends AppCompatActivity implements View.On
         if (intent != null){
             if (intent.hasExtra(Commons.Chapter)) {
                 chapter = (Chapter)intent.getSerializableExtra(Commons.Chapter);
-                textviewReadStory.setText(chapter.getContent());
+                textviewReadStory.setText(chapter.getContents());
             }
         }
     }

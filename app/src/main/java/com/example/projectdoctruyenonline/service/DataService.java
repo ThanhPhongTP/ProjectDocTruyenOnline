@@ -35,7 +35,9 @@ public interface DataService {
     Call<String> getStory(@Url String url);
 
     //Chương truyện
-    @GET("stories/{story_id}/chapters?page=")
-    Call<List<Chapter>> getChapterList(@Path("story_id") int id, @Query("page") int page);
+//    @GET("stories/{story_id}/chapters?page=")
+//    Call<String> getChapterList(@Path("story_id") int id, @Query("page") int page);
 
+    @GET("stories/{story_id}/chapters?")
+    Call<List<Chapter>> getChapterList(@Path("story_id") int id);
 }

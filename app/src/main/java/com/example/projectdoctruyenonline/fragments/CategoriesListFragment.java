@@ -29,6 +29,7 @@ import com.example.projectdoctruyenonline.models.Categories;
 import com.example.projectdoctruyenonline.models.Chapter;
 import com.example.projectdoctruyenonline.service.APIService;
 import com.example.projectdoctruyenonline.service.DataService;
+import com.example.projectdoctruyenonline.service.Decrypt;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,6 +63,7 @@ public class CategoriesListFragment extends Fragment {
     private GridLayoutManager gridLayoutManager;
     private Toolbar toolbar_Categories;
     private NestedScrollView nestedScrollView;
+    private String sIV, sValue;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -113,6 +115,31 @@ public class CategoriesListFragment extends Fragment {
         dataService.getCategories().enqueue(new Callback<List<Categories>>() {
             @Override
             public void onResponse(Call<List<Categories>> call, Response<List<Categories>> response) {
+//                if (response.isSuccessful()) {
+//                    try {
+//                        JSONArray array = new JSONArray(response.body().toString());
+//                        for (int i = 0; i < array.length(); i++) {
+//
+//                            JSONObject object = array.getJSONObject(i);
+//                            String sName = object.getString("name");
+//
+//
+//
+//                            String sDe = Decrypt.Base64Decode(sName);
+//                            JSONObject jsonObject = new JSONObject(sDe);
+//                            sIV = jsonObject.getString("iv");
+//                            sValue = jsonObject.getString("value");
+//                            String sContent = Decrypt.decrypt(Decrypt.key.getBytes(), sIV, sValue);
+////                        txtReadStory.setText(sContent);
+//                            Log.d("hfjkd", jsonObject + "");
+//                            Log.d("hfjkd", sContent + "");
+//                        }
+//
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+
                 categoriesList = response.body();
                 categoriesAdapter = new CategoriesAdapter(getContext(), categoriesList);
                 recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));

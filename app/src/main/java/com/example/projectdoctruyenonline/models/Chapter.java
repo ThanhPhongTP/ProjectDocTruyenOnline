@@ -15,16 +15,16 @@ public class Chapter implements Serializable {
 
     @SerializedName("contents")
     @Expose
-    public Contents contents;
+    public String contents;
 
 
     @SerializedName("chapter_id")
     @Expose
     public int chapter_id;
 
-    @SerializedName("content")
-    @Expose
-    private String  content;
+//    @SerializedName("content")
+//    @Expose
+//    private String  content;
     public Chapter(int idStory, String title) {
 
         this.idStory = idStory;
@@ -32,24 +32,24 @@ public class Chapter implements Serializable {
 
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
+//    public String getContent() {
+//        return content;
+//    }
+//
+//    public void setContent(String content) {
+//        this.content = content;
+//    }
 
     public Chapter(int idStory, String title, int chapter_id) {
         this.idStory = idStory;
         this.title = title;
         this.chapter_id = chapter_id;
     }
-    public Chapter(int idStory, String title,int chapter_id, String content) {
+    public Chapter(int idStory, String title,int chapter_id, String contents) {
         this.idStory = idStory;
         this.title = title;
         this.chapter_id = chapter_id;
-        this.content = content;
+        this.contents = contents;
     }
 
 
@@ -82,11 +82,11 @@ public class Chapter implements Serializable {
         this.title = title;
     }
 
-    public Contents getContents() {
+    public String getContents() {
         return contents;
     }
 
-    public void setContents(Contents contents) {
+    public void setContents(String contents) {
         this.contents = contents;
     }
 }

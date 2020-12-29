@@ -15,15 +15,23 @@ import android.view.View;
 import com.example.projectdoctruyenonline.Commons;
 import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.adapter.ChapterListAdapter;
+import com.example.projectdoctruyenonline.models.Categories;
 import com.example.projectdoctruyenonline.models.Chapter;
 import com.example.projectdoctruyenonline.models.Story;
 import com.example.projectdoctruyenonline.service.APIService;
 import com.example.projectdoctruyenonline.service.DataService;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 public class ChapterListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -41,7 +49,8 @@ public class ChapterListActivity extends AppCompatActivity {
     private int page = 1;
     private Toolbar toolbar_ChapterList;
     private NestedScrollView nestedScrollViewChapter;
-    private int nID;
+    private int nID, nChapter_ID;
+    private String sChapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,22 +99,48 @@ public class ChapterListActivity extends AppCompatActivity {
         });
     }
     private void getAPI() {
-        DataService dataService= APIService.getService();
+        chapterList = new ArrayList<>();
+        adapter = new ChapterListAdapter(this, chapterList);
+        recyclerView.setAdapter(adapter);
+
+        DataService dataService = APIService.getService();
 //        stories/+"+story.getId()+"/chapters?page="+page
-        dataService.getChapterList(nID,page).enqueue(new Callback<List<Chapter>>() {
+        dataService.getChapterList(nID).enqueue(new Callback<List<Chapter>>() {
             @Override
             public void onResponse(Call<List<Chapter>> call, Response<List<Chapter>> response) {
+                Log.d("fdsasss", ".");
                 chapterList  = response.body();
                 adapter = new ChapterListAdapter(ChapterListActivity.this,chapterList);
                 linearLayoutManager = new LinearLayoutManager(ChapterListActivity.this);
                 recyclerView.setLayoutManager(linearLayoutManager);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setAdapter(adapter);
+
+
+//                try {
+//                    JSONArray jsonArray = new JSONArray(response.body().toString());
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        JSONObject object = jsonArray.getJSONObject(i);
+//                        nChapter_ID = object.getInt("story_id");
+//                        sChapter = object.getString("title");
+//                        chapterList.add(new Chapter(nChapter_ID, sChapter));
+//                        adapter.notifyDataSetChanged();
+//                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+
             }
+//
+//            @Override
+//            public void onFailure(Call<String> call, Throwable t) {
+//                Log.d("ERRRRORRR",t.toString());
+//            }
 
             @Override
             public void onFailure(Call<List<Chapter>> call, Throwable t) {
-                Log.d("ERRRRORRR",t.toString());
+                Log.d("ydsf" , "sa");
             }
         });
     }

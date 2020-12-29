@@ -19,36 +19,25 @@ import com.example.projectdoctruyenonline.models.Story;
 import java.util.List;
 
 public class FragmentHistory extends Fragment {
-
-    private View view;
+    
     private LinearLayoutManager linearLayoutManager;
     private RecyclerView recyclerView;
     private HistoryFragmentsAdapter adapter;
     private List<Story> storyList;
     private TextView txtNodataHistory;
     private SharedPreferences_Utils sharedPreferencesUtils;
-    //    private TemplateView templateView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_history, container, false);
-        initView();
-        storyList =  sharedPreferencesUtils.get_SharedPreferences_Story_HistoryFragment();
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
+        setControl(view);
         buildRecyclerview();
-//        checkConnectionAds();
         return view;
-    }
-    private void initView() {
-        sharedPreferencesUtils = new SharedPreferences_Utils(getActivity());
-        txtNodataHistory = view.findViewById(R.id.txtNodataHistory);
-        recyclerView = view.findViewById(R.id.recyclerView_Docganday);
     }
 
     @Override
@@ -58,7 +47,8 @@ public class FragmentHistory extends Fragment {
     }
 
     private void buildRecyclerview() {
-        if (storyList.size()>0) {
+        storyList = sharedPreferencesUtils.get_SharedPreferences_Story_HistoryFragment();
+        if (storyList.size() > 0) {
             adapter = new HistoryFragmentsAdapter(getActivity(), storyList);
             linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
             recyclerView.setLayoutManager(linearLayoutManager);
@@ -67,10 +57,16 @@ public class FragmentHistory extends Fragment {
             recyclerView.setVisibility(View.VISIBLE);
             txtNodataHistory.setVisibility(View.GONE);
             adapter.notifyDataSetChanged();
-        }else {
+        } else {
             txtNodataHistory.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
         }
+    }
+
+    private void setControl(View view) {
+        sharedPreferencesUtils = new SharedPreferences_Utils(getActivity());
+        txtNodataHistory = view.findViewById(R.id.txtNodataHistory);
+        recyclerView = view.findViewById(R.id.recyclerView_Docganday);
     }
 
 }

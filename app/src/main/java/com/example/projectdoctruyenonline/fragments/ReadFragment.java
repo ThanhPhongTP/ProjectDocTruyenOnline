@@ -105,7 +105,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
 
     private void getAPI() {
         DataService dataService = APIService.getService();
-        dataService.getChapterList(chapter.getIdStory(), page).enqueue(new Callback<List<Chapter>>() {
+        dataService.getChapterList(chapter.getIdStory()).enqueue(new Callback<List<Chapter>>() {
             @Override
             public void onResponse(Call<List<Chapter>> call, Response<List<Chapter>> response) {
                 if (response != null && response.isSuccessful()) {
@@ -116,21 +116,23 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
                             compareNumber = i + 1;
                             if (getArguments().getInt(Commons.ARG_SECTION_NUMBER) == compareNumber) {
                                 chapter = chapterArrayList.get(i);
-                                txtReadStory.setText(chapter.getContents().getContent());
+//                                txtReadStory.setText(chapter.getContents());
 //                                txtReadStory.setText(chapter.getTitle());
 
+                                Log.d("kpkp", chapter.getContents());
+
                                 //Decryption content
-//                                String sDe = Decrypt.Base64Decode(chapter.getContents().getContent());
-//                                try {
-//                                    JSONObject object = new JSONObject(sDe);
-//                                    sIV = object.getString("iv");
-//                                    sValue = object.getString("value");
-//                                    String sContent = Decrypt.decrypt(Decrypt.key.getBytes(), sIV, sValue);
-//                                    txtReadStory.setText(sContent);
-//
-//                                } catch (Exception e) {
-//                                    e.printStackTrace();
-//                                }
+                                String sDe = Decrypt.Base64Decode(chapter.getContents());
+                                try {
+                                    JSONObject object = new JSONObject(sDe);
+                                    sIV = object.getString("iv");
+                                    sValue = object.getString("value");
+                                    String sContent = Decrypt.decrypt(Decrypt.key.getBytes(), sIV, sValue);
+                                    txtReadStory.setText(sContent);
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
 
                             }
                         }
