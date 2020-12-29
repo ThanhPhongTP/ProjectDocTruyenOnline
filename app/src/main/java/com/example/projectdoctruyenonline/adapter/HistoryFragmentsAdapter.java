@@ -86,11 +86,9 @@ public class HistoryFragmentsAdapter extends RecyclerView.Adapter<ViewHolder> {
 //        int kq = story.getId() % 19;
 //        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
 //        holder.imgHistoryStoryW.setImageResource(id);
-
         Picasso.with(context)
                 .load(story.getThumbnail_image())
                 .into(holder.imgHistoryStoryW);
-
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override

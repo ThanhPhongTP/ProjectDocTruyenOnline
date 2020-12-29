@@ -127,7 +127,9 @@ public class StoryListActivity extends AppCompatActivity {
                             author = item.getString("author");
                             totalChapters = item.getInt("total chapter");
                             String sDate = item.getString("created_date");
-                            listStory.add(new Story(id,name,totalChapters,author, sDate));
+                            String sIMG = item.getString("image");
+
+                            listStory.add(new Story(id,name,totalChapters,author, sDate, sIMG));
 //                        for (int j =0;j<listStoryByCategoriesId.size();j++){
 //                            Log.d("listStoryByCategoriesId",listStoryByCategoriesId.get(i).getId()+"");
 //                        }

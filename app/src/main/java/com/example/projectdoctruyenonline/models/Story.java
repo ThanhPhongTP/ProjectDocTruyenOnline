@@ -9,12 +9,13 @@ public class Story implements Serializable {
     int totalChapter;
 
 
-    public Story(int id, String name, int totalChapter, String author, String date) {
+    public Story(int id, String name, int totalChapter, String author, String date, String thumbnail_image) {
         this.id = id;
         this.name = name;
         this.totalChapter = totalChapter;
         this.author = author;
         this.date = date;
+        this.thumbnail_image = thumbnail_image;
     }
 
     public Story(int id, int categoriesId, String name) {

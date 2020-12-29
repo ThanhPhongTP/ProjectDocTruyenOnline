@@ -20,6 +20,7 @@ import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.activities.StoryDetailActivity;
 import com.example.projectdoctruyenonline.models.Story;
 import com.example.projectdoctruyenonline.service.ItemClickListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,9 +106,13 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryByCategoriesIdAdapte
         holder.txtTotalChapter.setText(story.getTotalChapter() + " Chương");
         holder.tvAuthor.setText(story.getAuthor());
         holder.tvDate.setText(story.getDate().substring(0,10));
-        int kq = story.getId() % 19;
-        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
-        holder.imgStory.setImageResource(id);
+//        int kq = story.getId() % 19;
+//        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
+//        holder.imgStory.setImageResource(id);
+
+        Picasso.with(context)
+                .load(story.getThumbnail_image())
+                .into(holder.imgStory);
 
 
         holder.setItemClickListener(new ItemClickListener() {
