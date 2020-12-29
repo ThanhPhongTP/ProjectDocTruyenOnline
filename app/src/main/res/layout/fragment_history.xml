@@ -7,34 +7,7 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     android:padding="@dimen/dimen_20"
-    tools:context=".fragments.HistoryFragment">
-
-<!--    <com.google.android.material.appbar.AppBarLayout-->
-<!--        android:id="@+id/toolbar_History"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:theme="@style/AppTheme.AppBarOverlay">-->
-
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:id="@+id/toolbar_Truyen"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="?attr/actionBarSize"-->
-<!--            android:background="@android:color/white"-->
-<!--            android:theme="@style/ToolbarColoredBackArrow"-->
-<!--            app:popupTheme="@style/AppTheme.PopupOverlay">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginRight="@dimen/dimen_20"-->
-<!--                android:gravity="center"-->
-<!--                android:text="Lịch sử"-->
-<!--                android:textColor="@color/colorGreen"-->
-<!--                android:textSize="20sp" />-->
-<!--        </androidx.appcompat.widget.Toolbar>-->
-
-<!--    </com.google.android.material.appbar.AppBarLayout>-->
-
+    tools:context=".fragments.FragmentHistory">
 
     <TextView
         android:id="@+id/txtNodataHistory"
@@ -50,6 +23,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_10" />
-
 
 </LinearLayout>

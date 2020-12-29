@@ -9,15 +9,6 @@
         android:icon="@drawable/ic_baseline_explore_24"
         android:title="@string/Categories" />
 
-    <!--    <item-->
-    <!--        android:id="@+id/navigation_category"-->
-    <!--        android:icon="@drawable/ic_baseline_menu_24"-->
-    <!--        android:title="Thể Loại" />-->
-
-<!--    <item-->
-<!--        android:id="@+id/navigation_notifications"-->
-<!--        android:icon="@drawable/ic_baseline_search_24"-->
-<!--        android:title="@string/Search" />-->
     <item
         android:id="@+id/navigation_history"
         android:icon="@drawable/ic_baseline_history_24"

@@ -26,15 +26,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 class StoryByCategoriesIdAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-    public TextView txtIdStory, txtStoryByCategoriesId, txtNameStoryByCategoriesId, txtTotalChapter, tvAuthor, tvDate;
+    public TextView txtStoryByCategoriesId, txtNameStoryByCategoriesId, txtTotalChapter, tvAuthor, tvDate;
     public ImageView imgStory;
 
     private ItemClickListener itemClickListener;
 
     public StoryByCategoriesIdAdapterViewHolder(View itemView) {
         super(itemView);
-        txtIdStory = itemView.findViewById(R.id.txtIdStory);
-        txtStoryByCategoriesId = itemView.findViewById(R.id.txtStoryByCategoriesId);
         txtNameStoryByCategoriesId = itemView.findViewById(R.id.txtNameStoryByCategoriesId);
         txtTotalChapter = itemView.findViewById(R.id.txtTotalChapter);
         imgStory = itemView.findViewById(R.id.imgChapterList);
@@ -97,11 +95,6 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryByCategoriesIdAdapte
     @Override
     public void onBindViewHolder(@NonNull StoryByCategoriesIdAdapterViewHolder holder, int position) {
         Story story = storyList.get(position);
-        holder.txtIdStory.setText("Id Story: " + story.getId());
-
-//        Log.d("ALALA", story.getId()+ "");
-
-        holder.txtStoryByCategoriesId.setText("Id Categories: " + story.getCategoriesId());
         holder.txtNameStoryByCategoriesId.setText(story.getName());
         holder.txtTotalChapter.setText(story.getTotalChapter() + " Chương");
         holder.tvAuthor.setText(story.getAuthor());

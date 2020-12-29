@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@android:color/white"
+    android:orientation="vertical"
     tools:context=".activities.ChapterListActivity">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,13 +19,13 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/white"
             android:theme="@style/ToolbarColoredBackArrow"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_20"
+                android:gravity="center"
                 android:paddingRight="@dimen/dimen_25"
                 android:text="@string/ChaptersList"
                 android:textColor="#000"
@@ -35,19 +36,20 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
         android:id="@+id/nestedScrollViewChapter"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:nestedScrollingEnabled="false"
 
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView_ChapterList"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_ChapterList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

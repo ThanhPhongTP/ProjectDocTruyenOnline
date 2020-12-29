@@ -2,7 +2,6 @@ package com.example.projectdoctruyenonline.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectdoctruyenonline.Commons;
 import com.example.projectdoctruyenonline.R;
 import com.example.projectdoctruyenonline.activities.StoryDetailActivity;
 import com.example.projectdoctruyenonline.models.Story;
@@ -22,14 +20,14 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-    public TextView txtDocGandDay;
+    public TextView txtDocGanDay;
     public ImageView imgHistoryStoryW;
 
     private ItemClickListener itemClickListener;
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
-        txtDocGandDay = itemView.findViewById(R.id.txtDocGandDay);
+        txtDocGanDay = itemView.findViewById(R.id.txtDocGandDay);
         imgHistoryStoryW = itemView.findViewById(R.id.imgHistoryStoryW);
 //        itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -82,7 +80,7 @@ public class HistoryFragmentsAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Story story = storyArrayList_Watched.get(position);
-        holder.txtDocGandDay.setText(story.getName());
+        holder.txtDocGanDay.setText(story.getName());
 //        int kq = story.getId() % 19;
 //        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
 //        holder.imgHistoryStoryW.setImageResource(id);
@@ -96,7 +94,6 @@ public class HistoryFragmentsAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (!isLongClick) {
                     Intent intent = new Intent(context, StoryDetailActivity.class);
                     intent.putExtra("NEWSTORY", story.getId());
-                    Log.d("NEWSTORY1", story.getId() + "");
                     context.startActivity(intent);
                 }
             }

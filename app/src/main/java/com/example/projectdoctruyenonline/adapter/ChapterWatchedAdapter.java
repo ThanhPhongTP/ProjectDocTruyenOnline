@@ -10,9 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectdoctruyenonline.activities.ChapterWatchedActivity;
 import com.example.projectdoctruyenonline.Commons;
 import com.example.projectdoctruyenonline.R;
+import com.example.projectdoctruyenonline.activities.ReadStoryActivity;
 import com.example.projectdoctruyenonline.models.Chapter;
 
 import java.util.List;
@@ -55,21 +55,9 @@ public class ChapterWatchedAdapter extends RecyclerView.Adapter<ChapterWatchedAd
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
-                    Intent intent = new Intent(context, ChapterWatchedActivity.class);
+                    Intent intent = new Intent(context, ReadStoryActivity.class);
                     intent.putExtra(Commons.Chapter,chapterArrayList_Wathched.get(position));
                     context.startActivity(intent);
-
-
-
-//                    int position = getAdapterPosition();
-//                    Intent intent = new Intent(context, ReadStoryActivity.class);
-//                    intent.putExtra("idStory",chapterArrayList_Wathched.get(position).getIdStory());
-//                    intent.putExtra("idChapter",chapterArrayList_Wathched.get(position).getChapter_id());
-//                    intent.putExtra("title",chapterArrayList_Wathched.get(position).getTitle());
-//                    context.startActivity(intent);
-//                    String message = "Bạn đã xem chương: ";
-//                    Toast.makeText(context, ""+message+chapterArrayList_Wathched.get(position).getTitle(),
-//                            Toast.LENGTH_SHORT).show();
                 }
             });
         }

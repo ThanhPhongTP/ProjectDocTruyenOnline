@@ -21,23 +21,6 @@
             android:src="@color/colorBlueWhite"
             app:civ_border_color="#FF000000" />
 
-        <TextView
-            android:id="@+id/txtIdStory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="id"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/txtStoryByCategoriesId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtIdStory"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="idCategories"
-            android:visibility="gone" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -48,8 +31,6 @@
                 android:id="@+id/txtNameStoryByCategoriesId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtStoryByCategoriesId"
-                android:layout_toRightOf="@+id/imgChapterList"
                 android:gravity="center_vertical"
                 android:text="Name"
                 android:textColor="#000"
@@ -80,7 +61,6 @@
                     android:text="chuong"
                     android:textColor="#FFBABABA"
                     android:textSize="18sp" />
-
             </LinearLayout>
 
             <TextView
@@ -91,7 +71,6 @@
                 android:textColor="#FFBABABA"
                 android:textSize="12sp" />
         </LinearLayout>
-
 
     </LinearLayout>
 </LinearLayout>

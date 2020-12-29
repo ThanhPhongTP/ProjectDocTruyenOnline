@@ -20,6 +20,7 @@ import com.example.projectdoctruyenonline.activities.StoryDetailActivity;
 import com.example.projectdoctruyenonline.models.Ratting;
 import com.example.projectdoctruyenonline.models.Story;
 import com.example.projectdoctruyenonline.service.ItemClickListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -87,9 +88,13 @@ public class StoryWatchedAdapter extends RecyclerView.Adapter<StoryWatchedViewHo
     public void onBindViewHolder(@NonNull StoryWatchedViewHolder holder, int position) {
         Story story = storyArrayList_Watched.get(position);
         holder.txtNameSory.setText(story.getName());
-        int kq = story.getId() % 19;
-        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
-        holder.imgStoryWatched.setImageResource(id);
+//        int kq = story.getId() % 19;
+//        int id = context.getResources().getIdentifier("com.example.projectdoctruyenonline:drawable/s" + kq, null, null);
+//        holder.imgStoryWatched.setImageResource(id);
+
+        Picasso.with(context)
+                .load(story.getThumbnail_image())
+                .into(holder.imgStoryWatched);
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override

@@ -14,8 +14,7 @@
             android:id="@+id/imgNewStory"
             android:layout_width="@dimen/dimen_120"
             android:layout_height="@dimen/dimen_160"
-            android:gravity="center"
-            android:src="@drawable/s0" />
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/txtNewStory"

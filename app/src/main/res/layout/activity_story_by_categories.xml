@@ -20,13 +20,13 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/white"
             android:theme="@style/ToolbarColoredBackArrow"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_20"
+                android:gravity="center"
                 android:paddingRight="@dimen/dimen_25"
                 android:text="@string/StoryList"
                 android:textColor="#000"

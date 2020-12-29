@@ -90,10 +90,8 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
                 if (response != null && response.isSuccessful()) {
                     try {
                         JSONObject fatherJSON = new JSONObject(response.body());
-                        int story_id = (fatherJSON.getInt("story_id"));
                         String story_title = (fatherJSON.getString("story_title"));
                         String author = (fatherJSON.getString("author"));
-                        int rating = (fatherJSON.getInt("rating"));
                         int rating_count = (fatherJSON.getInt("rating_count"));
                         String description = (fatherJSON.getString("description"));
                         txtNameStoryDetail.setText(story_title);

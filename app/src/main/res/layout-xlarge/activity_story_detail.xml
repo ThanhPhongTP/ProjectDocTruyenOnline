@@ -14,35 +14,6 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <!--        <com.google.android.material.appbar.AppBarLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:theme="@style/AppTheme.AppBarOverlay">-->
-
-        <!--            <androidx.appcompat.widget.Toolbar-->
-        <!--                android:id="@+id/toolbar_StoryDetail"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="?attr/actionBarSize"-->
-        <!--                android:background="@android:color/white"-->
-        <!--                android:theme="@style/ToolbarColoredBackArrow"-->
-        <!--                app:popupTheme="@style/AppTheme.PopupOverlay" >-->
-
-        <!--                <TextView-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:gravity="center"-->
-        <!--                    android:layout_marginRight="@dimen/dimen_20"-->
-        <!--                    android:paddingRight="@dimen/dimen_25"-->
-        <!--                    android:textStyle="bold"-->
-        <!--                    android:text="@string/StoryDetail"-->
-        <!--                    android:textColor="@color/colorGreen"-->
-        <!--                    android:textSize="20sp" />-->
-
-        <!--            </androidx.appcompat.widget.Toolbar>-->
-
-        <!--        </com.google.android.material.appbar.AppBarLayout>-->
-
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,18 +70,9 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/txtCountCategoriesDetail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtNameStoryDetail"
-                            android:layout_toRightOf="@+id/imgStoryDetail"
-                            android:visibility="gone" />
-
-                        <TextView
                             android:id="@+id/txtAuthorDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/txtCountCategoriesDetail"
                             android:layout_marginTop="@dimen/dimen_5"
                             android:layout_toRightOf="@+id/imgStoryDetail"
                             android:text="author"
@@ -195,15 +157,6 @@
 
                 </LinearLayout>
 
-                <!--                <com.google.android.ads.nativetemplates.TemplateView-->
-                <!--                    android:layout_marginTop="@dimen/dimen_10"-->
-                <!--                    android:layout_marginRight="@dimen/dimen_10"-->
-                <!--                    android:layout_below="@id/linearLayout_History"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:id="@+id/template_StoryDetailActivity"-->
-                <!--                    app:gnt_template_type="@layout/gnt_small_template_view"-->
-                <!--                    />-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

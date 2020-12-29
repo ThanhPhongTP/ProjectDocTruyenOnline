@@ -7,14 +7,11 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/dimen_10">
 
-
     <ImageView
         android:id="@+id/img_follow"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/s2"
         android:scaleType="centerCrop"/>
-
 
     <TextView
         android:id="@+id/tv_name_follow"

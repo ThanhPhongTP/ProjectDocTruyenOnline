@@ -20,23 +20,6 @@
             android:src="@color/colorBlueWhite"
             app:civ_border_color="#FF000000" />
 
-        <TextView
-            android:id="@+id/txtIdStory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="id"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/txtStoryByCategoriesId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtIdStory"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="idCategories"
-            android:visibility="gone" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,8 +29,6 @@
                 android:id="@+id/txtNameStoryByCategoriesId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtStoryByCategoriesId"
-                android:layout_toRightOf="@+id/imgChapterList"
                 android:text="Name"
                 android:textColor="#000"
                 android:textSize="@dimen/dimen_17" />
@@ -61,8 +42,6 @@
                     android:id="@+id/tvAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txtNameStoryByCategoriesId"
-                    android:layout_toRightOf="@+id/imgChapterList"
                     android:text="Tác giả"
                     android:textColor="#BABABA"
                     android:textSize="12sp" />
@@ -71,22 +50,20 @@
                     android:id="@+id/txtTotalChapter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txtNameStoryByCategoriesId"
-                    android:layout_toRightOf="@+id/imgChapterList"
                     android:gravity="right"
                     android:text="chuong"
                     android:textColor="#FFBABABA"
                     android:textSize="12sp" />
 
             </LinearLayout>
+
             <TextView
                 android:id="@+id/tvDate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="#FFBABABA"
-                android:text="Ngày"/>
+                android:text="Ngày"
+                android:textColor="#FFBABABA" />
+
         </LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>

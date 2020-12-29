@@ -13,7 +13,6 @@
         android:id="@+id/img_follow"
         android:layout_width="@dimen/dimen_100"
         android:layout_height="@dimen/dimen_100"
-        android:src="@drawable/s2"
         android:scaleType="centerCrop"/>
 
 

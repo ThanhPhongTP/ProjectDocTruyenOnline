@@ -63,7 +63,7 @@ public class ChapterListActivity extends AppCompatActivity {
         getIntentFromStory();
         if (Commons.isConnectedtoInternet(this)) {
             getAPI();
-            loadMoreData();
+//            loadMoreData();
         }
         else {
             Commons.showDialogError(this);
@@ -83,7 +83,6 @@ public class ChapterListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             nID = intent.getIntExtra(Commons.Chapter, 0);
-//            Log.d("NEWSTORY", nID+"");
         }
     }
     private void loadMoreData() {
@@ -115,29 +114,7 @@ public class ChapterListActivity extends AppCompatActivity {
                 recyclerView.setLayoutManager(linearLayoutManager);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setAdapter(adapter);
-
-
-//                try {
-//                    JSONArray jsonArray = new JSONArray(response.body().toString());
-//                    for (int i = 0; i < jsonArray.length(); i++) {
-//                        JSONObject object = jsonArray.getJSONObject(i);
-//                        nChapter_ID = object.getInt("story_id");
-//                        sChapter = object.getString("title");
-//                        chapterList.add(new Chapter(nChapter_ID, sChapter));
-//                        adapter.notifyDataSetChanged();
-//                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-
             }
-//
-//            @Override
-//            public void onFailure(Call<String> call, Throwable t) {
-//                Log.d("ERRRRORRR",t.toString());
-//            }
-
             @Override
             public void onFailure(Call<List<Chapter>> call, Throwable t) {
                 Log.d("ydsf" , "sa");
