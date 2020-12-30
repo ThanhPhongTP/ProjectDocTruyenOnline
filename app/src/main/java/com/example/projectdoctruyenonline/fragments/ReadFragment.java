@@ -116,11 +116,6 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
                             compareNumber = i + 1;
                             if (getArguments().getInt(Commons.ARG_SECTION_NUMBER) == compareNumber) {
                                 chapter = chapterArrayList.get(i);
-//                                txtReadStory.setText(chapter.getContents());
-//                                txtReadStory.setText(chapter.getTitle());
-
-                                Log.d("kpkp", chapter.getContents());
-
                                 //Decryption content
                                 String sDe = Decrypt.Base64Decode(chapter.getContents());
                                 try {
@@ -129,7 +124,11 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
                                     sValue = object.getString("value");
                                     String sContent = Decrypt.decrypt(Decrypt.key.getBytes(), sIV, sValue);
                                     txtReadStory.setText(sContent);
-
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                        txtReadStory.setText(Html.fromHtml(sContent, Html.FROM_HTML_MODE_COMPACT));
+                                    } else {
+                                        txtReadStory.setText(Html.fromHtml(sContent));
+                                    }
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }

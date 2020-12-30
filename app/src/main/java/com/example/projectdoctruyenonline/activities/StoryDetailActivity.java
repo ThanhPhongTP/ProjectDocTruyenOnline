@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -309,13 +310,9 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
                     try {
                         JSONArray jsonArray = new JSONArray(response.body().toString());
                         JSONObject jsonObject = jsonArray.getJSONObject(0);
-
-
 //                        JSONObject fatherJSON = new JSONObject(response.body());
-                        int story_id = (jsonObject.getInt("story_id"));
                         String story_title = (jsonObject.getString("story_title"));
                         String author = (jsonObject.getString("author"));
-                        int rating = (jsonObject.getInt("rating"));
                         int rating_count = (jsonObject.getInt("rating_count"));
                         String description = (jsonObject.getString("description"));
                         String sLinkImg = jsonObject.getString("thumbnail_image");
@@ -323,7 +320,12 @@ public class StoryDetailActivity extends AppCompatActivity implements View.OnCli
                                 .load(sLinkImg)
                                 .into(imgStoryDetail);
                         txtNameStoryDetail.setText(story_title);
-                        txtContentStory.setText(description);
+//                        txtContentStory.setText(description);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            txtContentStory.setText(Html.fromHtml(description, Html.FROM_HTML_MODE_COMPACT));
+                        } else {
+                            txtContentStory.setText(Html.fromHtml(description));
+                        }
                         txtAuthorDetail.setText("Tác giả: " + author);
                         txtCountCategoriesDetail.setText(rating_count + " Chương");
 //                        //Lưu truyện vào lịch sử
