@@ -123,7 +123,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
                                     sIV = object.getString("iv");
                                     sValue = object.getString("value");
                                     String sContent = Decrypt.decrypt(Decrypt.key.getBytes(), sIV, sValue);
-                                    txtReadStory.setText(sContent);
+//                                    txtReadStory.setText(sContent);
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                         txtReadStory.setText(Html.fromHtml(sContent, Html.FROM_HTML_MODE_COMPACT));
                                     } else {
