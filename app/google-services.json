@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "725947244012",
-    "project_id": "truyenonline-v1",
-    "storage_bucket": "truyenonline-v1.appspot.com"
+    "project_number": "229548901836",
+    "project_id": "truyen-edc26",
+    "storage_bucket": "truyen-edc26.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:725947244012:android:22ebb0b51dc6228510b4c9",
+        "mobilesdk_app_id": "1:229548901836:android:8e0baa666bd912815cc969",
         "android_client_info": {
-          "package_name": "com.example.projectdoctruyenonline"
+          "package_name": "com.example.truyenmoi247"
         }
       },
       "oauth_client": [
         {
-          "client_id": "725947244012-apshfmle6t3ffqij23ikhq0g70hbik6t.apps.googleusercontent.com",
+          "client_id": "229548901836-iubnr5eqr143eu2sm1buj617bvn5him9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDQDNZBUzXHklw4xs4gAmovb0W_acZyUyU"
+          "current_key": "AIzaSyDWfsYOg3IvIgsgrw3AD-XaFN5Qy70mtDc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "725947244012-apshfmle6t3ffqij23ikhq0g70hbik6t.apps.googleusercontent.com",
+              "client_id": "229548901836-iubnr5eqr143eu2sm1buj617bvn5him9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

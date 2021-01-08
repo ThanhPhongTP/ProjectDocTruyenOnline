@@ -1,71 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/linearLayout_StoryFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/dimen_5"
-    android:layout_margin="@dimen/dimen_8">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/dimen_10"
-        android:paddingTop="@dimen/dimen_10"
-        android:paddingLeft="@dimen/dimen_15"
-        android:paddingRight="@dimen/dimen_15"
-        >
+        android:background="@drawable/section_header"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/imgChapterList"
-            android:layout_width="@dimen/dimen_100"
-            android:layout_height="@dimen/dimen_100"
-            android:layout_marginRight="@dimen/dimen_10"
-            app:civ_border_color="#FF000000"
-            android:src="@color/colorYellow"/>
+    <TextView
+        android:id="@+id/txtTitleChapter"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/dimen_15"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:maxLines="1"
+        android:paddingHorizontal="@dimen/dimen_30"
+        android:ellipsize="end"
+        android:textColor="?attr/textColor"
+        android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/txtIdChapter"
-            android:layout_width="wrap_content"
-            android:visibility="gone"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="id" />
-        <TextView
-            android:visibility="gone"
-            android:layout_below="@+id/txtIdChapter"
-            android:id="@+id/txtIdStory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="idCategories" />
 
-        <TextView
-            android:textSize="22sp"
-            android:textColor="@color/colorGreen"
-            android:id="@+id/txtTitleChapter"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/txtIdStory"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="TitleChapter" />
-        <TextView
-            android:visibility="gone"
-            android:textSize="@dimen/dimen_17"
-            android:textColor="@color/colorGreen"
-            android:id="@+id/txtContentChapter"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/txtTitleChapter"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="content"
-            android:maxLines="2"
-            android:ellipsize="end"
-            />
-
-    </LinearLayout>
 </LinearLayout>

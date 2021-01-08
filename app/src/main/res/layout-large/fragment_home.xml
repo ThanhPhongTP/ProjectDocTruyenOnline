@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/backgroundColor"
     tools:context=".fragments.FragmentHome">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -41,7 +42,7 @@
                         android:layout_marginTop="@dimen/dimen_15"
                         android:padding="@dimen/dimen_10"
                         android:text="Truyện đề cử"
-                        android:textColor="#000"
+                        android:textColor="?attr/textColor"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -66,7 +67,7 @@
                         android:layout_marginTop="@dimen/dimen_15"
                         android:padding="@dimen/dimen_10"
                         android:text="Truyện hay"
-                        android:textColor="#000"
+                        android:textColor="?attr/textColor"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -83,7 +84,7 @@
                         android:layout_marginTop="@dimen/dimen_15"
                         android:padding="@dimen/dimen_10"
                         android:text="Truyện mới cập nhật"
-                        android:textColor="#000"
+                        android:textColor="?attr/textColor"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 

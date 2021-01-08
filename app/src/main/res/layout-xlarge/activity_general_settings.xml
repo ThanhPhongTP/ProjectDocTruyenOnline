@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/backgroundColor"
+    tools:context=".activities.GeneralSettingsActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/CategoriesAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/general_Setting"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/backgroundColor"
+            android:theme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen_50"
+                android:gravity="center"
+                android:text="Cài đặt chung"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/sp22" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_40"
+        android:layout_marginTop="15dp">
+
+        <Switch
+            android:id="@+id/swTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:paddingRight="@dimen/dimen_20"
+            android:text="Giao diện tối"
+            android:textSize="@dimen/sp22"
+            android:textColor="?attr/textColor"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </LinearLayout>
+
+<!--    <Button-->
+<!--        android:id="@+id/save"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="save"/>-->
+
+</LinearLayout>

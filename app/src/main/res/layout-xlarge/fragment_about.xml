@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical"
     tools:context=".fragments.AboutFragment">
 
@@ -19,7 +19,7 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/white"
+            android:background="?attr/backgroundColor"
             android:theme="@style/AppTheme.PopupOverlay">
 
             <TextView
@@ -28,9 +28,8 @@
                 android:layout_marginRight="@dimen/dimen_20"
                 android:gravity="center"
                 android:text="Cá nhân"
-                android:textColor="@color/colorGreen"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/sp22" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -55,10 +54,9 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/dimen_80"
+                    android:layout_height="@dimen/dimen_80"
                     android:src="@drawable/profiles" />
-
 
                 <TextView
                     android:id="@+id/txtWelcome"
@@ -67,55 +65,39 @@
                     android:layout_marginLeft="@dimen/dimen_10"
                     android:layout_toRightOf="@id/imgProfile"
                     android:text="Chào mừng bạn đến với TYT"
-                    android:textColor="@color/colorGreen"
-                    android:textSize="22sp" />
+                    android:textColor="?attr/textColor"
+                    android:textSize="@dimen/sp22" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtWelcome"
-                    android:layout_marginLeft="@dimen/dimen_10"
-                    android:layout_toRightOf="@id/imgProfile"
-                    android:text="Đăng nhập/Đăng ký"
-                    android:textSize="15dp"
-                    android:visibility="gone" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_margin="@dimen/dimen_16"
-                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"
-                    android:visibility="gone" />
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="18sp"
-                android:text="Lịch sử tài khoản" />
+                android:textSize="@dimen/sp22"
+                android:textColor="@color/clmain"
+                android:text="@string/account_history" />
 
             <LinearLayout
                 android:id="@+id/linearStoryWatched"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dimen_20"
                 android:orientation="horizontal">
 
 
                 <ImageView
                     android:layout_width="@dimen/dimen_30"
                     android:layout_height="@dimen/dimen_30"
-                    android:src="@drawable/ic_baseline_history_24" />
+                    android:src="@drawable/clock" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Truyện đã xem"
-                    android:textColor="@color/colorGreen" />
+                    android:textSize="@dimen/sp22"
+                    android:text="@string/seen"
+                    android:textColor="?attr/textColor" />
 
             </LinearLayout>
             <!--        <LinearLayout-->
@@ -206,75 +188,85 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Cài Đặt" />
+                android:textSize="@dimen/sp22"
+                android:textColor="@color/clmain"
+                android:text="@string/setting" />
 
             <LinearLayout
                 android:id="@+id/linearSetting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dimen_20"
                 android:orientation="horizontal">
 
 
                 <ImageView
                     android:layout_width="@dimen/dimen_30"
                     android:layout_height="@dimen/dimen_30"
-                    android:src="@drawable/ic_baseline_brightness_auto_24" />
+                    android:src="@drawable/interface_setting" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Giao diện đọc truyện"
-                    android:textColor="@color/colorGreen" />
+                    android:textSize="@dimen/sp22"
+                    android:text="@string/interfaceSetting"
+                    android:textColor="?attr/textColor" />
 
             </LinearLayout>
-            <!--        <LinearLayout-->
-            <!--            android:layout_marginTop="15dp"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:orientation="horizontal">-->
+
+            <LinearLayout
+                android:id="@+id/linear_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:orientation="horizontal">
 
 
-            <!--            <ImageView-->
-            <!--                android:layout_width="24dp"-->
-            <!--                android:layout_height="24dp"-->
-            <!--                android:src="@drawable/ic_baseline_category_open_24"/>-->
-            <!--            <TextView-->
-            <!--                android:layout_marginLeft="10dp"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="Thể Loại"-->
-            <!--                android:textColor="@color/colorGreen"/>-->
+                <ImageView
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:src="@drawable/setting" />
 
-            <!--        </LinearLayout>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp22"
+                    android:text="@string/settingG"
+                    android:textColor="?attr/textColor" />
+
+            </LinearLayout>
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Thông Tin" />
+                android:textSize="@dimen/sp22"
+                android:textColor="@color/clmain"
+                android:text="@string/info" />
 
             <LinearLayout
                 android:id="@+id/linearFeedBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dimen_20"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="@dimen/dimen_30"
                     android:layout_height="@dimen/dimen_30"
-                    android:src="@drawable/ic_baseline_error_outline_24" />
+                    android:src="@drawable/feedback" />
 
                 <TextView
                     android:id="@+id/txtFeedbackApp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/sp22"
                     android:layout_marginLeft="10dp"
-                    android:text="Góp ý, đánh giá ứng dụng"
-                    android:textColor="@color/colorGreen" />
+                    android:text="@string/feedback"
+                    android:textColor="?attr/textColor" />
 
             </LinearLayout>
 
@@ -282,22 +274,21 @@
                 android:id="@+id/linearShareApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dimen_20"
                 android:orientation="horizontal">
-
 
                 <ImageView
                     android:layout_width="@dimen/dimen_30"
                     android:layout_height="@dimen/dimen_30"
-                    android:src="@drawable/ic_baseline_share_24" />
+                    android:src="@drawable/share" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Chia sẽ ứng dụng"
-                    android:textColor="@color/colorGreen" />
+                    android:textSize="@dimen/sp22"
+                    android:text="@string/share"
+                    android:textColor="?attr/textColor" />
 
             </LinearLayout>
 
@@ -305,43 +296,45 @@
                 android:id="@+id/linearSecurity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dimen_20"
                 android:orientation="horizontal">
-
 
                 <ImageView
                     android:layout_width="@dimen/dimen_30"
                     android:layout_height="@dimen/dimen_30"
-                    android:src="@drawable/ic_baseline_security_24" />
+                    android:src="@drawable/shield" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Chính sách bảo mật"
-                    android:textColor="@color/colorGreen" />
+                    android:textSize="@dimen/sp22"
+                    android:text="@string/security"
+                    android:textColor="?attr/textColor" />
 
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/linearAbout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_marginTop="20dp"
-                android:text="V1.18" />
+                android:layout_marginTop="@dimen/dimen_20"
+                android:orientation="horizontal">
 
-            <!--            <com.google.android.ads.nativetemplates.TemplateView-->
-            <!--                android:layout_marginTop="@dimen/dimen_10"-->
-            <!--                android:layout_marginBottom="@dimen/dimen_15"-->
+                <ImageView
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:src="@drawable/man" />
 
-            <!--                android:layout_marginRight="@dimen/dimen_10"-->
-            <!--                android:layout_below="@id/linearLayout_History"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:id="@+id/template_AboutFragment"-->
-            <!--                app:gnt_template_type="@layout/gnt_small_template_view"-->
-            <!--                />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp22"
+                    android:text="@string/ab"
+                    android:textColor="?attr/textColor" />
+
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

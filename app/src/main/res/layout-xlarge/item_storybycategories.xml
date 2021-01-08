@@ -18,7 +18,7 @@
             android:layout_width="@dimen/dimen_100"
             android:layout_height="@dimen/dimen_100"
             android:layout_marginRight="@dimen/dimen_10"
-            android:src="@color/colorBlueWhite"
+            android:src="@drawable/book"
             app:civ_border_color="#FF000000" />
 
         <TextView
@@ -52,7 +52,7 @@
                 android:layout_toRightOf="@+id/imgChapterList"
                 android:gravity="center_vertical"
                 android:text="Name"
-                android:textColor="#000"
+                android:textColor="?attr/textColor"
                 android:textSize="22sp" />
 
             <LinearLayout

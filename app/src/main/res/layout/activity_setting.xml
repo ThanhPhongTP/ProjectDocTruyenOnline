@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/backgroundColor"
     tools:context=".activities.SettingActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -15,26 +16,22 @@
             android:id="@+id/toolbar_Setting"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/white"
-            android:theme="@style/ToolbarColoredBackArrow"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:background="?attr/backgroundColor"
+            android:theme="@style/AppTheme.PopupOverlay">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_20"
+                android:gravity="center"
                 android:paddingRight="@dimen/dimen_20"
-                android:textStyle="bold"
                 android:text="Giao diện đọc truyện"
-                android:textColor="@color/colorGreen"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp" />
 
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
-
-
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -52,7 +49,7 @@
             android:orientation="vertical">
             <TextView
                 android:textSize="15dp"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/textColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Màu Nền"/>
@@ -101,7 +98,7 @@
 
             <TextView
                 android:textSize="15dp"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/textColor"
                 android:layout_marginTop="@dimen/readlayoutmarginTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -167,7 +164,7 @@
 
             <TextView
                 android:textSize="15dp"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/textColor"
                 android:layout_marginTop="@dimen/readlayoutmarginTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -252,7 +249,7 @@
 
             <TextView
                 android:textSize="15dp"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/textColor"
                 android:layout_marginTop="@dimen/readlayoutmarginTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -327,7 +324,7 @@
 
             <TextView
                 android:textSize="15dp"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/textColor"
                 android:layout_marginTop="@dimen/readlayoutmarginTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -341,7 +338,6 @@
 
                 <Button
                     android:layout_marginBottom="@dimen/dimen_5"
-
                     android:id="@+id/btnlineHeight_1"
                     android:layout_weight="1"
                     android:text="1"
@@ -479,7 +475,6 @@
                 android:orientation="horizontal">
 
                 <Button
-
                     android:id="@+id/btnautoscroll_No"
                     android:text="Không"
                     android:textAllCaps="false"
@@ -498,14 +493,11 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_corners_blue_white"
                     android:textColor="@android:color/black"/>
-
-
             </LinearLayout>
-
 
             <TextView
                 android:textSize="15dp"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/textColor"
                 android:layout_marginTop="@dimen/readlayoutmarginTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -20,32 +20,26 @@
             android:layout_width="@dimen/dimen_100"
             android:layout_height="@dimen/dimen_100"
             android:layout_marginRight="10dp"
+            android:src="@drawable/book"
             app:civ_border_color="#FF000000" />
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txt_nameStoryWatched"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/imgStoryWatched"
                 android:text="Name"
-                android:textColor="@color/colorGreen"
+                android:layout_width="match_parent"
+                android:maxLines="2"
+                android:textColor="?attr/textColor"
                 android:textSize="22sp" />
 
-            <TextView
-                android:id="@+id/txtCountStoryWatched"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txt_nameStoryWatched"
-                android:layout_toRightOf="@+id/imgStoryWatched"
-                android:text="154 chương"
-                android:textSize="18sp" />
         </LinearLayout>
 
 

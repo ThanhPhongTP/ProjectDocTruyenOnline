@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical"
     tools:context=".fragments.FragmentHome">
 
@@ -31,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-5dp"
-                    android:background="@drawable/backgound_linear"
+                    android:background="?attr/backgroundColor"
                     android:orientation="vertical">
 
                     <TextView
@@ -41,7 +42,7 @@
                         android:layout_marginTop="@dimen/dimen_15"
                         android:padding="@dimen/dimen_10"
                         android:text="Truyện đề cử"
-                        android:textColor="#000"
+                        android:textColor="?attr/textColor"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -66,7 +67,7 @@
                         android:layout_marginTop="@dimen/dimen_15"
                         android:padding="@dimen/dimen_10"
                         android:text="Truyện hay"
-                        android:textColor="#000"
+                        android:textColor="?attr/textColor"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -83,7 +84,7 @@
                         android:layout_marginTop="@dimen/dimen_15"
                         android:padding="@dimen/dimen_10"
                         android:text="Truyện mới cập nhật"
-                        android:textColor="#000"
+                        android:textColor="?attr/textColor"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 

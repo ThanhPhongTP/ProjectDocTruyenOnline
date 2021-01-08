@@ -18,6 +18,7 @@
             android:id="@+id/imgHistoryStoryW"
             android:layout_width="@dimen/dimen_100"
             android:layout_height="@dimen/dimen_100"
+            android:src="@drawable/book"
             android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
 
@@ -30,6 +31,6 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:text="test"
-        android:textColor="#1C223C"
-        android:textSize="18sp" />
+        android:textColor="?attr/textColor"
+        android:textSize="@dimen/sp22" />
 </LinearLayout>

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.projectdoctruyenonline">
+    package="com.example.truyen">
 
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -18,23 +17,34 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ProjectDocTruyenOnline"
+        android:theme="@style/ProjectDocTruyenOnline_Light"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.FragmentActivity" />
-        <activity android:name=".activities.ChapterWatchedActivity" />
-        <activity android:name=".activities.StoryWatchedActivity" />
-        <activity android:name=".activities.SettingActivity" />
-        <activity android:name=".activities.ReadStoryActivity" />
-        <activity android:name=".activities.ChapterListActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".activities.StoryListActivity" /> <!-- <activity -->
+        <activity android:name=".activities.AboutActivity"></activity>
+        <activity
+            android:name=".activities.ReadStoryActivityOffline"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.StoryOffLine"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.GeneralSettingsActivity"
+            android:screenOrientation="portrait" /> <!-- <activity android:name=".activities.SplashActivity"/> -->
+        <!-- <activity android:name=".activities.FragmentActivity" /> -->
+        <activity
+            android:name=".activities.ChapterWatchedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.StoryWatchedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ReadStoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.StoryListActivity"
+            android:screenOrientation="portrait" /> <!-- <activity -->
         <!-- android:name=".activities.HomeActivity" -->
         <!-- android:label="@string/title_activity_home" -->
         <!-- android:theme="@style/Theme.ProjectDocTruyenOnline"> -->
@@ -43,25 +53,33 @@
         <!-- &lt;!&ndash; <category android:name="android.intent.category.LAUNCHER" /> &ndash;&gt; -->
         <!-- &lt;!&ndash; </intent-filter> &ndash;&gt; -->
         <!-- </activity> -->
-        <activity android:name=".activities.StoryDetailActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".activities.StoryDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".service.MyFirebaseMessagingService" android:exported="false">
+
+        <service
+            android:name=".service.MyFirebaseMessagingService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
 
-            <!--        <meta-data-->
-            <!--            android:name="com.google.firebase.messaging.default_notification_channel_id"-->
-            <!--            android:value="@string/default_notification_channel_id" />-->
+            <!-- <meta-data -->
+            <!-- android:name="com.google.firebase.messaging.default_notification_channel_id" -->
+            <!-- android:value="@string/default_notification_channel_id" /> -->
         </service>
     </application>
-
-
 
 </manifest>

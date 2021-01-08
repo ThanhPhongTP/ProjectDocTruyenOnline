@@ -6,22 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/frmDiscover"
-    android:background="#fff"
+    android:background="?attr/backgroundColor"
     tools:context=".fragments.FragmentDiscover">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabDiscover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/backgroundColor"
         app:tabIconTint="@drawable/selector"
-        app:tabIndicatorColor="#95a5a6"
+        app:tabIndicatorColor="@color/clmain"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="#E84E94FD"
+        app:tabSelectedTextColor="@color/clmain"
         app:tabTextColor="@android:color/tertiary_text_light" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewDiscover"
         android:layout_width="match_parent"
+        android:background="?attr/backgroundColor"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="140dp"
-    android:layout_height="235dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dimen_5">
 
     <LinearLayout
@@ -13,19 +13,19 @@
         <ImageView
             android:id="@+id/imgNewStory"
             android:layout_width="140dp"
+            android:src="@drawable/book"
             android:layout_height="@dimen/dimen_200"
-            android:gravity="center"
-            android:src="@drawable/s0" />
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/txtNewStory"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/dimen_35"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
             android:maxLines="2"
             android:paddingTop="@dimen/dimen_5"
             android:paddingHorizontal="@dimen/dimen_10"
             android:text="@string/app_name"
-            android:textColor="#000"
+            android:textColor="?attr/textColor"
             android:textSize="@dimen/sp12" />
 
     </LinearLayout>

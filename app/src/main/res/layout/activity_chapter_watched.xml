@@ -25,10 +25,9 @@
                 android:layout_height="wrap_content"
                 android:text="Truyện đã đọc"
                 android:textSize="20sp"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_20"
-                android:textColor="@color/colorGreen"/>
+                android:textColor="#000"/>
 
         </androidx.appcompat.widget.Toolbar>
 

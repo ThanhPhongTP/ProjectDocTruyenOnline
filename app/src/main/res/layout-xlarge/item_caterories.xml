@@ -5,67 +5,23 @@
     android:id="@+id/linearLayout_StoryFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/dimen_50"
-    android:paddingVertical="@dimen/dimen_5">
+    android:padding="@dimen/dimen_10">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal">
-
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/imgCategories"
-            android:layout_width="@dimen/dimen_100"
-            android:layout_height="@dimen/dimen_100"
-            android:layout_marginRight="@dimen/dimen_10"
-            android:src="@color/colorRed"
-            app:civ_border_color="#FF000000" />
+        android:background="@drawable/bg_item_categories">
 
         <TextView
-            android:id="@+id/txtIdCategories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgCategories"
-            android:text="id"
-            android:visibility="gone" />
-
-        <LinearLayout
+            android:id="@+id/txtNameCategories"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:weightSum="3"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtNameCategories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtIdCategories"
-                android:layout_toRightOf="@+id/imgCategories"
-                android:text="Name"
-                android:textColor="#000"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/tvTotal_Story"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total"
-                android:textColor="#BABABA"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txtUrlCategories"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtNameCategories"
-            android:layout_toRightOf="@+id/imgCategories"
-            android:text="url"
-            android:textColor="@color/colorGreen"
-            android:textSize="@dimen/dimen_17"
-            android:visibility="gone" />
+            android:text="Name"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dimen_10"
+            android:textColor="#000"
+            android:textSize="22sp" />
+
     </LinearLayout>
 </LinearLayout>

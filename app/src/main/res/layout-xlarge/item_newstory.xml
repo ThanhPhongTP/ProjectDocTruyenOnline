@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="240dp"
-    android:layout_height="400dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dimen_5">
 
     <LinearLayout
@@ -14,18 +14,18 @@
             android:id="@+id/imgNewStory"
             android:layout_width="240dp"
             android:layout_height="330dp"
-            android:gravity="center"
-            android:src="@drawable/s0" />
+            android:src="@drawable/book"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/txtNewStory"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/dimen_70"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/dimen_10"
             android:paddingTop="8dp"
             android:maxLines="2"
             android:text="@string/app_name"
-            android:textColor="#000"
+            android:textColor="?attr/textColor"
             android:textSize="24sp" />
 
     </LinearLayout>

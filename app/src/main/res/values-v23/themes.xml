@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.ProjectDocTruyenOnline" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="ProjectDocTruyenOnline" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#eeeeee</item>
         <item name="colorPrimaryDark">@color/colorWhite</item>

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="?attr/backgroundColor"
     android:layout_height="match_parent"
     tools:context=".activities.StoryWatchedActivity">
 
@@ -16,9 +17,8 @@
             android:id="@+id/toolbar_StoryWatched"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/white"
-            android:theme="@style/ToolbarColoredBackArrow"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:background="?attr/backgroundColor"
+            android:theme="@style/AppTheme.PopupOverlay">
 
             <TextView
                 android:layout_width="match_parent"
@@ -27,9 +27,8 @@
                 android:gravity="center"
                 android:paddingRight="@dimen/dimen_25"
                 android:text="Truyện Đã Xem"
-                android:textColor="@color/colorGreen"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColor="?attr/textColor"
+                android:textSize="20sp" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -46,6 +45,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="@string/noDataHistory"
-        android:textColor="@color/colorGreen"
+        android:textColor="@color/clmain"
         android:textSize="20dp" />
 </RelativeLayout>

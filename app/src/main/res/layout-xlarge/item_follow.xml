@@ -13,7 +13,7 @@
         android:id="@+id/img_follow"
         android:layout_width="@dimen/dimen_100"
         android:layout_height="@dimen/dimen_100"
-        android:src="@drawable/s2"
+        android:src="@drawable/book"
         android:scaleType="centerCrop"/>
 
 
@@ -24,7 +24,7 @@
         android:gravity="center|left"
         android:text="Name"
         android:layout_marginLeft="@dimen/dimen_5"
-        android:textColor="@color/colorGreen"
-        android:textSize="22sp" />
+        android:textColor="?attr/textColor"
+        android:textSize="@dimen/sp22" />
 
 </LinearLayout>

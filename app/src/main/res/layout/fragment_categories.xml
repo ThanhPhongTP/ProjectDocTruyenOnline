@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@android:color/white"
+    android:background="?attr/backgroundColor"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragments.CategoriesListFragment">
@@ -18,17 +18,16 @@
             android:id="@+id/toolbar_Categories"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/white"
-            android:theme="@style/ToolbarColoredBackArrow"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:background="?attr/backgroundColor"
+            android:theme="@style/AppTheme.PopupOverlay">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:paddingLeft="@dimen/dimen_30"
-                android:textStyle="bold"
+                android:layout_marginRight="@dimen/dimen_20"
                 android:text="@string/Categories"
-                android:textColor="@color/colorGreen"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp" />
         </androidx.appcompat.widget.Toolbar>
 

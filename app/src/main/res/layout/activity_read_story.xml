@@ -24,9 +24,8 @@
                 android:id="@+id/testToolBarId"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/white"
-                android:theme="@style/ToolbarColoredBackArrow"
-                app:popupTheme="@style/AppTheme.PopupOverlay">
+                android:background="?attr/backgroundColor"
+                android:theme="@style/AppTheme.PopupOverlay">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -35,7 +34,7 @@
                     android:gravity="center"
                     android:paddingRight="@dimen/dimen_30"
                     android:text="Đọc truyện"
-                    android:textColor="@color/colorGreen"
+                    android:textColor="?attr/textColor"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.Toolbar>

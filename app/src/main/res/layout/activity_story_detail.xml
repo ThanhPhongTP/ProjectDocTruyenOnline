@@ -4,220 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical"
     tools:context=".activities.StoryDetailActivity">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:fillViewport="true"
+        android:orientation="vertical"
+        android:scrollbars="none">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_StoryDetail"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/white"
-                android:theme="@style/ToolbarColoredBackArrow"
-                app:popupTheme="@style/AppTheme.PopupOverlay" >
+                android:layout_height="wrap_content">
 
-                <TextView
+                <com.jgabrielfreitas.core.BlurImageView
+                    android:id="@+id/imgBackground"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginRight="@dimen/dimen_20"
-                    android:paddingRight="@dimen/dimen_25"
-                    android:textStyle="bold"
-                    android:text="@string/StoryDetail"
-                    android:textColor="@color/colorGreen"
-                    android:textSize="20sp" />
+                    android:layout_height="@dimen/dimen_110"
+                    android:scaleType="centerCrop" />
 
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true"
-            android:orientation="vertical"
-            android:scrollbars="none">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_20"
-                android:layout_marginRight="@dimen/dimen_20"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dimen_8"
-                    android:layout_marginLeft="@dimen/dimen_5">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/dimen_15">
-
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                            android:id="@+id/imgStoryDetail"
-                            android:layout_width="@dimen/dimen_60"
-                            android:layout_height="@dimen/dimen_60"
-                            android:layout_marginRight="@dimen/dimen_10"
-                            android:src="@color/colorRed"
-                            app:civ_border_color="#FF000000" />
-
-                        <TextView
-                            android:id="@+id/txtNameStoryDetail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/imgStoryDetail"
-                            android:text="NameStory"
-                            android:textColor="@color/colorGreen"
-                            android:textSize="@dimen/dimen_17" />
-
-                        <TextView
-                            android:id="@+id/txtCountCategoriesDetail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtNameStoryDetail"
-                            android:layout_toRightOf="@+id/imgStoryDetail"
-                            android:visibility="gone" />
-
-                        <TextView
-                            android:id="@+id/txtAuthorDetail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtCountCategoriesDetail"
-                            android:layout_toRightOf="@+id/imgStoryDetail" />
-
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnListChapters"
-                        android:layout_width="@dimen/dimen_100"
-                        android:layout_height="@dimen/dimen_30"
-                        android:background="@drawable/bg_button"
-                        android:text="@string/ChaptersList"
-                        android:textAllCaps="false"
-                        android:textSize="@dimen/dimen_10" />
-
-                    <Button
-                        android:id="@+id/btnFeedBackChapter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="@dimen/dimen_10"
-                        android:background="@drawable/bg_button"
-                        android:text="@string/FeedBack"
-                        android:textAllCaps="false"
-                        android:textSize="10dp" />
-
-                    <ImageView
-                        android:id="@+id/imglike"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_20"
-                        android:layout_gravity="center|right"
-                        android:src="@drawable/like"/>
-
-
-                </LinearLayout>
-
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_10"
-                    android:text="@string/chapterWatched"
-                    android:textColor="@android:color/black" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_10">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerView_ChapterWatched"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/txtNoReadStory"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/NoData"
-                            android:textColor="@color/colorGreen"
-                            android:textSize="@dimen/dimen_20"
-                            android:visibility="gone" />
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <!--                <com.google.android.ads.nativetemplates.TemplateView-->
-                <!--                    android:layout_marginTop="@dimen/dimen_10"-->
-                <!--                    android:layout_marginRight="@dimen/dimen_10"-->
-                <!--                    android:layout_below="@id/linearLayout_History"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:id="@+id/template_StoryDetailActivity"-->
-                <!--                    app:gnt_template_type="@layout/gnt_small_template_view"-->
-                <!--                    />-->
-                <TextView
+                <ImageView
+                    android:id="@+id/imgback"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_10"
-                    android:text="@string/Content"
-                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:src="@drawable/ic_baseline_arrow_back_24" />
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/download"-->
+<!--                    android:layout_width="@dimen/dimen_24"-->
+<!--                    android:layout_height="@dimen/dimen_24"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_marginTop="@dimen/dimen_5"-->
+<!--                    android:layout_marginEnd="@dimen/dimen_20"-->
+<!--                    android:src="@drawable/download" />-->
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imgStoryDetail"
+                    android:layout_width="@dimen/dimen_60"
+                    android:layout_height="@dimen/dimen_60"
+                    android:layout_marginHorizontal="@dimen/dimen_20"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    app:civ_border_color="#FF000000" />
+
+                <TextView
+                    android:id="@+id/txtNameStoryDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    android:layout_toRightOf="@+id/imgStoryDetail"
+                    android:maxLines="2"
+                    android:text="@string/app_name"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/dimen_17"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtContentStory"
-                    android:layout_width="match_parent"
+                    android:id="@+id/txtCountCategoriesDetail"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_10"
-                    android:layout_marginBottom="@dimen/dimen_30"
-                    android:lineHeight="@dimen/dimen_24"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:layout_below="@id/txtNameStoryDetail"
+                    android:layout_toRightOf="@+id/imgStoryDetail"
+                    android:visibility="gone" />
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/txtAuthorDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtCountCategoriesDetail"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_toRightOf="@+id/imgStoryDetail"
+                    android:text="@string/app_name"
+                    android:textColor="#fff"
+                    android:textStyle="italic" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIconTint="@drawable/selector"
+                app:tabIndicatorColor="@color/clmain"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/clmain"
+                app:tabTextColor="@android:color/tertiary_text_light" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewDetail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/dimen_10"
-        android:gravity="center">
+        android:background="@drawable/section_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/dimen_20"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:id="@+id/linear_download"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_24"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/download"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_like"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imglike"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_24"
+                android:src="@drawable/like" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnChapterRedStoryLimit1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@drawable/bg_btn"
+            android:layout_marginVertical="@dimen/dimen_5"
             android:paddingHorizontal="@dimen/dimen_15"
-            android:background="@drawable/bg_button"
             android:text="@string/ReadStory"
             android:textAllCaps="false"
-            android:textSize="15dp" />
+            android:textColor="#fff" />
     </LinearLayout>
 </LinearLayout>
