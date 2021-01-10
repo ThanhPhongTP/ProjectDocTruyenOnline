@@ -22,7 +22,8 @@
     <string name="btnNoInternet">Chuyển sang chế độ offline</string>
 
     <string name="xemthem">Xem thêm</string>
-
+    <string name="LoveStories">Truyện ngôn tình</string>
+    <string name="xk">Truyện xuyên không</string>
     <string name="NameStoryDetail">Tên Truyện Chi Tiết</string>
     <string name="CountChapters">Số lượng chương</string>
     <string name="ChaptersList">Danh sách chương</string>

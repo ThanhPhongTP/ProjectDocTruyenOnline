@@ -50,10 +50,11 @@ public class DatabaseSQLite extends SQLiteOpenHelper {
         statement.executeInsert();
     }
 
-    public void deleteData(String Content, String Date) {
+    public void deleteStory(int nID) {
         SQLiteDatabase database = getWritableDatabase();
 
-        database.delete("Memory", "Content =? AND Date = ?" , new String[]{Content, Date});
+        database.delete("Stories", "story_id =?" , new String[]{String.valueOf(nID)});
+        database.delete("Chapter", "story_id =?" , new String[]{String.valueOf(nID)});
         database.close();
 
 

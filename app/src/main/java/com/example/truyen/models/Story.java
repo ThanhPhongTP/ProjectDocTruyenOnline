@@ -7,6 +7,8 @@ public class Story implements Serializable {
     int categoriesId;
     String name, author, date, thumbnail_image, description;
     int totalChapter;
+    int viewType;
+
 
 
     public Story(int id, int storyID, String name, String author, int ratting, int ratting_count, String description, String thumbnail_image) {
@@ -20,13 +22,14 @@ public class Story implements Serializable {
         this.description = description;
     }
 
-    public Story(int id, String name, int totalChapter, String author, String date, String thumbnail_image) {
+    public Story(int id, String name, int totalChapter, String author, String date, String thumbnail_image, int viewType) {
         this.id = id;
         this.name = name;
         this.totalChapter = totalChapter;
         this.author = author;
         this.date = date;
         this.thumbnail_image = thumbnail_image;
+        this.viewType = viewType;
     }
 
     public Story(int id, int categoriesId, String name) {
@@ -133,5 +136,13 @@ public class Story implements Serializable {
 
     public void setTotalChapter(int totalChapter) {
         this.totalChapter = totalChapter;
+    }
+
+    public int getViewType() {
+        return viewType;
+    }
+
+    public void setViewType(int viewType) {
+        this.viewType = viewType;
     }
 }

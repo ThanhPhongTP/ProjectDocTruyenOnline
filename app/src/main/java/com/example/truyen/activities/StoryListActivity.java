@@ -74,7 +74,6 @@ public class StoryListActivity extends AppCompatActivity {
         if (Commons.isConnectedtoInternet(this)) {
             getAPI();
             loadMoreData();
-//            getAPITACGIA();
         } else {
             Commons.showDialogError(this);
         }
@@ -112,38 +111,6 @@ public class StoryListActivity extends AppCompatActivity {
                 }
             }
         });
-//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-//                super.onScrollStateChanged(recyclerView, newState);
-//            }
-//
-//            @Override
-//            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//                if (dy>0){
-//                    visibleItemCount = linearLayoutManager.getChildCount();
-//                    totalItemCount = linearLayoutManager.getItemCount();
-//                    firstVisibleItemCount = linearLayoutManager.findFirstVisibleItemPosition();
-//                    Log.d("visibleItemCount",visibleItemCount+"");
-//                    Log.d("totalItemCount",totalItemCount+"");
-//                    Log.d("firstVisibleItemCount",firstVisibleItemCount+"");
-//                    if (isLoadDing){
-//                        if ( totalItemCount > previousTotal){
-//                            previousTotal = totalItemCount;
-//                            page++;
-//                            isLoadDing = false;
-//                        }
-//                    }
-//                    if (!isLoadDing && (firstVisibleItemCount + visibleItemCount)>=totalItemCount){
-//                        getAPI();
-//                        isLoadDing = true;
-//                        Log.d("GGGGGG","Page :" +page);
-//                    }
-//                }
-//            }
-//        });
-
     }
 
     private void getAPI() {
@@ -172,7 +139,7 @@ public class StoryListActivity extends AppCompatActivity {
                             totalChapters = item.getInt("total chapter");
                             String sDate = item.getString("created_date");
                             String sIMG = item.getString("image");
-                            listStory.add(new Story(id,name,totalChapters,author, sDate, sIMG));
+                            listStory.add(new Story(id,name,totalChapters,author, sDate, sIMG, 0));
 //                        for (int j =0;j<listStoryByCategoriesId.size();j++){
 //                            Log.d("listStoryByCategoriesId",listStoryByCategoriesId.get(i).getId()+"");
 //                        }

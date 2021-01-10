@@ -20,23 +20,6 @@
             android:src="@drawable/book"
             app:civ_border_color="#FF000000" />
 
-        <TextView
-            android:id="@+id/txtIdStory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="id"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/txtStoryByCategoriesId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtIdStory"
-            android:layout_toRightOf="@+id/imgChapterList"
-            android:text="idCategories"
-            android:visibility="gone" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +29,6 @@
                 android:id="@+id/txtNameStoryByCategoriesId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtStoryByCategoriesId"
                 android:layout_toRightOf="@+id/imgChapterList"
                 android:text="Name"
                 android:textColor="?attr/textColor"

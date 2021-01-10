@@ -125,8 +125,8 @@ public class GeneralSettingsActivity extends AppCompatActivity {
                 editor.apply();
                 checkTheme();
 
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();
+//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//                finish();
 
                 Log.d("kokokokoko", AppCompatDelegate.getDefaultNightMode() + "");
             }

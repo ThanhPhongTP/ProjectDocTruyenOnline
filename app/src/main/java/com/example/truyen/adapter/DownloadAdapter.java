@@ -14,12 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.truyen.R;
 import com.example.truyen.activities.StoryOffLine;
 import com.example.truyen.models.Story;
+import com.example.truyen.service.DatabaseSQLite;
 import com.example.truyen.service.ItemClickListener;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+
+import static com.example.truyen.service.DatabaseSQLite.database;
 
 class DownloadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
     public TextView tv_Name;
@@ -71,6 +74,7 @@ public class DownloadAdapter extends RecyclerView.Adapter<DownloadViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull DownloadViewHolder holder, int position) {
+
         Story story = listDownload.get(position);
         holder.tv_Name.setText(story.getName());
         Picasso.with(context)
@@ -83,6 +87,17 @@ public class DownloadAdapter extends RecyclerView.Adapter<DownloadViewHolder>{
                     Intent intent = new Intent(context, StoryOffLine.class);
                     intent.putExtra("NEWSTORY", story.getStoryID());
                     context.startActivity(intent);
+                }
+            }
+        });
+        holder.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onClick(View view, int position, boolean isLongClick) {
+                if (isLongClick){
+                    listDownload.remove(position);
+                    database.deleteStory(story.getStoryID());
+//                    notifyDataSetChanged();
+                    notifyItemRemoved(position);
                 }
             }
         });

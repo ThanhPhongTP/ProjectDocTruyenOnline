@@ -61,7 +61,7 @@ public class ReadFragmentOffline extends Fragment implements View.OnClickListene
     private TimerTask timerTask;
     private Timer scrollTimer;
     int story_id, chapter_id;
-    private String sIV, sValue, sContent;
+    private String sIV, sValue, sContent, key;
     int compareNumber;
 
     @Override
@@ -109,18 +109,23 @@ public class ReadFragmentOffline extends Fragment implements View.OnClickListene
             String title = cursor.getString(cursor.getColumnIndex("title") );
             String contents = cursor.getString(cursor.getColumnIndex("contents") );
             chapterArrayList.add(new Chapter(nStory_id, title, nChapter_id, contents));
+            Log.d("sadaseefd", contents);
             for (int i = 0; i < chapterArrayList.size(); i++){
                 compareNumber = i + 1;
                 if (getArguments().getInt(Commons.ARG_SECTION_NUMBER) == compareNumber) {
 
                     try {
-                        Log.d("josjo", chapterArrayList.get(i).getTitle() + "");
+                        Log.d("josjo", chapterArrayList.get(i).getContents() + "");
                         sContent = Decrypt.Base64Decode(chapterArrayList.get(i).getContents());
                         JSONObject jsonObject = new JSONObject(sContent);
                         sIV = jsonObject.getString("iv");
                         sValue = jsonObject.getString("value");
-                        String sContent1 = Decrypt.decrypt(Decrypt.key.getBytes(), sIV, sValue);
-                        Log.d("josjo1", sContent1 + "");
+                        if (SharedPreferences_Utils.sharedPreferences.contains("KEY_NOTIFICATION")){
+                            key = SharedPreferences_Utils.sharedPreferences.getString("KEY_NOTIFICATION", null);
+                        } else
+                            key = "1546oiKL9pLMiOjNkFxqagT67HGabchj";
+                        String sContent1 = Decrypt.decrypt(key.getBytes(), sIV, sValue);
+                        Log.d("josjo1", sContent + "");
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                             txtReadStory.setText(Html.fromHtml(sContent1, Html.FROM_HTML_MODE_COMPACT));
                         } else {

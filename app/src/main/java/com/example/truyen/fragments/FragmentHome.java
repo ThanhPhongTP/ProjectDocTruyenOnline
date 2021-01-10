@@ -25,12 +25,15 @@ import com.example.truyen.Commons;
 import com.example.truyen.MainActivity;
 import com.example.truyen.R;
 import com.example.truyen.adapter.HomeStoriesAdapter;
+import com.example.truyen.adapter.StoryAdapter;
 import com.example.truyen.models.Ratting;
+import com.example.truyen.models.Story;
 import com.example.truyen.service.APIService;
 import com.example.truyen.service.DataService;
 import com.example.truyen.service.Decrypt;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -48,9 +51,11 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
     private SliderLayout sliderLayout;
     private HashMap<String, Integer> HashMapForLocalRes;
     private HashMap<String, String> HashMapForURL;
-    private RecyclerView recycleHot, recycleNew, recycleNominations;
-    private HomeStoriesAdapter homeStoriesAdapter, nominationStoriesAdapter, newStoriesAdapter;
-    private ArrayList<Ratting> listRating_Hot, listRating_Nomination, listRating_New;
+    private RecyclerView recycleHot, recycleNew, recycleNominations, recyclerXk;
+    private HomeStoriesAdapter homeStoriesAdapter, nominationStoriesAdapter;
+    private ArrayList<Ratting> listRating_Hot, listRating_Nomination;
+    private StoryAdapter newStoriesAdapter, XK_Adapter;
+    private ArrayList<Story> listRating_New, list_XK;
     private int page = 1;
     private NestedScrollView nestedScrollViewStory;
     private SwipeRefreshLayout pullToRefresh;
@@ -87,6 +92,8 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
         if (Commons.isConnectedtoInternet(getActivity())) {
             addHotStory();
             addStoryNomonation();
+            addLoveStory();
+            addSKStory();
         } else {
             Commons.showDialogError(getActivity());
         }
@@ -163,6 +170,8 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
 //                    progressBar.setVisibility(View.VISIBLE);
                     addHotStory();
                     addStoryNomonation();
+                    addLoveStory();
+                    addSKStory();
                 }
             }
         });
@@ -178,9 +187,9 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
 //        nominationStoriesAdapter = new HomeStoriesAdapter(getContext(), listRating_Nomination);
 //        recycleNominations.setAdapter(nominationStoriesAdapter);
         //Truyện mới
-        listRating_New = new ArrayList<>();
-        newStoriesAdapter = new HomeStoriesAdapter(getContext(), listRating_New);
-        recycleNew.setAdapter(newStoriesAdapter);
+//        listRating_New = new ArrayList<>();
+//        newStoriesAdapter = new HomeStoriesAdapter(getContext(), listRating_New);
+//        recycleNew.setAdapter(newStoriesAdapter);
 
         DataService dataService = APIService.getService();
         dataService.getHotStory().enqueue(new Callback<String>() {
@@ -217,19 +226,19 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
 //                            recycleNominations.setLayoutManager(new GridLayoutManager(getActivity(), 3));
                         }
                         //mới
-                        for (int j = arrayData.length() - 1; j >= arrayData.length() - 6; j--) {
-                            JSONObject item = arrayData.getJSONObject(j);
-                            story_id = item.getInt("story_id");
-                            story_title = item.getString("story_title");
-                            author = item.getString("author");
-                            rating = item.getDouble("rating");
-                            rating_count = item.getInt("rating_count");
-                            description = item.getString("description");
-                            thumbnail_image = item.getString("thumbnail_image");
-                            listRating_New.add(new Ratting(story_id, story_title, author, rating, rating_count, description, thumbnail_image));
-                            newStoriesAdapter.notifyDataSetChanged();
-                            recycleNew.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-                        }
+//                        for (int j = arrayData.length() - 1; j >= arrayData.length() - 6; j--) {
+//                            JSONObject item = arrayData.getJSONObject(j);
+//                            story_id = item.getInt("story_id");
+//                            story_title = item.getString("story_title");
+//                            author = item.getString("author");
+//                            rating = item.getDouble("rating");
+//                            rating_count = item.getInt("rating_count");
+//                            description = item.getString("description");
+//                            thumbnail_image = item.getString("thumbnail_image");
+//                            listRating_New.add(new Ratting(story_id, story_title, author, rating, rating_count, description, thumbnail_image));
+//                            newStoriesAdapter.notifyDataSetChanged();
+//                            recycleNew.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+//                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         Log.d("sdja1", e + "");
@@ -245,6 +254,92 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
 
     }
 
+    //truyen ngon tinh
+    private void addLoveStory() {
+        listRating_New = new ArrayList<>();
+        newStoriesAdapter = new StoryAdapter(getContext(), listRating_New);
+        recycleNew.setAdapter(newStoriesAdapter);
+
+        DataService dataService= APIService.getService();
+        dataService.getStoryByCategories(3,page).enqueue(new Callback<String>() {
+
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.d("getStoryByCategoriessss",response.body().toString());
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject fatherJSON = new JSONObject(response.body().toString());
+                        Log.d("respone", response.body().toString());
+                        JSONArray arrayData = fatherJSON.getJSONArray("data");
+//                    String name = arrayData.getString(0);
+                        for (int i = 0; i < arrayData.length(); i++) {
+                            JSONObject item = arrayData.getJSONObject(i);
+                            int id = item.getInt("id");
+                            String name = item.getString("name");
+                            author = item.getString("author");
+                            int totalChapters = item.getInt("total chapter");
+                            String sDate = item.getString("created_date");
+                            String sIMG = item.getString("image");
+                            listRating_New.add(new Story(id,name,totalChapters,author, sDate, sIMG, 1));
+                            newStoriesAdapter.notifyDataSetChanged();
+                            recycleNew.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
+
+    //truyen xuyen khong
+    private void addSKStory() {
+        list_XK = new ArrayList<>();
+        XK_Adapter = new StoryAdapter(getContext(), list_XK);
+        recyclerXk.setAdapter(XK_Adapter);
+
+        DataService dataService= APIService.getService();
+        dataService.getStoryByCategories(14,page).enqueue(new Callback<String>() {
+
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject fatherJSON = new JSONObject(response.body().toString());
+                        Log.d("respone", response.body().toString());
+                        JSONArray arrayData = fatherJSON.getJSONArray("data");
+//                    String name = arrayData.getString(0);
+                        for (int i = 0; i < arrayData.length(); i++) {
+                            JSONObject item = arrayData.getJSONObject(i);
+                            int id = item.getInt("id");
+                            String name = item.getString("name");
+                            author = item.getString("author");
+                            int totalChapters = item.getInt("total chapter");
+                            String sDate = item.getString("created_date");
+                            String sIMG = item.getString("image");
+                            list_XK.add(new Story(id,name,totalChapters,author, sDate, sIMG, 1));
+                            XK_Adapter.notifyDataSetChanged();
+                            recyclerXk.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
+
+    //truen de cu
     private void addStoryNomonation() {
         listRating_Nomination = new ArrayList<>();
         nominationStoriesAdapter = new HomeStoriesAdapter(getContext(), listRating_Nomination);
@@ -314,6 +409,8 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
             public void onRefresh() {
                 CheckInternet();
                 addHotStory();
+                addLoveStory();
+                addSKStory();
                 addStoryNomonation();
                 pullToRefresh.setRefreshing(false);
             }
@@ -325,6 +422,7 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
         recycleHot = view.findViewById(R.id.rcv_truyen_hay);
         recycleNew = view.findViewById(R.id.rcv_truyen_moi);
         recycleNominations = view.findViewById(R.id.rcv_truyen_decu);
+        recyclerXk = view.findViewById(R.id.rcv_xuyen_khong);
         linearLayout = view.findViewById(R.id.lnxemthem);
         pullToRefresh = view.findViewById(R.id.pull_to_refresh);
 //        nestedScrollViewStory = view.findViewById(R.id.nestedScrollViewHome);
