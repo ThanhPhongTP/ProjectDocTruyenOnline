@@ -41,6 +41,8 @@
     <string name="kp">Khám phá</string>
     <string name="Personal">Cá Nhân</string>
     <string name="Like">Thêm ưa thích</string>
+    <string name="dx">Đề xuất cho bạn</string>
+    <string name="yeu">Có thể bạn thích</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

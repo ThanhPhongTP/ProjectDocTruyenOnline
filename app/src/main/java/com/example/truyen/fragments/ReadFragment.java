@@ -30,6 +30,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.truyen.Commons;
+import com.example.truyen.LoadingDialog;
 import com.example.truyen.R;
 import com.example.truyen.SharedPreferences_Utils.SharedPreferences_Utils;
 import com.example.truyen.activities.ReadStoryActivity;
@@ -97,7 +98,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         } else {
             Commons.showDialogError(getActivity());
         }
-
+        showDialog();
         return view;
     }
 
@@ -108,6 +109,22 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
             int nID = sharedPreferences.getInt("THEME", R.style.ProjectDocTruyenOnline_Light);
             getActivity().setTheme(nID);
         }
+    }
+
+    private void showDialog(){
+        LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+        if(txtReadStory.length() == 0)
+            loadingDialog.startDialog();
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                if (txtReadStory.length() > 0)
+                    loadingDialog.dismissDialog();
+                handler.postDelayed(this, 1000);
+            }
+        });
+
     }
 
     private void getAPI() {

@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimen_10"
                     android:layout_toRightOf="@id/imgProfile"
-                    android:text="Chào mừng bạn đến với TYT"
+                    android:text="Chào mừng bạn đến Truyện mới 247"
                     android:textColor="?attr/textColor"
                     android:textSize="@dimen/sp22" />
 

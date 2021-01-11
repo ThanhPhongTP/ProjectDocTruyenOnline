@@ -182,26 +182,13 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
         listRating_Hot = new ArrayList<>();
         homeStoriesAdapter = new HomeStoriesAdapter(getContext(), listRating_Hot);
         recycleHot.setAdapter(homeStoriesAdapter);
-        //Truyện đề cử
-//        listRating_Nomination = new ArrayList<>();
-//        nominationStoriesAdapter = new HomeStoriesAdapter(getContext(), listRating_Nomination);
-//        recycleNominations.setAdapter(nominationStoriesAdapter);
-        //Truyện mới
-//        listRating_New = new ArrayList<>();
-//        newStoriesAdapter = new HomeStoriesAdapter(getContext(), listRating_New);
-//        recycleNew.setAdapter(newStoriesAdapter);
-
         DataService dataService = APIService.getService();
         dataService.getHotStory().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
-
                     try {
                         JSONObject fatherJSON = new JSONObject(response.body().toString());
-
-//                        Log.d("checkResponse", fatherJSON.getString("data"));
-//                        Log.d("checkResponse123", Decrypt.decrypt( "uDTAihSsDK7LXRWOkkdHqQ=="));
                         JSONArray arrayData = fatherJSON.getJSONArray("data");
                         for (int i = 0; i < arrayData.length(); i++) {
                             JSONObject item = arrayData.getJSONObject(i);
@@ -212,33 +199,10 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
                             rating_count = item.getInt("rating_count");
                             description = item.getString("description");
                             thumbnail_image = item.getString("thumbnail_image");
-//                            Log.d("TESTTT", item.getDouble("rating") + "");
-                            //hay
-//                            if (item.getDouble("rating") >= 7)
                             listRating_Hot.add(new Ratting(story_id, story_title, author, rating, rating_count, description, thumbnail_image));
                             homeStoriesAdapter.notifyDataSetChanged();
                             recycleHot.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-                            //đề cử ratting_count > 30 và lấy 6 truyền đề cử
-//                            if (item.getInt("rating_count") > 30)
-//                                if (listRating_Nomination.size() <= 5)
-//                                    listRating_Nomination.add(new Ratting(story_id, story_title, author, rating, rating_count, description, thumbnail_image));
-//                            nominationStoriesAdapter.notifyDataSetChanged();
-//                            recycleNominations.setLayoutManager(new GridLayoutManager(getActivity(), 3));
                         }
-                        //mới
-//                        for (int j = arrayData.length() - 1; j >= arrayData.length() - 6; j--) {
-//                            JSONObject item = arrayData.getJSONObject(j);
-//                            story_id = item.getInt("story_id");
-//                            story_title = item.getString("story_title");
-//                            author = item.getString("author");
-//                            rating = item.getDouble("rating");
-//                            rating_count = item.getInt("rating_count");
-//                            description = item.getString("description");
-//                            thumbnail_image = item.getString("thumbnail_image");
-//                            listRating_New.add(new Ratting(story_id, story_title, author, rating, rating_count, description, thumbnail_image));
-//                            newStoriesAdapter.notifyDataSetChanged();
-//                            recycleNew.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-//                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         Log.d("sdja1", e + "");
@@ -248,7 +212,6 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-
             }
         });
 
@@ -260,12 +223,11 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
         newStoriesAdapter = new StoryAdapter(getContext(), listRating_New);
         recycleNew.setAdapter(newStoriesAdapter);
 
-        DataService dataService= APIService.getService();
-        dataService.getStoryByCategories(3,page).enqueue(new Callback<String>() {
+        DataService dataService = APIService.getService();
+        dataService.getStoryByCategories(3, page).enqueue(new Callback<String>() {
 
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                Log.d("getStoryByCategoriessss",response.body().toString());
                 if (response.isSuccessful()) {
                     try {
                         JSONObject fatherJSON = new JSONObject(response.body().toString());
@@ -280,7 +242,7 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
                             int totalChapters = item.getInt("total chapter");
                             String sDate = item.getString("created_date");
                             String sIMG = item.getString("image");
-                            listRating_New.add(new Story(id,name,totalChapters,author, sDate, sIMG, 1));
+                            listRating_New.add(new Story(id, name, totalChapters, author, sDate, sIMG, 1));
                             newStoriesAdapter.notifyDataSetChanged();
                             recycleNew.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
                         }
@@ -303,8 +265,8 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
         XK_Adapter = new StoryAdapter(getContext(), list_XK);
         recyclerXk.setAdapter(XK_Adapter);
 
-        DataService dataService= APIService.getService();
-        dataService.getStoryByCategories(14,page).enqueue(new Callback<String>() {
+        DataService dataService = APIService.getService();
+        dataService.getStoryByCategories(14, page).enqueue(new Callback<String>() {
 
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -322,7 +284,7 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
                             int totalChapters = item.getInt("total chapter");
                             String sDate = item.getString("created_date");
                             String sIMG = item.getString("image");
-                            list_XK.add(new Story(id,name,totalChapters,author, sDate, sIMG, 1));
+                            list_XK.add(new Story(id, name, totalChapters, author, sDate, sIMG, 1));
                             XK_Adapter.notifyDataSetChanged();
                             recyclerXk.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
                         }
@@ -350,7 +312,6 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
-
                     try {
                         JSONObject fatherJSON = new JSONObject(response.body().toString());
 

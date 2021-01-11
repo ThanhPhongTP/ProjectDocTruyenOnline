@@ -1,11 +1,16 @@
 package com.example.truyen.service;
 
 import com.example.truyen.models.Categories;
+import com.example.truyen.models.Post;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.Url;
@@ -42,8 +47,18 @@ public interface DataService {
     //Chương truyện
 //    @GET("stories/{story_id}/chapters?page=")
 //    Call<List<Chapter>> getChapterList(@Path("story_id") int id, @Query("page") int page);
-   @GET("stories/{story_id}/chapters?")
+    @GET("stories/{story_id}/chapters?")
     Call<String> getChapterList(@Path("story_id") int id);
 
+    //search
+    @GET("search/")
+    Call<String> search();
 
+//    @POST("/search/")
+//    @FormUrlEncoded
+//    Call<Post> savePost(@Body Post post);
+
+    @FormUrlEncoded
+    @POST("search/")
+    Call<String> savePost(@Field("query") String query);
 }

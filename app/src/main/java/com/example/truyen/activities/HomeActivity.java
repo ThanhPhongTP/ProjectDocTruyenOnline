@@ -7,8 +7,8 @@ import android.view.MenuItem;
 import com.example.truyen.R;
 import com.example.truyen.adapter.ViewPagerAdapter;
 import com.example.truyen.fragments.AboutFragment;
-import com.example.truyen.fragments.HistoryFragment;
 import com.example.truyen.fragments.CategoriesListFragment;
+import com.example.truyen.fragments.FragmentHistory;
 import com.example.truyen.fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     private FragmentTransaction fragmentTransaction;
     private BottomNavigationView bottomNavigationView;
     private CategoriesListFragment categoriesListFragment;
-    private HistoryFragment historyFragment;
+    private FragmentHistory historyFragment;
     private AboutFragment aboutFragment;
     private SearchFragment searchFragment;
     private ViewPager viewPager;
@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     private void setupViewPager (ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         categoriesListFragment = new CategoriesListFragment();
-        historyFragment = new HistoryFragment();
+        historyFragment = new FragmentHistory();
         aboutFragment = new AboutFragment();
         adapter.addFragment(categoriesListFragment);
         adapter.addFragment(historyFragment);

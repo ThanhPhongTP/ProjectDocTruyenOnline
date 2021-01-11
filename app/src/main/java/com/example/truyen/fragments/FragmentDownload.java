@@ -92,5 +92,6 @@ public class FragmentDownload extends Fragment {
         sharedPreferencesUtils = new SharedPreferences_Utils(getActivity());
         tv_Download = view.findViewById(R.id.tv_Download);
         rcvDownload = view.findViewById(R.id.rcv_download);
+
     }
 }

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +28,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.truyen.Commons;
 import com.example.truyen.R;
 import com.example.truyen.adapter.CategoriesAdapter;
+import com.example.truyen.adapter.StoryAdapter;
 import com.example.truyen.models.Categories;
+import com.example.truyen.models.Post;
+import com.example.truyen.models.Story;
 import com.example.truyen.service.APIService;
 import com.example.truyen.service.DataService;
 
@@ -49,9 +53,11 @@ public class CategoriesListFragment extends Fragment {
     private String name = "";
     private String url = "";
     private List<Categories> categoriesList;
+    private ArrayList<Story> listStory;
     private LinearLayoutManager linearLayoutManager;
     private RecyclerView recyclerView;
     private CategoriesAdapter categoriesAdapter;
+    private StoryAdapter adapter;
     private boolean notLoading = true;
     private View footerView;
     private View view;
@@ -85,6 +91,12 @@ public class CategoriesListFragment extends Fragment {
         } else {
             Commons.showDialogError(getActivity());
         }
+    }
+
+    @Override
+    public void onResume() {
+        getAPI();
+        super.onResume();
     }
 
     private void checkTheme() {
@@ -175,47 +187,81 @@ public class CategoriesListFragment extends Fragment {
 
     }
 
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.menu_search_item, menu);
-//
-//        MenuItem searchItem = menu.findItem(R.id.menu_search);
-//
-//        SearchView searchView = null;
-//        if (searchItem != null) {
-//            searchView = (SearchView) searchItem.getActionView();
-//        }
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_search_item, menu);
+        MenuItem searchItem = menu.findItem(R.id.menu_search);
+        SearchView searchView = null;
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                listStory = new ArrayList<>();
+                DataService dataService = APIService.getService();
+                dataService.savePost(query).enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        if (response.isSuccessful() && response.body() != null){
+                            try {
+                                JSONObject jsonObject = new JSONObject(response.body().toString());
+                                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                for (int i = 0; i < jsonArray.length(); i++){
+                                    JSONObject item = jsonArray.getJSONObject(i);
+                                    int nID = item.getInt("id");
+                                    String sName = item.getString("name");
+                                    String sAuthor = item.getString("author");
+                                    int nTotalChapter = item.getInt("total chapter");
+                                    String sIMG = item.getString("image");
+                                    String sDate = item.getString("created_date");
+                                    listStory.add(new Story(nID, sName, nTotalChapter, sAuthor, sDate, sIMG, 0));
+
+                                    adapter = new StoryAdapter(getContext(), listStory);
+                                    linearLayoutManager = new LinearLayoutManager(getActivity());
+                                    recyclerView.setLayoutManager(linearLayoutManager);
+                                    recyclerView.setHasFixedSize(true);
+                                    recyclerView.setAdapter(adapter);
+                                    adapter.notifyDataSetChanged();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        if (listStory.size() == 0)
+                            Toast.makeText(getContext(), "Không có kết quả với từ khóa \"" + query + "\""       , Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+                    }
+                });
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
 //                newText = newText.toLowerCase();
-//                ArrayList<Categories> newList = new ArrayList<>();
+              listStory = new ArrayList<>();
 //                for (Categories categories : categoriesList) {
 //                    String name = categories.getName().toLowerCase();
 //                    if (name.contains(newText)) {
 //                        newList.add(categories);
 //                    }
 //                }
-//                categoriesAdapter = new CategoriesAdapter(getActivity(), categoriesList);
-//                categoriesAdapter.setFilter(newList);
-//                linearLayoutManager = new LinearLayoutManager(getActivity());
-//                recyclerView.setLayoutManager(linearLayoutManager);
-//                recyclerView.setHasFixedSize(true);
-//                recyclerView.setAdapter(categoriesAdapter);
-//                categoriesAdapter.notifyDataSetChanged();
-//                return true;
-//            }
-//        });
-//
-//
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
+                adapter = new StoryAdapter(getContext(), listStory);
+                adapter.setFilter(listStory);
+                linearLayoutManager = new LinearLayoutManager(getActivity());
+                recyclerView.setLayoutManager(linearLayoutManager);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                return true;
+            }
+        });
+
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
     //
 //    @Override

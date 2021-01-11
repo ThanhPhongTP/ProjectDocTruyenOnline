@@ -1,9 +1,12 @@
 package com.example.truyen.fragments;
 
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.util.Half;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truyen.Commons;
+import com.example.truyen.LoadingDialog;
 import com.example.truyen.R;
 import com.example.truyen.adapter.ChapterListAdapter;
 import com.example.truyen.models.Chapter;
@@ -66,6 +70,7 @@ public class FragmentListActivity extends Fragment {
         View view = inflater.inflate(R.layout.fragment_chapter_list, container, false);
         setControl(view);
         getAPI();
+//        showDialog();
         return view;
     }
 
@@ -76,6 +81,22 @@ public class FragmentListActivity extends Fragment {
             int nID = sharedPreferences.getInt("THEME", R.style.ProjectDocTruyenOnline_Light);
             getActivity().setTheme(nID);
         }
+    }
+
+    private void showDialog(){
+        LoadingDialog loadingDialog = new LoadingDialog((Activity) getContext());
+        if(chapterList.size() == 0)
+            loadingDialog.startDialog();
+
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                if(chapterList.size() > 0)
+                    loadingDialog.dismissDialog();
+                handler.postDelayed(this, 1000);
+            }
+        });
     }
 
     private void setControl(View view) {

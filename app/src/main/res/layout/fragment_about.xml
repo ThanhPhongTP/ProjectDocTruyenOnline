@@ -61,14 +61,15 @@
                     android:layout_height="50dp"
                     android:src="@drawable/profiles" />
 
-
                 <TextView
                     android:id="@+id/txtWelcome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimen_10"
                     android:layout_toRightOf="@id/imgProfile"
-                    android:text="Chào mừng bạn đến với TYT"
+                    android:text="Chào mừng bạn đến Truyện mới 247"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textColor="?attr/textColor"
                     android:textSize="20dp" />
 
