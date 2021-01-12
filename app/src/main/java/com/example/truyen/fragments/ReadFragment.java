@@ -46,6 +46,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -251,7 +252,10 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         ////////setBackground
         relativeLayoutReadStory.setBackgroundColor(sharedPreferencesUtils.getColorBackgroundReadStory());
         ////////setScreenTimeOut
-        setScreenTimeout(sharedPreferencesUtils.getScreenTimeOutReadStory());
+        if (!Settings.System.canWrite(getContext()))
+            return;
+        else
+            setScreenTimeout(sharedPreferencesUtils.getScreenTimeOutReadStory());
         ////setTextSize
         txtReadStory.setTextSize(sharedPreferencesUtils.getTextSizeReadStory());
         //////setFontStyle
@@ -268,7 +272,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void  setScreenTimeout(int milliseconds) {
-        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, milliseconds);
+        Settings.System.putInt(requireActivity().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, milliseconds);
     }
 
     public static ReadFragment newInstance(int sectionNumber) {
