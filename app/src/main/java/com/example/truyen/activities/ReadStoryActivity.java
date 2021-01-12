@@ -33,6 +33,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.truyen.activities.StoryDetailActivity.nID;
+
 public class ReadStoryActivity extends AppCompatActivity {
     public Toolbar testToolBarId;
     public LinearLayout linearLayout_Visible;
@@ -60,6 +62,7 @@ public class ReadStoryActivity extends AppCompatActivity {
         init();
         actionToolBar();
         dataIntent();
+        saveInHistory();
     }
 
     private void checkTheme() {
@@ -69,6 +72,32 @@ public class ReadStoryActivity extends AppCompatActivity {
             int nID = sharedPreferences.getInt("THEME", R.style.ProjectDocTruyenOnline_Light);
             setTheme(nID);
         }
+    }
+
+    private void saveInHistory() {
+        DataService dataService = APIService.getService();
+        dataService.getStory("stories/" + nID + "/detail").enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response != null && response.isSuccessful()) {
+                    try {
+                        JSONArray jsonArray = new JSONArray(response.body());
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject fatherJSON = jsonArray.getJSONObject(i);
+                            String story_title = (fatherJSON.getString("story_title"));
+                            String sIMG = (fatherJSON.getString("thumbnail_image"));
+                            sharedPreferencesUtils.setDataSharePreferences_From_StoryWatched(new Story(nID, story_title, sIMG));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+            }
+        });
     }
 
     private void getAPI() {

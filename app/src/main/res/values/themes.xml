@@ -44,8 +44,9 @@
 
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="ToolbarColoredBackArrow" parent="ProjectDocTruyenOnline_Light">
-        <item name="android:textColorSecondary">@android:color/black</item>
+    <style name="ToolbarColoredBackArrow" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorSecondary">?attr/textColor</item>
+        <item name="android:textColorPrimary">?attr/textColor</item>
     </style>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
@@ -60,4 +61,5 @@
     <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">@dimen/sp18</item>
     </style>
+
 </resources>

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="?attr/backgroundColor"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical"
     tools:context=".fragments.CategoriesListFragment">
 
@@ -20,50 +20,56 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/backgroundColor"
             android:theme="@style/ToolbarColoredBackArrow"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:theme="@style/ToolbarColoredBackArrow">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_10"
+                android:gravity="center"
                 android:text="@string/Categories"
                 android:textColor="?attr/textColor"
                 android:textSize="@dimen/sp22" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <LinearLayout
         android:id="@+id/linearListCategories"
-        android:layout_below="@+id/CategoriesAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/CategoriesAppBarLayout"
         android:orientation="vertical">
+
         <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
             android:id="@+id/nestedScrollViewCategories"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                 <androidx.recyclerview.widget.RecyclerView
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_Categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                     android:layout_marginHorizontal="@dimen/dimen_40"
-                    android:nestedScrollingEnabled="false"
-                    android:id="@+id/recyclerView_Categories"/>
+                    android:layout_marginHorizontal="@dimen/dimen_40"
+                    android:nestedScrollingEnabled="false" />
 
-                </LinearLayout>
+            </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
+
     <ProgressBar
-        android:layout_centerInParent="true"
-        android:visibility="gone"
         android:id="@+id/progressbarLoadCategories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
 
 
 </RelativeLayout>
