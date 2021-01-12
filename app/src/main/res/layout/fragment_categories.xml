@@ -26,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/Categories"
-                android:layout_marginLeft="@dimen/dimen_35"
+                android:paddingLeft="@dimen/dimen_60"
+                android:paddingRight="@dimen/dimen_40"
                 android:textColor="?attr/textColor"
                 android:textSize="20sp" />
         </androidx.appcompat.widget.Toolbar>

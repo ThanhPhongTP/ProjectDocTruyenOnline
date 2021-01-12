@@ -251,7 +251,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         ////////setBackground
         relativeLayoutReadStory.setBackgroundColor(sharedPreferencesUtils.getColorBackgroundReadStory());
         ////////setScreenTimeOut
-        setScreenTimeout(sharedPreferencesUtils.getScreenTimeOutReadStory());
+        setScreenTimeout(30000 * 2);
         ////setTextSize
         txtReadStory.setTextSize(sharedPreferencesUtils.getTextSizeReadStory());
         //////setFontStyle
@@ -267,8 +267,8 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private void setScreenTimeout(int milliseconds) {
-        Settings.System.getInt(getActivity().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, milliseconds);
+    private void  setScreenTimeout(int milliseconds) {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, milliseconds);
     }
 
     public static ReadFragment newInstance(int sectionNumber) {

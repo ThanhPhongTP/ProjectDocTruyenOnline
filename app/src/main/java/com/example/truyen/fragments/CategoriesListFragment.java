@@ -216,7 +216,6 @@ public class CategoriesListFragment extends Fragment {
                                     String sIMG = item.getString("image");
                                     String sDate = item.getString("created_date");
                                     listStory.add(new Story(nID, sName, nTotalChapter, sAuthor, sDate, sIMG, 0));
-
                                     adapter = new StoryAdapter(getContext(), listStory);
                                     linearLayoutManager = new LinearLayoutManager(getActivity());
                                     recyclerView.setLayoutManager(linearLayoutManager);
@@ -240,21 +239,6 @@ public class CategoriesListFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-//                newText = newText.toLowerCase();
-              listStory = new ArrayList<>();
-//                for (Categories categories : categoriesList) {
-//                    String name = categories.getName().toLowerCase();
-//                    if (name.contains(newText)) {
-//                        newList.add(categories);
-//                    }
-//                }
-                adapter = new StoryAdapter(getContext(), listStory);
-                adapter.setFilter(listStory);
-                linearLayoutManager = new LinearLayoutManager(getActivity());
-                recyclerView.setLayoutManager(linearLayoutManager);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
                 return true;
             }
         });
@@ -263,39 +247,4 @@ public class CategoriesListFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    //
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        Log.d("lifecyclerFragment", "onResume");
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        Log.d("lifecyclerFragment", "onPause");
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        Log.d("lifecyclerFragment", "onStop");
-////        getActivity().getFragmentManager().popBackStack();
-//
-//
-//    }
-//
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        Log.d("lifecyclerFragment", "onDestroyView");
-//
-//    }
-//
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        Log.d("lifecyclerFragment", "onDestroy");
-//
-//    }
 }

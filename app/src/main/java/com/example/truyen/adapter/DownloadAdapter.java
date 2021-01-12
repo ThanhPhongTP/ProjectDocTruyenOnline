@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -88,12 +89,7 @@ public class DownloadAdapter extends RecyclerView.Adapter<DownloadViewHolder>{
                     intent.putExtra("NEWSTORY", story.getStoryID());
                     context.startActivity(intent);
                 }
-            }
-        });
-        holder.setItemClickListener(new ItemClickListener() {
-            @Override
-            public void onClick(View view, int position, boolean isLongClick) {
-                if (isLongClick){
+                else {
                     listDownload.remove(position);
                     database.deleteStory(story.getStoryID());
 //                    notifyDataSetChanged();

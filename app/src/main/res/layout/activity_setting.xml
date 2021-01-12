@@ -127,7 +127,7 @@
 
                     android:layout_weight="1"
                     android:id="@+id/btnmanghinhsang1p"
-                    android:text="1 phút"
+                    android:text="1min"
                     android:textAllCaps="false"
                     android:layout_marginRight="@dimen/dimen_10"
                     android:layout_width="@dimen/dimen_50"
@@ -139,7 +139,7 @@
 
                     android:layout_weight="1"
                     android:id="@+id/btnmanghinhsang10phut"
-                    android:text="10 phút"
+                    android:text="10min"
                     android:textAllCaps="false"
                     android:layout_marginRight="@dimen/dimen_10"
                     android:layout_width="@dimen/dimen_50"
@@ -151,7 +151,7 @@
 
                     android:layout_weight="1"
                     android:id="@+id/btnmanghinhsang30phut"
-                    android:text="30 phút"
+                    android:text="30min"
                     android:textAllCaps="false"
                     android:layout_marginRight="@dimen/dimen_10"
                     android:layout_width="@dimen/dimen_50"

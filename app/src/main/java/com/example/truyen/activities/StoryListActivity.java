@@ -162,46 +162,47 @@ public class StoryListActivity extends AppCompatActivity {
 
 
 
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater menuInflater = getMenuInflater();
-//        menuInflater.inflate(R.menu.menu_search_item, menu);
-//
-//        MenuItem searchItem = menu.findItem(R.id.menu_search);
-//
-//        SearchView searchView = null;
-//        if (searchItem != null) {
-//            searchView = (SearchView) searchItem.getActionView();
-//        }
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                newText = newText.toLowerCase();
-//                ArrayList<Story>newList = new ArrayList<>();
-//                for (Story story : listStory){
-//                    String name = story.getName().toLowerCase();
-//                    if (name.contains(newText)){
-//                        newList.add(story);
-//                    }
-//                }
-//                adapter = new StoryAdapter(StoryListActivity.this, (ArrayList<Story>) listStory);
-//                adapter.setFilter(newList);
-//                linearLayoutManager = new LinearLayoutManager(StoryListActivity.this);
-//                recyclerView.setLayoutManager(linearLayoutManager);
-//                recyclerView.setHasFixedSize(true);
-//                recyclerView.setAdapter(adapter);
-//                adapter.notifyDataSetChanged();
-//                return true;
-//            }
-//        });
-//
-//        return super.onCreateOptionsMenu(menu);
-//    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_search_item, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.menu_search);
+
+        SearchView searchView = null;
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText = newText.toLowerCase();
+                ArrayList<Story>newList = new ArrayList<>();
+                for (Story story : listStory){
+                    String name = story.getName().toLowerCase();
+                    if (name.contains(newText)){
+                        newList.add(story);
+                    }
+                }
+                adapter = new StoryAdapter(StoryListActivity.this, (ArrayList<Story>) listStory);
+                adapter.setFilter(newList);
+                linearLayoutManager = new LinearLayoutManager(StoryListActivity.this);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                return true;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
     private void getIntentFormCategoriesDetail() {
         Intent intent = getIntent();
         categories = (Categories) intent.getSerializableExtra(Commons.Categories);
