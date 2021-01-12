@@ -251,7 +251,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener {
         ////////setBackground
         relativeLayoutReadStory.setBackgroundColor(sharedPreferencesUtils.getColorBackgroundReadStory());
         ////////setScreenTimeOut
-        setScreenTimeout(30000 * 2);
+        setScreenTimeout(sharedPreferencesUtils.getScreenTimeOutReadStory());
         ////setTextSize
         txtReadStory.setTextSize(sharedPreferencesUtils.getTextSizeReadStory());
         //////setFontStyle
