@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@drawable/linear_catagories"
+    android:padding="@dimen/dimen_25"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/dimen_10"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_the_loai"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_50"
+        android:layout_marginRight="@dimen/dimen_20"
+        android:src="@drawable/heart"/>
+
+    <TextView
+        android:id="@+id/tv_the_loai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp22"
+        android:textColor="@color/white"
+        android:text="Ngôn tình"/>
+
+</LinearLayout>

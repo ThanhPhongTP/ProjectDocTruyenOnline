@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/imgNewStory"
-            android:layout_width="@dimen/dimen_120"
-            android:layout_height="@dimen/dimen_160"
+            android:layout_width="@dimen/dimen_125"
+            android:layout_height="165dp"
             android:src="@drawable/book"
             android:gravity="center"/>
 

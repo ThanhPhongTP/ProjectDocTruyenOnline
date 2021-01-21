@@ -24,8 +24,10 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.truyen.Commons;
 import com.example.truyen.MainActivity;
 import com.example.truyen.R;
+import com.example.truyen.adapter.CategoriesAdapter1;
 import com.example.truyen.adapter.HomeStoriesAdapter;
 import com.example.truyen.adapter.StoryAdapter;
+import com.example.truyen.models.Categories;
 import com.example.truyen.models.Ratting;
 import com.example.truyen.models.Story;
 import com.example.truyen.service.APIService;
@@ -51,11 +53,13 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
     private SliderLayout sliderLayout;
     private HashMap<String, Integer> HashMapForLocalRes;
     private HashMap<String, String> HashMapForURL;
-    private RecyclerView recycleHot, recycleNew, recycleNominations, recyclerXk;
+    private RecyclerView recycleHot, recycleNew, recycleNominations, recyclerXk, recycler_Categories;
     private HomeStoriesAdapter homeStoriesAdapter, nominationStoriesAdapter;
     private ArrayList<Ratting> listRating_Hot, listRating_Nomination;
     private StoryAdapter newStoriesAdapter, XK_Adapter;
     private ArrayList<Story> listRating_New, list_XK;
+    private CategoriesAdapter1 categoriesAdapter1;
+    private ArrayList<Categories> list_categories;
     private int page = 1;
     private NestedScrollView nestedScrollViewStory;
     private SwipeRefreshLayout pullToRefresh;
@@ -94,6 +98,7 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
             addStoryNomonation();
             addLoveStory();
             addSKStory();
+            addCategories();
         } else {
             Commons.showDialogError(getActivity());
         }
@@ -172,11 +177,25 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
                     addStoryNomonation();
                     addLoveStory();
                     addSKStory();
+                    addCategories();
                 }
             }
         });
     }
 
+    //the loai
+    private void addCategories(){
+        list_categories = new ArrayList<>();
+        categoriesAdapter1 = new CategoriesAdapter1(getContext(), list_categories);
+        recycler_Categories.setAdapter(categoriesAdapter1);
+        list_categories.add(new Categories(3,"Ngôn tình",1,R.drawable.heart));
+        list_categories.add(new Categories(2,"Kiếm hiệp",1,R.drawable.sword));
+        list_categories.add(new Categories(9,"Huyền huyễn",1,R.drawable.myth));
+        categoriesAdapter1.notifyDataSetChanged();
+        recycler_Categories.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+    }
+
+    //truyen
     private void addHotStory() {
         //Truyện hay
         listRating_Hot = new ArrayList<>();
@@ -372,6 +391,7 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
                 addHotStory();
                 addLoveStory();
                 addSKStory();
+                addCategories();
                 addStoryNomonation();
                 pullToRefresh.setRefreshing(false);
             }
@@ -386,6 +406,7 @@ public class FragmentHome extends Fragment implements BaseSliderView.OnSliderCli
         recyclerXk = view.findViewById(R.id.rcv_xuyen_khong);
         linearLayout = view.findViewById(R.id.lnxemthem);
         pullToRefresh = view.findViewById(R.id.pull_to_refresh);
+        recycler_Categories = view.findViewById(R.id.rcv_the_loai);
 //        nestedScrollViewStory = view.findViewById(R.id.nestedScrollViewHome);
 
     }

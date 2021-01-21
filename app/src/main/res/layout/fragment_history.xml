@@ -43,6 +43,7 @@
             android:id="@+id/rcv_dexuat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_60"
             android:paddingHorizontal="@dimen/dimen_5" />
 
     </LinearLayout>

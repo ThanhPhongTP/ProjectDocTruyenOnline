@@ -77,8 +77,22 @@
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rcv_truyen_hay"
                                 android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimen_10" />
+                                android:layout_marginTop="@dimen/dimen_15"
+                                android:padding="@dimen/dimen_10"
+                                android:text="Thể loại đặc sắc"
+                                android:textColor="?attr/textColor"
+                                android:textStyle="bold" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rcv_the_loai"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -92,8 +106,7 @@
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rcv_truyen_moi"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimen_10" />
+                                android:layout_height="wrap_content" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -107,9 +120,7 @@
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rcv_xuyen_khong"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimen_10" />
-
+                                android:layout_height="wrap_content" />
 
                             <LinearLayout
                                 android:id="@+id/lnxemthem"
