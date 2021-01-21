@@ -3,6 +3,7 @@ package com.example.truyen;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,6 +23,7 @@ import com.example.truyen.fragments.CategoriesListFragment;
 import com.example.truyen.fragments.FragmentDiscover;
 import com.example.truyen.fragments.FragmentHome;
 import com.example.truyen.fragments.FragmentNoInternet;
+import com.example.truyen.service.BottomNavigationBehavior;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -53,6 +55,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //        flag=true;
 //        setFragment(new FragmentHome());
         checkInternet(f1);
+
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomNavigationView.getLayoutParams();
+        layoutParams.setBehavior(new BottomNavigationBehavior());
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
     }

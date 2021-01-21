@@ -118,9 +118,11 @@ public class GeneralSettingsActivity extends AppCompatActivity {
                 if (!aSwitch.isChecked()) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     editor.putBoolean(sSwitch, false);
+                    recreate();
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     editor.putBoolean(sSwitch, true);
+                    recreate();
                 }
                 editor.apply();
                 checkTheme();

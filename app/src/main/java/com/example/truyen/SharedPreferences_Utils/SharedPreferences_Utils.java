@@ -8,6 +8,7 @@ import android.util.Log;
 import com.example.truyen.Commons;
 import com.example.truyen.R;
 import com.example.truyen.models.Chapter;
+import com.example.truyen.models.SearchHistory;
 import com.example.truyen.models.Story;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -151,6 +152,42 @@ public class SharedPreferences_Utils {
         editor.putString("ADDFOLLOW", json);
         editor.apply();
 
+    }
+
+    public List<SearchHistory> getSearchHistory() {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("SAVESEARCH", null);
+        Type type = new TypeToken<ArrayList<SearchHistory>>() {
+        }.getType();
+        List<SearchHistory> listSearchHistory = gson.fromJson(json, type);
+        if (listSearchHistory == null) {
+            listSearchHistory = new ArrayList<>();
+        }
+        return listSearchHistory;
+
+    }
+
+    public void setSearchHistory(SearchHistory searchHistory) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        ArrayList<SearchHistory> listSearchHistory = new ArrayList<>();
+        String jsonStoryWatched = sharedPreferences.getString("SAVESEARCH", null);
+        if (jsonStoryWatched != null) {
+            Type type = new TypeToken<ArrayList<Story>>() {
+            }.getType();
+            listSearchHistory = gson.fromJson(jsonStoryWatched, type);
+        }
+//        for (int i = 0; i < listSearchHistory.size(); i ++){
+//            if (listSearchHistory.get(i).getsSearch().equals(searchHistory.getsSearch()))
+//                listSearchHistory.remove(i);
+//        }
+        listSearchHistory.add(0, searchHistory);
+        if (listSearchHistory.size() > 10) {
+            listSearchHistory.remove(listSearchHistory.size() - 1);
+        }
+        String json = gson.toJson(listSearchHistory);
+        editor.putString("SAVESEARCH", json);
+        editor.apply();
     }
 
     public void setDataSharePreferences_From_StoryWatched(Story story) {

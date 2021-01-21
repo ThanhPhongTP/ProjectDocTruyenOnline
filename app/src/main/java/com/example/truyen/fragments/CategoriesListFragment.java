@@ -27,10 +27,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truyen.Commons;
 import com.example.truyen.R;
+import com.example.truyen.SharedPreferences_Utils.SharedPreferences_Utils;
 import com.example.truyen.adapter.CategoriesAdapter;
+import com.example.truyen.adapter.SearchHistoryAdapter;
 import com.example.truyen.adapter.StoryAdapter;
 import com.example.truyen.models.Categories;
 import com.example.truyen.models.Post;
+import com.example.truyen.models.SearchHistory;
 import com.example.truyen.models.Story;
 import com.example.truyen.service.APIService;
 import com.example.truyen.service.DataService;
@@ -46,6 +49,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.truyen.activities.StoryDetailActivity.nID;
+
 
 public class CategoriesListFragment extends Fragment {
 
@@ -58,6 +63,8 @@ public class CategoriesListFragment extends Fragment {
     private RecyclerView recyclerView;
     private CategoriesAdapter categoriesAdapter;
     private StoryAdapter adapter;
+    private SearchHistoryAdapter searchHistoryAdapter;
+    private List<SearchHistory> listSearch;
     private boolean notLoading = true;
     private View footerView;
     private View view;
@@ -69,6 +76,7 @@ public class CategoriesListFragment extends Fragment {
     private GridLayoutManager gridLayoutManager;
     private Toolbar toolbar_Categories;
     private NestedScrollView nestedScrollView;
+    private SharedPreferences_Utils sharedPreferencesUtils;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -122,6 +130,7 @@ public class CategoriesListFragment extends Fragment {
     }
 
     private void initView() {
+        sharedPreferencesUtils = new SharedPreferences_Utils(getContext());
         nestedScrollView = view.findViewById(R.id.nestedScrollViewCategories);
         progressBar = view.findViewById(R.id.progressbarLoadCategories);
         recyclerView = view.findViewById(R.id.recyclerView_Categories);
@@ -222,6 +231,8 @@ public class CategoriesListFragment extends Fragment {
                                     recyclerView.setHasFixedSize(true);
                                     recyclerView.setAdapter(adapter);
                                     adapter.notifyDataSetChanged();
+
+                                    sharedPreferencesUtils.setSearchHistory(new SearchHistory(sName));
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -236,9 +247,26 @@ public class CategoriesListFragment extends Fragment {
                 });
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
+                //show search history
+
+//                listSearch = sharedPreferencesUtils.getSearchHistory();
+////                ArrayList<SearchHistory> newList = new ArrayList<>();
+////                for (SearchHistory searchHistory : listSearch){
+////                    if (listSearch.size() > 0){
+////                        String name = searchHistory.getsSearch();
+////                        if (name.contains(newText))
+////                            newList.add(searchHistory);
+////                    }
+////                }
+//
+//                searchHistoryAdapter = new SearchHistoryAdapter(getContext(), (ArrayList<SearchHistory>) listSearch);
+////                searchHistoryAdapter.setFilter(newList);
+//                linearLayoutManager = new LinearLayoutManager(getContext());
+//                recyclerView.setLayoutManager(linearLayoutManager);
+//                recyclerView.setHasFixedSize(true);
+//                recyclerView.setAdapter(adapter);
                 return true;
             }
         });
