@@ -32,7 +32,6 @@ import com.example.truyen.models.Ratting;
 import com.example.truyen.models.Story;
 import com.example.truyen.service.APIService;
 import com.example.truyen.service.DataService;
-import com.example.truyen.service.Decrypt;
 
 import org.json.JSONArray;
 import org.json.JSONException;
